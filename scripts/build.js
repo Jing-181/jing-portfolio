@@ -1,13 +1,16 @@
 #!/usr/bin/env node
 /**
- * 组装站点到 dist/，并在这一步剔除所有标记为 private 的内容。
+ * 组装站点到 dist/。两步：
+ *   1) data/*.md（事实源）→ data/*.json（页面读取的内容集合）
+ *   2) 剔除所有标记为 private 的内容后再打包
  * 规则：
  *   - data/site.json 里 private:true 的整卷 → 不部署（页面与数据都不进 dist）
- *   - data/*.json 里 private:true 的单条 → 从部署数据里删掉（本地仍可见）
+ *   - 卷数据里 private:true 的单条 → 从部署数据里删掉（本地仍可见）
  * 只要没进 dist，GitHub Pages 就永远看不到它。这就是“隐藏”的全部机制。
  */
 const fs = require('fs');
 const path = require('path');
+const { generate } = require('./data');
 
 const ROOT = path.resolve(__dirname, '..');
 const DIST = path.join(ROOT, 'dist');
@@ -24,6 +27,9 @@ function copyDir(src, dst) {
     else fs.copyFileSync(s, d);
   }
 }
+
+// 0) 先把 md 事实源处理成 json 内容集合
+const dataReport = generate();
 
 rmrf(DIST);
 fs.mkdirSync(path.join(DIST, 'data'), { recursive: true });
@@ -60,6 +66,7 @@ for (const v of publicVols) {
 }
 fs.writeFileSync(path.join(DIST, '.nojekyll'), '');
 
+if (dataReport.length) console.log('data ← md：' + dataReport.join(' · '));
 console.log(
   `built dist/ · 分卷 ${publicVols.length}（隐藏 ${droppedVols}）· 条目剔除 ${droppedItems}`
 );

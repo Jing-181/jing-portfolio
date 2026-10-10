@@ -1,4 +1,4 @@
-/* ========== 设计变量：纸感底色 + 墨色 + 朱红强调 ========== */
+/* ========== 设计变量：纸感底色 + 墨色 + 中国传统色强调 ========== */
 :root {
   --paper: #F6F3ED;
   --card: #FCFAF6;
@@ -7,9 +7,10 @@
   --muted: #8C867B;
   --line: #DCD6CA;
   --line-strong: #B9B2A3;
-  --accent: #BC3E2A;
-  --accent-deep: #96301F;
-  --accent-soft: #F5E6DF;
+  /* 第一卷 · 履历 —— 绛缨（武士冠缨凝血初染，沉毅凛然） */
+  --accent: #9E3B3B;
+  --accent-deep: #75302C;
+  --accent-soft: #F4E7E5;
   --serif: 'Noto Serif SC', 'Songti SC', serif;
   --sans: 'Noto Sans SC', 'PingFang SC', sans-serif;
   --mono: 'IBM Plex Mono', 'Menlo', monospace;
@@ -372,7 +373,7 @@ nav {
   transition: all .2s;
 }
 .tagcloud-list span:hover { border-color: var(--accent); color: var(--accent); }
-.tagcloud-list span.k-fw { color: var(--accent); border-color: rgba(188,62,42,.3); }
+.tagcloud-list span.k-fw { color: var(--accent); border-color: rgba(158,59,59,.3); }
 .tagcloud-list span.k-eng { color: var(--ink); }
 .tagcloud-list span.k-lib { color: var(--muted); }
 

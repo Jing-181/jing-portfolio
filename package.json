@@ -4,6 +4,8 @@
   "private": true,
   "description": "潘静的个人志 —— 履历 + 喜好志等分卷，静态站点，数据驱动",
   "scripts": {
+    "data": "node scripts/data.js",
+    "predev": "node scripts/data.js",
     "dev": "python3 -m http.server 8000",
     "build": "node scripts/build.js",
     "preview": "node scripts/build.js && python3 -m http.server 8000 --directory dist"
