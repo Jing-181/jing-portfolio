@@ -44,7 +44,7 @@ desc: 把人生里的节点按时间铺开：学业、入行、迁居，以及�
 page: timeline.html
 data: timeline.json
 accent: 黛蓝
-status: 规划中
+status: 已上线
 
 ## 训练档案
 

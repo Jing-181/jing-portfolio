@@ -3,13 +3,14 @@
  * data/*.md（事实源） → data/*.json（页面读取的内容集合）
  *
  * 约定：所有内容都记录在 md 里，json 只是处理产物，不手改、不入库。
- *   - data/site.md   分卷清单  →  data/site.json
- *   - data/tastes.md 喜好志条目 →  data/tastes.json
+ *   - data/site.md     分卷清单  →  data/site.json
+ *   - data/tastes.md   喜好志条目 →  data/tastes.json
+ *   - data/timeline.md 经历线节点 →  data/timeline.json
  *
  * md 结构：
  *   --- 前置元信息（key: value）---
  *   ## 一级标题   （site.md = 卷标题；tastes.md = 分类名）
- *   ### 条目名    （仅 tastes.md 用）
+ *   ### 条目名    （tastes.md = 条目；timeline.md = 时间线节点）
  *   field: value
  */
 const fs = require('fs');
@@ -131,10 +132,55 @@ function parseTastes(text) {
   };
 }
 
+/** data/timeline.md → 经历线数据对象
+ *  节点直接写在 ### 下（本卷用 kind 字段分类，不用 ## 分组）。
+ *  date 支持 `YYYY` / `YYYY-MM`，按 年*100+月 排序。
+ */
+function parseTimeline(text) {
+  const { meta, body } = splitFrontMatter(text);
+  const kinds = (meta.kinds || '')
+    .split(/[,，]/).map((s) => s.trim()).filter(Boolean);
+  const items = [];
+  let cur = null;
+  for (const line of body) {
+    if (/^##\s+/.test(line)) { cur = null; continue; }  // ## 仅作分隔，不参与分类
+    const h3 = line.match(/^###\s+(.+?)\s*$/);         // ### 节点标题
+    if (h3) { cur = { title: h3[1] }; items.push(cur); continue; }
+    if (!cur || !line.trim()) continue;
+    const kv = line.match(/^([A-Za-z_][\w-]*)\s*:\s*(.*)$/);
+    if (!kv) continue;
+    const k = kv[1].toLowerCase(), v = kv[2].trim();
+    if (k === 'tags') cur.tags = v ? v.split(/[,，]/).map((s) => s.trim()).filter(Boolean) : [];
+    else if (k === 'est' || k === 'private') cur[k] = toBool(v);
+    else cur[k] = v;
+  }
+  const sortKey = (d) => {
+    const m = String(d || '').match(/(\d{4})(?:\D+(\d{1,2}))?/);
+    return m ? (+m[1]) * 100 + (m[2] ? +m[2] : 0) : 0;
+  };
+  items.sort((a, b) => sortKey(a.date) - sortKey(b.date));
+  return {
+    vol: meta.vol || 'timeline',
+    updated: meta.updated || '',
+    kinds,
+    items: items.map((it) => orderKeys({
+      date: String(it.date || ''),
+      est: !!it.est,
+      kind: it.kind || '生活',
+      title: it.title,
+      place: it.place || '',
+      note: it.note || '',
+      tags: it.tags || [],
+      private: !!it.private,
+    }, ['date', 'est', 'kind', 'title', 'place', 'note', 'tags', 'private'])),
+  };
+}
+
 /** 登记表：md 文件名 → 解析器。以后加卷在这里加一行即可。 */
 const JOBS = [
   { md: 'site.md', json: 'site.json', parse: parseSite },
   { md: 'tastes.md', json: 'tastes.json', parse: parseTastes },
+  { md: 'timeline.md', json: 'timeline.json', parse: parseTimeline },
 ];
 
 function generate() {
@@ -150,7 +196,7 @@ function generate() {
   return report;
 }
 
-module.exports = { generate, parseSite, parseTastes, resolveColor, PALETTE };
+module.exports = { generate, parseSite, parseTastes, parseTimeline, resolveColor, PALETTE };
 
 if (require.main === module) {
   const report = generate();
