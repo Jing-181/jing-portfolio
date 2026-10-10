@@ -23,17 +23,19 @@ page: resume.html
 data:
 accent: 绛缨
 status: 已上线
+progress: 成品
 
 ## 喜好志
 
 no: 第二卷
 id: tastes
 subtitle: 感官与偏好
-desc: 记录喜欢的东西：食物、音乐、影剧、书、游戏、城市，逐条攒成一份个人口味地图。
+desc: 记录喜欢的东西：食物、音乐、影剧、书、游戏、城市，还有常看的人。逐条攒成一份口味地图。
 page: tastes.html
 data: tastes.json
 accent: 烟雨青
 status: 已上线
+progress: 未完成
 
 ## 经历线
 
@@ -45,6 +47,7 @@ page: timeline.html
 data: timeline.json
 accent: 黛蓝
 status: 已上线
+progress: 未完成
 
 ## 训练档案
 
@@ -56,3 +59,4 @@ page: training.html
 data: training.json
 accent: 檀色
 status: 已上线
+progress: 未完成

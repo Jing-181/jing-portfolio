@@ -73,9 +73,12 @@
     var ready = v.status === '已上线' && v.page;
     var tag = ready ? 'a' : 'div';
     var href = ready ? ' href="pages/' + esc(v.page) + '"' : '';
+    var prog = v.progress
+      ? '<i class="vol-prog' + (v.progress === '成品' ? ' is-done' : ' is-wip') + '">' + esc(v.progress) + '</i>'
+      : '';
     var foot = ready
-      ? '<span>' + esc(v.status) + '</span><span class="vol-go">进入 →</span>'
-      : '<span>' + esc(v.status || '规划中') + '</span><span class="vol-go">待补</span>';
+      ? '<span>' + esc(v.status) + prog + '</span><span class="vol-go">进入 →</span>'
+      : '<span>' + esc(v.status || '规划中') + prog + '</span><span class="vol-go">待补</span>';
     return '<' + tag + ' class="vol-card' + (ready ? '' : ' is-locked') + '"' + href +
       ' style="--v-accent:' + esc(v.accent || 'var(--accent)') + '">' +
       '<div class="vol-no">' + esc(v.no) + ' · ' + esc((v.id || '').toUpperCase()) +
