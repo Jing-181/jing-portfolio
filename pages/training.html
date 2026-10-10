@@ -38,8 +38,9 @@
     <div class="vol-state" id="vol-state" hidden></div>
     <h1>训练档案</h1>
     <p class="vol-lede">
-      按天记的训练流水：<b>力量、跑步、跑山、羽毛球、有氧恢复</b>，
-      每条留下练了什么、练了多少、以及当时的感觉。
+      华为运动健康里的月度流水：<b>力量、跑步、游泳、羽毛球、骑行、爬楼</b>，
+      每个月练了多少小时、多少次、消耗多少，以及当月都练了些什么。
+      按天记的动作、配速和主观感受还没有，这一卷还不算齐。
       数据源写在
       <code style="font-family:var(--mono);font-size:13px;color:var(--muted)">data/training.md</code>，
       页面读的是它生成的 <code style="font-family:var(--mono);font-size:13px;color:var(--muted)">data/training.json</code>。
@@ -155,7 +156,7 @@
         var latest = ALL.map(function (i) { return i.date; }).sort().pop();
         statEl.innerHTML = '<span>' + ALL.length + ' 条记录</span>' +
           '<span>最近一次 ' + esc(latest) + '</span>' +
-          (top ? '<span>最多的是' + esc(top) + '（' + counts[top] + '）</span>' : '');
+          (top ? '<span>记录最多：' + esc(top) + '（' + counts[top] + ' 条）</span>' : '');
       }
       render();
     })
