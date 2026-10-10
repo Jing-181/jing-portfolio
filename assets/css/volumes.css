@@ -433,6 +433,62 @@
 }
 .tr-item.is-private .tr-main { opacity: .72; }
 
+/* ---- 常用动作：顶部那排动作卡 ---- */
+.mv-block { margin: 40px 0 46px; }
+.mv-head {
+  display: flex;
+  align-items: baseline;
+  gap: 13px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+.mv-h {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: .1em;
+}
+.mv-sub { font-family: var(--mono); font-size: 11.5px; color: var(--muted); letter-spacing: .04em; }
+.mv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(174px, 1fr));
+  gap: 12px;
+}
+.mv {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 13px 15px 15px;
+  transition: border-color .22s ease, transform .22s ease;
+}
+.mv:hover { border-color: var(--line-strong); transform: translateY(-2px); }
+.mv-top { min-height: 20px; }
+.mv-part {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .12em;
+  color: var(--v-accent, var(--accent));
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  padding: 1px 6px;
+  opacity: .85;
+}
+.mv-name {
+  font-family: var(--serif);
+  font-size: 16.5px;
+  font-weight: 600;
+  letter-spacing: .03em;
+  line-height: 1.3;
+  margin: 11px 0 0;
+}
+.mv-load { font-family: var(--mono); font-size: 21px; line-height: 1.1; margin-top: 9px; color: var(--ink); }
+.mv-load b { font-weight: 500; }
+.mv-load span { font-size: 11px; color: var(--muted); margin-left: 3px; letter-spacing: .04em; }
+.mv-meta { font-family: var(--mono); font-size: 11.5px; color: var(--muted); margin-top: 6px; line-height: 1.5; }
+.mv-note { font-size: 13px; color: var(--ink-soft); margin-top: 7px; line-height: 1.6; }
+
 @media (max-width: 560px) {
   .tr-item { grid-template-columns: 1fr; gap: 10px 0; padding: 18px 0 20px; }
   .tr-date small { display: inline; margin-left: 8px; }

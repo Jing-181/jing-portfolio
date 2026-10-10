@@ -186,12 +186,24 @@ function parseTraining(text) {
   const kinds = (meta.kinds || '')
     .split(/[,，]/).map((s) => s.trim()).filter(Boolean);
   const items = [];
+  const movements = [];
   let cur = null;
   let lastKey = null;
+  let mode = 'items';
   for (const line of body) {
-    if (/^##\s+/.test(line)) { cur = null; lastKey = null; continue; }
+    const h2 = line.match(/^##\s+(.+?)\s*$/);
+    if (h2) {
+      mode = /常用动作/.test(h2[1]) ? 'movements' : 'items';
+      cur = null; lastKey = null;
+      continue;
+    }
     const h3 = line.match(/^###\s+(.+?)\s*$/);
-    if (h3) { cur = { title: h3[1] }; items.push(cur); lastKey = null; continue; }
+    if (h3) {
+      cur = { title: h3[1] };
+      (mode === 'movements' ? movements : items).push(cur);
+      lastKey = null;
+      continue;
+    }
     if (!cur) continue;
     const kv = line.match(/^([A-Za-z_][\w-]*)\s*:\s*(.*)$/);
     if (!kv) {
@@ -210,6 +222,14 @@ function parseTraining(text) {
     vol: meta.vol || 'training',
     updated: meta.updated || '',
     kinds,
+    movements: movements.map((m) => orderKeys({
+      name: m.title,
+      part: m.part || '',
+      load: m.load || '',
+      meta: m.meta || '',
+      note: m.note || '',
+      tags: m.tags || [],
+    }, ['name', 'part', 'load', 'meta', 'note', 'tags'])),
     items: items.map((it) => orderKeys({
       date: String(it.date || ''),
       kind: it.kind || '其他',
