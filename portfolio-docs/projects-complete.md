@@ -266,6 +266,7 @@
 | mojidict-web-plugin | `mojidict-web-plugin/` | 浏览器插件 |
 | autoFirebase | `autoFirebase/` | Firebase Crashlytics 周报自动化 |
 | jing-next | `jing-next/` | Next.js 15 + React 19 个人作品 |
+| cat-newsroom（猫咪生活报） | `/Users/hugecore/Jing/cat-newsroom/` | 个人产品：复古报刊风生活工作台，Vue 3 + Vite + Supabase，已部署 GitHub Pages |
 | madaha-translate-fe | `madaha-translate-fe/` | Madaha 翻译前端 |
 
 ---

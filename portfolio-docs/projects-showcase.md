@@ -49,6 +49,7 @@
 | 项目 | 目录 | 一句话亮点 | 技术栈 |
 | --- | --- | --- | --- |
 | AI Agent 对话前端 | mojidict-agent/ | 公司引入 AI 后的新项目，独立 Agent 对话前端 | Vue 3.5 + TS 5.6 + Vite 6 + Pinia + TanStack Query + Tailwind 4 |
+| 猫咪生活报 | cat-newsroom/ | 个人产品：复古报刊风生活工作台，双端一体 + Supabase 同步 + AI 周报 | Vue 3.5 + Vite 6 + Supabase + GitHub Pages |
 | hugecore.net | hugecore_web/ | 公司官网 + 帮助中心 + App 协议文档 | Nuxt 3 + Tailwind + @nuxt/content |
 | MOJiTest Web | mojitest-web/ | 在线考试平台 Web 端 | Nuxt 2 + Vue 2.7 + Element UI |
 
