@@ -1,0 +1,57 @@
+{
+  "owner": "潘静",
+  "title": "个人志",
+  "subtitle": "分卷 · 各卷独立",
+  "lede": "履历只回答了“我做过什么”。这里还放几卷别的：喜欢的东西、走过的路、练过的重量。每卷各看一个侧面，互不关联，从这一页进去就行。",
+  "updated": "2026-10-10",
+  "volumes": [
+    {
+      "no": "第一卷",
+      "id": "resume",
+      "title": "履历",
+      "subtitle": "工作与能力",
+      "desc": "多端前端开发负责人的职业档案：项目、技术栈、工作方式与经历。",
+      "page": "resume.html",
+      "data": null,
+      "accent": "#BC3E2A",
+      "status": "已上线",
+      "private": false
+    },
+    {
+      "no": "第二卷",
+      "id": "tastes",
+      "title": "喜好志",
+      "subtitle": "感官与偏好",
+      "desc": "记录喜欢的东西：食物、音乐、影剧、书、游戏、城市，逐条攒成一份个人口味地图。",
+      "page": "tastes.html",
+      "data": "tastes.json",
+      "accent": "#2F6B4F",
+      "status": "已上线",
+      "private": false
+    },
+    {
+      "no": "第三卷",
+      "id": "timeline",
+      "title": "经历线",
+      "subtitle": "时间与轨迹",
+      "desc": "把人生里的节点按时间铺开：学业、入行、迁居，以及某个开始坚持的爱好。",
+      "page": "timeline.html",
+      "data": "timeline.json",
+      "accent": "#3A5A8C",
+      "status": "规划中",
+      "private": false
+    },
+    {
+      "no": "第四卷",
+      "id": "training",
+      "title": "训练档案",
+      "subtitle": "身体与负荷",
+      "desc": "力量训练、跑步、跑山与羽毛球记录：动作、配速、主观感受与恢复。",
+      "page": "training.html",
+      "data": "training.json",
+      "accent": "#96591F",
+      "status": "规划中",
+      "private": false
+    }
+  ]
+}

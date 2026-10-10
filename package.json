@@ -1,0 +1,11 @@
+{
+  "name": "jing-portfolio",
+  "version": "2.0.0",
+  "private": true,
+  "description": "潘静的个人志 —— 履历 + 喜好志等分卷，静态站点，数据驱动",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "build": "node scripts/build.js",
+    "preview": "node scripts/build.js && python3 -m http.server 8000 --directory dist"
+  }
+}

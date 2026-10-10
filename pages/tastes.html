@@ -1,0 +1,154 @@
+<!-- 个人志 · 第二卷 · 喜好志 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>喜好志 — 潘静 · 个人志</title>
+<meta name="description" content="潘静的喜好志：食物、饮品、音乐、影剧、书、游戏与城市，逐条攒成个人口味地图。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%232F6B4F'/%3E%3Ctext x='16' y='21' font-size='12.5' text-anchor='middle' fill='%23FCFAF6' font-family='serif'%3EJing%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/volumes.css">
+<style>
+  /* 第二卷主题色：墨青绿 */
+  :root { --accent: #2F6B4F; --accent-deep: #1F4A37; --accent-soft: #E3EFE8; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html"><span class="seal-mini" style="background:#2F6B4F">Jing</span><span class="brand">潘静</span></a>
+    <div class="nav-links">
+      <a href="../index.html">首页</a>
+      <a href="resume.html">履历</a>
+      <a href="tastes.html" style="color:var(--accent)">喜好志</a>
+    </div>
+  </div>
+</nav>
+
+<header class="vol-hero">
+  <div class="wrap">
+    <div class="vol-kicker">第二卷 · TASTES</div>
+    <h1>喜好志</h1>
+    <p class="vol-lede">
+      这里记的是“我喜欢什么”。<b>食物、饮品、音乐、影剧、书、游戏、城市</b>，
+      一条一条攒起来，久了就是一张自己的口味地图。数据都在
+      <code style="font-family:var(--mono);font-size:13px;color:var(--muted)">data/tastes.json</code>。
+    </p>
+  </div>
+</header>
+
+<main class="wrap" style="padding-bottom:96px;">
+  <div class="filter-bar" id="filter-bar">
+    <span class="fb-label">分类</span>
+    <!-- 由数据渲染 -->
+  </div>
+  <div class="taste-grid" id="taste-grid">
+    <div class="vol-empty">正在读取喜好数据…</div>
+  </div>
+
+  <a class="vol-back" href="../index.html">← 回到个人志首页</a>
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <span>© 2026 潘静 · 第二卷 · 喜好志</span>
+    <span id="t-updated"></span>
+  </div>
+</footer>
+
+<script src="../assets/js/site.js"></script>
+<script>
+(function () {
+  var grid = document.getElementById('taste-grid');
+  var bar = document.getElementById('filter-bar');
+  var state = { cat: '全部', sort: 'rating' };
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function rate(n) {
+    n = Math.max(1, Math.min(5, parseInt(n, 10) || 0));
+    var out = '';
+    for (var i = 1; i <= 5; i++) out += '<i class="' + (i <= n ? 'on' : '') + '"></i>';
+    return '<span class="rate" title="喜爱度 ' + n + '/5">' + out + '</span>';
+  }
+  function card(it) {
+    var tags = (it.tags || []).map(function (t) { return '<span>' + esc(t) + '</span>'; }).join('');
+    return '<article class="taste-card reveal' + (it.private ? ' is-private' : '') + '">' +
+      '<div class="t-top"><span class="t-name">' + esc(it.name) +
+        (it.private ? ' <span class="t-priv">仅本地</span>' : '') + '</span>' +
+        '<span class="t-cat">' + esc(it.category || '其他') + '</span></div>' +
+      '<p class="t-note">' + esc(it.note || '') + '</p>' +
+      (tags ? '<div class="t-tags">' + tags + '</div>' : '') +
+      '<div class="t-foot"><span>' + rate(it.rating) + '</span>' +
+        '<span>' + (it.since ? esc(it.since) : '') + '</span></div>' +
+      '</article>';
+  }
+
+  var ALL = [];
+
+  function categories() {
+    var seen = [], declared = ALL.__declared || [];
+    ALL.forEach(function (it) { if (it.category && seen.indexOf(it.category) < 0) seen.push(it.category); });
+    var ordered = declared.filter(function (c) { return seen.indexOf(c) >= 0; });
+    seen.forEach(function (c) { if (ordered.indexOf(c) < 0) ordered.push(c); });
+    return ['全部'].concat(ordered);
+  }
+
+  function filtered() {
+    var list = ALL.slice();
+    if (state.cat !== '全部') list = list.filter(function (it) { return it.category === state.cat; });
+    list.sort(function (a, b) {
+      if (state.sort === 'since') return String(b.since || '').localeCompare(String(a.since || ''));
+      return (b.rating || 0) - (a.rating || 0);
+    });
+    return list;
+  }
+
+  function render() {
+    // 分类 chips
+    var chips = categories().map(function (c) {
+      return '<button class="chip' + (c === state.cat ? ' on' : '') + '" data-cat="' + esc(c) + '">' + esc(c) + '</button>';
+    }).join('');
+    var sorts = '<button class="chip' + (state.sort === 'rating' ? ' on' : '') + '" data-sort="rating">按喜爱度</button>' +
+      '<button class="chip' + (state.sort === 'since' ? ' on' : '') + '" data-sort="since">按年份</button>';
+    bar.innerHTML = '<span class="fb-label">分类</span>' + chips +
+      '<span class="fb-spacer"></span>' + sorts;
+
+    var list = filtered();
+    grid.innerHTML = list.length ? list.map(card).join('')
+      : '<div class="vol-empty">这个分类下<b>还没有条目</b>。<br>往 data/tastes.json 里加就行。</div>';
+    if (window.__revealBind) window.__revealBind();
+  }
+
+  bar.addEventListener('click', function (e) {
+    var b = e.target.closest('button');
+    if (!b) return;
+    if (b.dataset.cat) state.cat = b.dataset.cat;
+    if (b.dataset.sort) state.sort = b.dataset.sort;
+    render();
+  });
+
+  fetch('../data/tastes.json')
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (data) {
+      ALL = (data.items || []).slice();
+      ALL.__declared = data.categories || [];
+      if (data.updated) document.getElementById('t-updated').textContent = '更新于 ' + data.updated;
+      render();
+    })
+    .catch(function () {
+      grid.innerHTML = '<div class="vol-empty">喜好数据没能读出来。<br>' +
+        '本地预览请用 <b>python3 -m http.server</b> 起个服务再打开。</div>';
+    });
+})();
+</script>
+</body>
+</html>
