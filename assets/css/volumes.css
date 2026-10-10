@@ -419,6 +419,7 @@
   color: var(--ink-soft);
   margin-top: 11px;
   max-width: 46em;
+  white-space: pre-line;
 }
 .tr-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 11px; }
 .tr-tags span {

@@ -5,7 +5,7 @@
  * 约定：所有内容都记录在 md 里，json 只是处理产物，不手改、不入库。
  *   - data/site.md     分卷清单  →  data/site.json
  *   - data/tastes.md   喜好志条目 →  data/tastes.json
- *   - data/timeline.md 经历线节点 →  data/timeline.json
+ *   - data/timeline.md 经历志节点 →  data/timeline.json
  *   - data/training.md 训练记录 →  data/training.json
  *
  * md 结构：
@@ -88,7 +88,7 @@ function parseSite(text) {
   const ORDER = ['no', 'id', 'title', 'subtitle', 'desc', 'page', 'data', 'accent', 'status', 'private'];
   return {
     owner: meta.owner || '',
-    title: meta.title || '个人志',
+    title: meta.title || '卷首',
     subtitle: meta.subtitle || '',
     lede: meta.lede || '',
     updated: meta.updated || '',
@@ -134,7 +134,7 @@ function parseTastes(text) {
   };
 }
 
-/** data/timeline.md → 经历线数据对象
+/** data/timeline.md → 经历志数据对象
  *  节点直接写在 ### 下（本卷用 kind 字段分类，不用 ## 分组）。
  *  date 支持 `YYYY` / `YYYY-MM`，按 年*100+月 排序。
  */
@@ -178,7 +178,7 @@ function parseTimeline(text) {
   };
 }
 
-/** data/training.md → 训练档案数据对象
+/** data/training.md → 训练志数据对象
  *  记录直接写在 ### 下；date 为 YYYY-MM-DD，新的在前。
  */
 function parseTraining(text) {
@@ -187,14 +187,20 @@ function parseTraining(text) {
     .split(/[,，]/).map((s) => s.trim()).filter(Boolean);
   const items = [];
   let cur = null;
+  let lastKey = null;
   for (const line of body) {
-    if (/^##\s+/.test(line)) { cur = null; continue; }
+    if (/^##\s+/.test(line)) { cur = null; lastKey = null; continue; }
     const h3 = line.match(/^###\s+(.+?)\s*$/);
-    if (h3) { cur = { title: h3[1] }; items.push(cur); continue; }
-    if (!cur || !line.trim()) continue;
+    if (h3) { cur = { title: h3[1] }; items.push(cur); lastKey = null; continue; }
+    if (!cur) continue;
     const kv = line.match(/^([A-Za-z_][\w-]*)\s*:\s*(.*)$/);
-    if (!kv) continue;
+    if (!kv) {
+      // 续行：缩进的行接在上一个字段后面（note 可以写成多行清单）
+      if (lastKey && line.trim() && /^\s/.test(line)) cur[lastKey] += '\n' + line.trim();
+      continue;
+    }
     const k = kv[1].toLowerCase(), v = kv[2].trim();
+    lastKey = k;
     if (k === 'tags') cur.tags = v ? v.split(/[,，]/).map((s) => s.trim()).filter(Boolean) : [];
     else if (k === 'private') cur.private = toBool(v);
     else cur[k] = v;
