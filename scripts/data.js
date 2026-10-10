@@ -128,8 +128,9 @@ function parseTastes(text) {
       note: it.note || '',
       tags: it.tags || [],
       since: it.since || '',
+      link: it.link || '',
       private: !!it.private,
-    }, ['name', 'category', 'rating', 'note', 'tags', 'since', 'private'])),
+    }, ['name', 'category', 'rating', 'note', 'tags', 'since', 'link', 'private'])),
   };
 }
 

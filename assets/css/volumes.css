@@ -150,6 +150,18 @@
   white-space: nowrap;
 }
 .taste-card .t-note { font-size: 14px; color: var(--ink-soft); line-height: 1.7; flex: 1; }
+.taste-card .t-link {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--accent);
+  align-self: flex-start;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  padding-bottom: 1px;
+}
+.taste-card .t-link:hover { background: var(--accent-soft); }
 .taste-card .t-tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .taste-card .t-tags span {
   font-family: var(--mono);

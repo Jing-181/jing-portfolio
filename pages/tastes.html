@@ -82,6 +82,9 @@
     for (var i = 1; i <= 5; i++) out += '<i class="' + (i <= n ? 'on' : '') + '"></i>';
     return '<span class="rate" title="喜爱度 ' + n + '/5">' + out + '</span>';
   }
+  function linkText(u) {
+    return String(u).replace(/^https?:\/\//, '').replace(/\/+$/, '');
+  }
   function card(it) {
     var tags = (it.tags || []).map(function (t) { return '<span>' + esc(t) + '</span>'; }).join('');
     return '<article class="taste-card reveal' + (it.private ? ' is-private' : '') + '">' +
@@ -89,6 +92,7 @@
         (it.private ? ' <span class="t-priv">仅本地</span>' : '') + '</span>' +
         '<span class="t-cat">' + esc(it.category || '其他') + '</span></div>' +
       '<p class="t-note">' + esc(it.note || '') + '</p>' +
+      (it.link ? '<a class="t-link" href="' + esc(it.link) + '" target="_blank" rel="noopener noreferrer">' + esc(linkText(it.link)) + ' ↗</a>' : '') +
       (tags ? '<div class="t-tags">' + tags + '</div>' : '') +
       '<div class="t-foot"><span>' + rate(it.rating) + '</span>' +
         '<span>' + (it.since ? esc(it.since) : '') + '</span></div>' +
