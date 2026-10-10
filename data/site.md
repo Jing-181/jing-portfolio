@@ -1,6 +1,6 @@
 ---
 owner: 潘静
-title: 个人志
+title: 卷首
 subtitle: 分卷 · 各卷独立
 updated: 2026-10-10
 lede: 履历只回答了“我做过什么”。这里还放几卷别的：喜欢的东西、走过的路、练过的重量。每卷各看一个侧面，互不关联，从这一页进去就行。
@@ -13,7 +13,7 @@ lede: 履历只回答了“我做过什么”。这里还放几卷别的：喜�
 > `accent` 可以写中国传统色名（见 README 配色表），也可以直接写 `#hex`。
 > 改完跑 `npm run data`（或 `npm run build`）重新生成 json。
 
-## 履历
+## 履历志
 
 no: 第一卷
 id: resume
@@ -37,7 +37,7 @@ accent: 烟雨青
 status: 已上线
 progress: 未完成
 
-## 经历线
+## 经历志
 
 no: 第三卷
 id: timeline
@@ -49,7 +49,7 @@ accent: 黛蓝
 status: 已上线
 progress: 未完成
 
-## 训练档案
+## 训练志
 
 no: 第四卷
 id: training

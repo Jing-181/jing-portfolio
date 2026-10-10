@@ -11,10 +11,10 @@
 
 - 站点是一位 Web 前端开发负责人（潘静，广州）的个人志。
 - **每一卷看一个侧面，卷与卷之间不互相关联**，只在导航首页 `index.html` 各给一个入口。
-  - 第一卷 · 履历 —— 职业与能力（`pages/resume.html`）
+  - 第一卷 · 履历志 —— 职业与能力（`pages/resume.html`）
   - 第二卷 · 喜好志 —— 感官与偏好（`pages/tastes.html`）
-  - 第三卷 · 经历线 —— 时间与轨迹（`pages/timeline.html`）
-  - 第四卷 · 训练档案 —— 身体与负荷（`pages/training.html`）
+  - 第三卷 · 经历志 —— 时间与轨迹（`pages/timeline.html`）
+  - 第四卷 · 训练志 —— 身体与负荷（`pages/training.html`）
 - **记录写在 md，页面读 json**：内容一律记录在 `data/*.md` 里（人读、AI 写都舒服），
   由 `scripts/data.js` 处理成 `data/*.json`（页面读取的内容集合）。
   页面不写死内容；要改内容，改 md；要加一卷，加一条 md + 一个页面模板。
@@ -23,16 +23,16 @@
 
 ```
 jing-portfolio/
-├── index.html               # 导航首页（读取 data/site.json 渲染分卷入口）
+├── index.html               # 卷首 / 导航首页（读取 data/site.json 渲染分卷入口）
 ├── pages/                   # 各卷页面（每个卷一个独立 html）
-│   ├── resume.html          # 第一卷 · 履历
+│   ├── resume.html          # 第一卷 · 履历志
 │   ├── tastes.html          # 第二卷 · 喜好志
-│   ├── timeline.html        # 第三卷 · 经历线
-│   └── training.html        # 第四卷 · 训练档案
+│   ├── timeline.html        # 第三卷 · 经历志
+│   └── training.html        # 第四卷 · 训练志
 ├── data/                    # ← 事实源在这里（md）
 │   ├── site.md              # 分卷清单
 │   ├── tastes.md            # 喜好志条目
-│   ├── timeline.md          # 经历线节点
+│   ├── timeline.md          # 经历志节点
 │   ├── training.md          # 训练记录
 │   └── *.json               # 由上面的 md 生成（页面读它），不入库
 ├── assets/
@@ -90,7 +90,7 @@ field: value
 
 > 条目顺序无所谓，页面会按需排序；分类的展示顺序由前置元信息里的 `categories` 决定。
 
-### `data/timeline.md` —— 经历线节点
+### `data/timeline.md` —— 经历志节点
 
 前置元信息写 `vol / updated / kinds`（分类的展示顺序）；
 节点直接写成 `### 标题`（**不用 `##` 分组**，分类走 `kind` 字段），下面跟：
@@ -133,10 +133,10 @@ field: value
 
   | 卷 | 色名 | hex | 意象 |
   | --- | --- | --- | --- |
-  | 第一卷 · 履历 | 绛缨 | `#9E3B3B` | 武士冠缨凝血初染，沉毅凛然 |
+  | 第一卷 · 履历志 | 绛缨 | `#9E3B3B` | 武士冠缨凝血初染，沉毅凛然 |
   | 第二卷 · 喜好志 | 烟雨青 | `#6A8D8C`（页面取加深版 `#4E7A78`） | 江南春晨，薄雾浮江，青色氤氲 |
-  | 第三卷 · 经历线 | 黛蓝 | `#2A5C82` | 远山含黛，秋水凝蓝，清幽沉静 |
-  | 第四卷 · 训练档案 | 檀色 | `#8C6A4F` | 老檀木静卧幽室，温厚沉敛 |
+  | 第三卷 · 经历志 | 黛蓝 | `#2A5C82` | 远山含黛，秋水凝蓝，清幽沉静 |
+  | 第四卷 · 训练志 | 檀色 | `#8C6A4F` | 老檀木静卧幽室，温厚沉敛 |
 
   > `data/site.md` 的 `accent` 直接写色名，`scripts/data.js` 里的 `PALETTE` 负责解析成 hex。
   > 分卷卡片用色名的原色；页面主题色用 `PALETTE` 里的加深版，保证深色文字压在纸底上有足够对比度
@@ -156,6 +156,26 @@ field: value
 
 > 本地看到全部、线上只看到公开部分——这是设计意图，不是 bug。
 > 判断某条要不要公开的标准：**凡是你不希望陌生人看到的，就标 `private: true`。**
+
+## 5.1 三卷口令门（拦随手，不拦有心人）
+
+`喜好志 / 经历志 / 训练志` 三卷各挂了一道前端口令门（`assets/js/lock.js`）。
+它是**礼貌性拦截，不是安全机制**：
+
+- 口令在前端比对（SHA-256），页面数据 `data/*.json` 与源码仍是公开可读的。
+- 挡住的是随手点进来的人，挡不住存心看源码或直接下 json 的人。
+- 解锁状态存 `sessionStorage`，同一浏览器会话内三卷通行，关掉标签页失效。
+
+**改口令**：
+
+```bash
+node -e "console.log(require('crypto').createHash('sha256').update('你的新口令').digest('hex'))"
+```
+
+把输出的 64 位十六进制替换 `assets/js/lock.js` 里的 `HASH`；门的文案改同文件顶部的 `TITLE / HINT / WRONG`。
+
+> 真要藏住东西，还是走第 5 节的 `private: true`（内容根本不进 `dist/`），
+> 或把站点放到带服务端鉴权的地方（如 Cloudflare Access）。前端口令门只是玄关，不是保险箱。
 
 ## 6. 本地预览 / 构建 / 部署
 

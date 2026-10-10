@@ -4,9 +4,9 @@ updated: 2026-10-10
 kinds: 童年, 学业, 工作, 迁徙, 旅行, 生活
 ---
 
-# 经历线
+# 经历志
 
-> 这是经历线的事实源，`data/timeline.json` 由它生成（页面读 json，不读本文件）。
+> 这是经历志的事实源，`data/timeline.json` 由它生成（页面读 json，不读本文件）。
 > 每条 = 一个 `### 标题`，下面跟几行 `字段: 值`。
 > 字段：date（排序用，`YYYY` 或 `YYYY-MM`）/ est（true = 年份为推算）/ kind（分类）/ place / note / tags / private。
 > 改完跑 `npm run data`（或 `npm run build`）重新生成 json。
