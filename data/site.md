@@ -55,4 +55,4 @@ desc: 力量训练、跑步、跑山与羽毛球记录：动作、配速、主�
 page: training.html
 data: training.json
 accent: 檀色
-status: 规划中
+status: 已上线

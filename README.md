@@ -14,7 +14,7 @@
   - 第一卷 · 履历 —— 职业与能力（`pages/resume.html`）
   - 第二卷 · 喜好志 —— 感官与偏好（`pages/tastes.html`）
   - 第三卷 · 经历线 —— 时间与轨迹（`pages/timeline.html`）
-  - 第四卷 · 训练档案 —— 身体与负荷（规划中）
+  - 第四卷 · 训练档案 —— 身体与负荷（`pages/training.html`）
 - **记录写在 md，页面读 json**：内容一律记录在 `data/*.md` 里（人读、AI 写都舒服），
   由 `scripts/data.js` 处理成 `data/*.json`（页面读取的内容集合）。
   页面不写死内容；要改内容，改 md；要加一卷，加一条 md + 一个页面模板。
@@ -27,11 +27,13 @@ jing-portfolio/
 ├── pages/                   # 各卷页面（每个卷一个独立 html）
 │   ├── resume.html          # 第一卷 · 履历
 │   ├── tastes.html          # 第二卷 · 喜好志
-│   └── timeline.html        # 第三卷 · 经历线
+│   ├── timeline.html        # 第三卷 · 经历线
+│   └── training.html        # 第四卷 · 训练档案
 ├── data/                    # ← 事实源在这里（md）
 │   ├── site.md              # 分卷清单
 │   ├── tastes.md            # 喜好志条目
 │   ├── timeline.md          # 经历线节点
+│   ├── training.md          # 训练记录
 │   └── *.json               # 由上面的 md 生成（页面读它），不入库
 ├── assets/
 │   ├── css/site.css         # 设计系统（纸感底色 + 墨色 + 中国传统色强调）
@@ -104,7 +106,22 @@ field: value
 
 > 时间锚点（写在 `timeline.md` 顶部注释里）：1997 出生 · 2015 上大学 · 2019 毕业工作。
 
-> 三个卷的解析器都在 `scripts/data.js` 里，登记在文件末尾的 `JOBS` 表中；
+### `data/training.md` —— 训练记录
+
+前置元信息写 `vol / updated / kinds`；每条写成 `### 标题`，下面跟：
+
+| 字段 | 必填 | 说明 |
+| --- | --- | --- |
+| `date` | ✓ | `YYYY-MM-DD`，排序用（**新的在前**） |
+| `kind` | | 分类：力量 / 跑步 / 跑山 / 羽毛球 / 有氧恢复 / 其他 |
+| `title` | ✓ | 这条练的是什么，如「深蹲日」 |
+| `place` | | 在哪练的（可留空） |
+| `metric` | | 关键数据，一行写完，如 `深蹲 5×5 @100kg` |
+| `note` | | 主观感受、状态、恢复情况 |
+| `tags` | | 标签，用逗号分隔 |
+| `private` | | `true` = 只在本地可见，部署时剔除 |
+
+> 四个卷的解析器都在 `scripts/data.js` 里，登记在文件末尾的 `JOBS` 表中；
 > 以后新增卷，在 `JOBS` 里加一行，再在 `pages/` 加一个模板页即可。
 
 ## 4. 设计与主题（中国传统色）

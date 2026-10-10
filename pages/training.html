@@ -1,0 +1,169 @@
+<!-- 个人志 · 第四卷 · 训练档案 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>训练档案 — 潘静 · 个人志</title>
+<meta name="description" content="潘静的训练档案：力量训练、跑步、跑山、羽毛球与有氧恢复的记录。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%238C6A4F'/%3E%3Ctext x='16' y='21' font-size='12.5' text-anchor='middle' fill='%23FCFAF6' font-family='serif'%3EJing%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/volumes.css">
+<style>
+  /* 第四卷主题色：檀色（老檀木静卧幽室，温厚沉敛） */
+  :root { --accent: #8C6A4F; --accent-deep: #6B4F3A; --accent-soft: #F2EBE3; --accent-tint: #8C6A4F; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html"><span class="seal-mini" style="background:#8C6A4F">Jing</span><span class="brand">潘静</span></a>
+    <div class="nav-links">
+      <a href="../index.html">首页</a>
+      <a href="resume.html">履历</a>
+      <a href="tastes.html">喜好志</a>
+      <a href="timeline.html">经历线</a>
+      <a href="training.html" style="color:var(--accent)">训练档案</a>
+    </div>
+  </div>
+</nav>
+
+<header class="vol-hero">
+  <div class="wrap">
+    <div class="vol-kicker">第四卷 · TRAINING</div>
+    <h1>训练档案</h1>
+    <p class="vol-lede">
+      按天记的训练流水：<b>力量、跑步、跑山、羽毛球、有氧恢复</b>，
+      每条留下练了什么、练了多少、以及当时的感觉。
+      数据源写在
+      <code style="font-family:var(--mono);font-size:13px;color:var(--muted)">data/training.md</code>，
+      页面读的是它生成的 <code style="font-family:var(--mono);font-size:13px;color:var(--muted)">data/training.json</code>。
+    </p>
+    <div class="vol-stat" id="tr-stat"></div>
+  </div>
+</header>
+
+<main class="wrap" style="padding-bottom:96px;">
+  <div class="filter-bar" id="filter-bar">
+    <span class="fb-label">分类</span>
+    <!-- 由数据渲染 -->
+  </div>
+  <div class="tr-list" id="tr-list">
+    <div class="vol-empty">正在读取训练数据…</div>
+  </div>
+
+  <div class="vol-empty" id="tr-hint" style="display:none;text-align:left;margin-top:22px;">
+    目前还没有记录。往 <b>data/training.md</b> 里加一条就行，格式是：<br>
+    <code style="font-family:var(--mono);font-size:12.5px;">### 标题</code>，下面跟
+    <code style="font-family:var(--mono);font-size:12.5px;">date / kind / title / place / metric / note / tags</code> 这几行。
+  </div>
+
+  <a class="vol-back" href="../index.html">← 回到个人志首页</a>
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <span>© 2026 潘静 · 第四卷 · 训练档案</span>
+    <span id="t-updated"></span>
+  </div>
+</footer>
+
+<script src="../assets/js/site.js"></script>
+<script>
+(function () {
+  var listEl = document.getElementById('tr-list');
+  var bar = document.getElementById('filter-bar');
+  var statEl = document.getElementById('tr-stat');
+  var hint = document.getElementById('tr-hint');
+  var state = { kind: '全部' };
+  var ALL = [];
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function weekday(d) {
+    var p = String(d || '').split('-');
+    if (p.length < 3) return '';
+    var dt = new Date(+p[0], +p[1] - 1, +p[2]);
+    if (isNaN(dt.getTime())) return '';
+    return '周' + '日一二三四五六'[dt.getDay()];
+  }
+  function item(it) {
+    var tags = (it.tags || []).map(function (t) { return '<span>' + esc(t) + '</span>'; }).join('');
+    return '<div class="tr-item reveal' + (it.private ? ' is-private' : '') + '">' +
+      '<div class="tr-date">' + esc(it.date) +
+        (weekday(it.date) ? '<small>' + weekday(it.date) + '</small>' : '') + '</div>' +
+      '<div class="tr-main">' +
+        '<div class="tr-head"><span class="tr-kind">' + esc(it.kind) + '</span>' +
+          '<h3 class="tr-title">' + esc(it.title) +
+          (it.private ? ' <span class="t-priv">仅本地</span>' : '') + '</h3></div>' +
+        (it.place ? '<div class="tr-place">' + esc(it.place) + '</div>' : '') +
+        (it.metric ? '<div class="tr-metric">' + esc(it.metric) + '</div>' : '') +
+        (it.note ? '<p class="tr-note">' + esc(it.note) + '</p>' : '') +
+        (tags ? '<div class="tr-tags">' + tags + '</div>' : '') +
+      '</div></div>';
+  }
+
+  function kinds() {
+    var seen = [], declared = ALL.__declared || [];
+    ALL.forEach(function (it) { if (it.kind && seen.indexOf(it.kind) < 0) seen.push(it.kind); });
+    var ordered = declared.filter(function (k) { return seen.indexOf(k) >= 0; });
+    seen.forEach(function (k) { if (ordered.indexOf(k) < 0) ordered.push(k); });
+    return ['全部'].concat(ordered);
+  }
+
+  function render() {
+    var ks = kinds();
+    bar.style.display = ALL.length ? '' : 'none';
+    bar.innerHTML = '<span class="fb-label">分类</span>' + ks.map(function (k) {
+      var n = k === '全部' ? ALL.length : ALL.filter(function (i) { return i.kind === k; }).length;
+      return '<button class="chip' + (k === state.kind ? ' on' : '') + '" data-kind="' + esc(k) + '">' +
+        esc(k) + '<i class="chip-n">' + n + '</i></button>';
+    }).join('');
+
+    var list = state.kind === '全部' ? ALL : ALL.filter(function (i) { return i.kind === state.kind; });
+    listEl.style.display = list.length ? '' : 'none';
+    hint.style.display = ALL.length ? 'none' : '';
+    if (list.length) listEl.innerHTML = list.map(item).join('');
+    if (window.__revealBind) window.__revealBind();
+  }
+
+  bar.addEventListener('click', function (e) {
+    var b = e.target.closest('button');
+    if (!b || !b.dataset.kind) return;
+    state.kind = b.dataset.kind;
+    render();
+  });
+
+  fetch('../data/training.json')
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (data) {
+      ALL = (data.items || []).slice();
+      ALL.__declared = data.kinds || [];
+      if (data.updated) document.getElementById('t-updated').textContent = '更新于 ' + data.updated;
+      if (ALL.length) {
+        var counts = {};
+        ALL.forEach(function (i) { counts[i.kind] = (counts[i.kind] || 0) + 1; });
+        var top = Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a]; })[0];
+        var latest = ALL.map(function (i) { return i.date; }).sort().pop();
+        statEl.innerHTML = '<span>' + ALL.length + ' 条记录</span>' +
+          '<span>最近一次 ' + esc(latest) + '</span>' +
+          (top ? '<span>最多的是' + esc(top) + '（' + counts[top] + '）</span>' : '');
+      }
+      render();
+    })
+    .catch(function () {
+      hint.style.display = 'none';
+      listEl.innerHTML = '<div class="vol-empty">训练数据没能读出来。<br>' +
+        '本地预览请用 <b>python3 -m http.server</b> 起个服务再打开。</div>';
+    });
+})();
+</script>
+</body>
+</html>

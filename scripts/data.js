@@ -6,6 +6,7 @@
  *   - data/site.md     分卷清单  →  data/site.json
  *   - data/tastes.md   喜好志条目 →  data/tastes.json
  *   - data/timeline.md 经历线节点 →  data/timeline.json
+ *   - data/training.md 训练记录 →  data/training.json
  *
  * md 结构：
  *   --- 前置元信息（key: value）---
@@ -176,11 +177,51 @@ function parseTimeline(text) {
   };
 }
 
+/** data/training.md → 训练档案数据对象
+ *  记录直接写在 ### 下；date 为 YYYY-MM-DD，新的在前。
+ */
+function parseTraining(text) {
+  const { meta, body } = splitFrontMatter(text);
+  const kinds = (meta.kinds || '')
+    .split(/[,，]/).map((s) => s.trim()).filter(Boolean);
+  const items = [];
+  let cur = null;
+  for (const line of body) {
+    if (/^##\s+/.test(line)) { cur = null; continue; }
+    const h3 = line.match(/^###\s+(.+?)\s*$/);
+    if (h3) { cur = { title: h3[1] }; items.push(cur); continue; }
+    if (!cur || !line.trim()) continue;
+    const kv = line.match(/^([A-Za-z_][\w-]*)\s*:\s*(.*)$/);
+    if (!kv) continue;
+    const k = kv[1].toLowerCase(), v = kv[2].trim();
+    if (k === 'tags') cur.tags = v ? v.split(/[,，]/).map((s) => s.trim()).filter(Boolean) : [];
+    else if (k === 'private') cur.private = toBool(v);
+    else cur[k] = v;
+  }
+  items.sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')));
+  return {
+    vol: meta.vol || 'training',
+    updated: meta.updated || '',
+    kinds,
+    items: items.map((it) => orderKeys({
+      date: String(it.date || ''),
+      kind: it.kind || '其他',
+      title: it.title,
+      place: it.place || '',
+      metric: it.metric || '',
+      note: it.note || '',
+      tags: it.tags || [],
+      private: !!it.private,
+    }, ['date', 'kind', 'title', 'place', 'metric', 'note', 'tags', 'private'])),
+  };
+}
+
 /** 登记表：md 文件名 → 解析器。以后加卷在这里加一行即可。 */
 const JOBS = [
   { md: 'site.md', json: 'site.json', parse: parseSite },
   { md: 'tastes.md', json: 'tastes.json', parse: parseTastes },
   { md: 'timeline.md', json: 'timeline.json', parse: parseTimeline },
+  { md: 'training.md', json: 'training.json', parse: parseTraining },
 ];
 
 function generate() {
@@ -196,7 +237,7 @@ function generate() {
   return report;
 }
 
-module.exports = { generate, parseSite, parseTastes, parseTimeline, resolveColor, PALETTE };
+module.exports = { generate, parseSite, parseTastes, parseTimeline, parseTraining, resolveColor, PALETTE };
 
 if (require.main === module) {
   const report = generate();
