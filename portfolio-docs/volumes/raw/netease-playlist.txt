@@ -1,0 +1,231 @@
+网易云音乐 · 歌单原始抓取
+=====================================
+
+歌单名：欸-你可笑不喜欢的音乐
+歌单 id：2058885204
+链接：https://music.163.com/playlist?id=2058885204
+创建者：欸-你可笑不（userId 1341887440）= Jing 本人
+账号签名：些纠结些选择困难些胆小些幼稚些多愁
+曲目数：214
+抓取方式：browser 在 music.163.com 同源页内 fetch
+  - /api/v6/playlist/detail?id=2058885204  → trackIds 214 个
+  - /api/song/detail?ids=[...]（每批 100 个） → 曲名 + 艺人
+抓取时间：2026-10-10
+
+注意：艺人字段在 /api/song/detail 里叫 artists，在 v6 detail 里叫 ar，已统一。
+
+
+001. 山野里 — 张德伊玲
+002. 红事会 — 黑先生
+003. 非理想爱人 — Pandora樂隊
+004. 春雪 — 裘德
+005. 让我们迎着海风围着篝火起舞 — 栗紫锐
+006. 雷尼尔雪山来信 — 黄雨篱
+007. 座位 — 承桓
+008. 艾蜜莉 (Live) — 回春丹
+009. 能不能回到小时候 — 庄东茹（豆芽鱼）
+010. 我不信你不惭愧（死在你的多情里） — 灰太狼大王OK！
+011. 云与尘的裂痕 — 指尖笑
+012. 生命樹 — 吴雨霏
+013. Good Morning and Good Night — Maggie McClure
+014. 我不该向你说那么多毫无意义的话…… — 美 梦 领 取 屋/窥蛻
+015. 去远方 — 付俊乐
+016. EYE(S) — LÜCY
+017. 葡萄成熟时 — 陈奕迅
+018. 日落大道 — 梁博
+019. Great Expectations — Johnny Aries
+020. 秋城 — 丢火车
+021. 走麦田 — 裁缝铺
+022. 野人 (Live版) — 陈粒/孟维来
+023. 东北民谣 — 毛不易
+024. 表态 (Live) — 梁博
+025. 知我 — 国风堂/哦漏
+026. 唐人恋曲 — 小唐人
+027. 嗵嗵 — DOUDOU
+028. 漠河舞厅 — 柳爽
+029. Love Again — Kevin
+030. Barcelona — Jonah Kagen
+031. 沒有一杯茶解決不了的事 (feat. 杨和苏KeyNG) — 周传雄/杨和苏KeyNG
+032. Colorado — Milky Chance
+033. Every Time We Touch — Dream Tunes
+034. The Best Thing — Electric Youth
+035. 感官先生 (Live版) — 杨坤/杨宗纬
+036. 染 — 张碧晨
+037. 如果你只爱自己 — 陈筱漠
+038. 小模样 — 张小只ya
+039. 我是马背上自由的风 — 吴俊佑
+040. 幸福了 然后呢 — 黄丽玲
+041. 无名的人 — 毛不易
+042. 纸短情长 — 烟把儿
+043. 放漾 — A公馆
+044. 三千世界鸦杀 (翻唱) — 兔裹煎蛋卷
+045. 长春的夜 — 刘昰
+046. 干杯时我会想起你 — 新学校合唱团
+047. 我不知道2020（《了不起的儿科医生》电视剧主题曲） — 梁博
+048. 失忆蝴蝶 — 陈奕迅
+049. 我要让你心碎 — 达闻西乐队
+050. 紧急应变逃生法 — Pandora樂隊
+051. 在这里 — 许巍
+052. 习惯 — 黑屋乐队
+053. 步履不停 — 自画像乐队
+054. 鲜花 — 回春丹
+055. Share That Love (feat. G-Eazy) — Lukas Graham/G-Eazy
+056. You Are Beautiful — James Blunt
+057. BINGBIAN病变（Remix） — 蔡耀轩
+058. 스물다섯, 스물하나 (LIVE) — 윤하 (YOUNHA)
+059. Don't Stop the Devil — Dead Posey
+060. Green Green Grass — George Ezra
+061. Try — P!nk
+062. Zillionaire — Flo Rida
+063. Black Sheep — Gin Wigmore
+064. Legend — The Score
+065. Give Me Your Love — Sigala/John Newman/Nile Rodgers
+066. Let's Go — Full Trunk
+067. Wake (Live) — Hillsong Young & Free
+068. On My Mind — Ellie Goulding
+069. Take It Off — Kesha
+070. 繁华之处 — 栗先达
+071. Hiding In The Blue — TheFatRat/RIELL
+072. Play — K-391/Alan Walker/Tungevaag/Mangoo
+073. 对你说 — 瑀辰不嗣音
+074. Wake (Live) — Hillsong Young & Free
+075. 莫等 — 徐泽（要不要买菜）
+076. 人间灯火 — MAD
+077. 雪庇 — れん
+078. 清明雨上 — 许嵩
+079. 迷彩 — 田子晴
+080. 太上老君说常清静经 — 逝昏
+081. Hit the Lights — Selena Gomez & The Scene
+082. 天使亲吻过的声音 — 王艳薇
+083. 认真的雪 — 薛之谦
+084. All my people（Roespsx remix） — Roespsx
+085. 悬溺 — 葛东琪
+086. 运气不好只有现在而已 — 陈筱漠
+087. 给你一瓶魔法药水 — 告五人
+088. Girl — Alexander 23
+089. 我爱你 我的生活 — 海底时光机
+090. 不怕 — 赵蓓/赵蕾
+091. 春三月 — 司南
+092. 新娘阿花 — 金玟岐
+093. 落霜 — 花粥
+094. So Far Away — Martin Garrix/David Guetta/Jamie Scott/Romy Dya
+095. Mystery of Love — Luke Pickman
+096. 夜、萤火虫和你 — AniFace
+097. 当妮走了2022 — 徐真真/小阿颜
+098. 这世界那么多人 — 莫文蔚
+099. 无人知晓的我 — 黄丽玲
+100. 萱草花 — 张小斐
+101. She Left Without A Goodbye. — Cerah
+102. 棕旨 — Ice Paper/FOX胡天渝
+103. 情书 — 海底公路乐队
+104. 一半的电影 — J.well
+105. 唯一 — 告五人
+106. 初恋 — 回春丹
+107. 爱人错过 — 告五人
+108. 人生苦短 — JSore
+109. 好想好想你 — G.E.M.邓紫棋
+110. 你瞒我瞒 — 陈柏宇
+111. 冷门 — Ice Paper
+112. 放空 — 大籽/Lil E/A1 TRIP
+113. 星如雨 — 龚淑均/薄彩生
+114. 马 — 福禄寿FloruitShow
+115. Young For You — GALA
+116. 星辰大海 — 黄霄雲
+117. Yellow — Coldplay
+118. 错位时空 — 艾辰
+119. 想变成一切美好的事物 — 谭松韵/谢春花
+120. 百利甜 — 魏晗(懋懋)
+121. 处处吻 — 杨千嬅
+122. 红色高跟鞋 — 蔡健雅
+123. 想着你 — 郭顶
+124. 海底 — 李君成（三块木头）
+125. 我要找到你(翻自 陈明) — 张老板
+126. 寂寞沙洲冷 — 于潼
+127. 伤心太平洋 — 左傲雪
+128. 微微 — 金零
+129. 我用什么把你留住 — 福禄寿FloruitShow
+130. 安排好的人生 (Live) — 白举纲
+131. Dancing With Your Ghost — Sasha Alex Sloan
+132. 我在人间凑数的日子 — 王然
+133. 如烟，如风 — AniFace
+134. Manta — 刘柏辛Lexie
+135. 我最近总是梦见你 — 陈亦彬
+136. 还有我 — 祝青
+137. 思ひで — 鈴木常吉
+138. 把孤独当做晚餐 — 井胧
+139. 男孩 (Live) — 梁博
+140. 通透 — 陈亦云
+141. Wonderful U (Demo Version) — AGA
+142. Break Up In A Small Town — Sam Hunt
+143. 起风了（Cover 高橋優） — 冯沁苑(买辣椒也用券)
+144. PLANET — ラムジ
+145. 未闻花名 (国语) — 张苡小萌
+146. 未闻花名 (口琴版) — V.A.
+147. 你还在忧愁什么呢 — 花粥/厘小白
+148. 像我这样的人 — 毛不易
+149. 谎（无念白版） — 凯瑟喵
+150. Flowers — In Love With A Ghost/Nori
+151. 一些规律 — 许飞/姚晨
+152. 眉间雪 — 晴愔
+153. 与妻书 — 快递小能手
+154. 一万光年 — 栗先达
+155. 風になる — つじあやの
+156. 不谈爱情 — 东南
+157. What Makes You Beautiful — One Direction
+158. Home — mgk/X Ambassadors/Bebe Rexha
+159. 最初的梦想 — 金玟岐
+160. Flower Dance — DJ OKAWARI
+161. 盗将行 — 花粥/马雨阳
+162. Whistle — Flo Rida
+163. 可能否 — 木小雅
+164. 出山 — 花粥/王胜娚
+165. 木头的心 — 左颜
+166. 我有我爱我 — 少年霜
+167. 故事(晓薛/薛晓)(Cover) — 若以止白
+168. 想你想你想我 — 巴音汗
+169. 短发 — 猴子lámpo
+170. 记昨日书 — 伏仪
+171. 外婆的话【不才】 — 蔡明希（不才）
+172. 城南花已开 — 三亩地
+173. 2.14 — 三亩地
+174. Stay With Me【鬼怪OST】(Stringed Music Remix)（翻自 朴灿烈/Punch） — Half-blood Kakashi
+175. Last Reincarnation — AniFace
+176. 晴天的周末在去学校补课的路上遇见了喜欢的人 — AniFace
+177. Something Just Like This — The Chainsmokers/Coldplay
+178. 她 — 朱婧汐Akini Jing
+179. 女生徒 — 藤井久美
+180. Until You — Shayne Ward
+181. Price Tag — Jessie J/B.o.B
+182. If You Feel My Love (Chaow Mix) — Blaxy Girls
+183. 她 — 王威
+184. 阿婆说 — 暗杠
+185. Lil' Goldfish — Marika/Nao'ymt
+186. Do as I Say Not as I Do — Ed Harcourt
+187. 撒野 — 凯瑟喵
+188. 秋酿 — 房东的猫
+189. 花凋 — 赵景旭（Winky诗）
+190. 我喜欢你胜过削好的水果周末的零食延后的死线冰镇西瓜正中间的那一口肆无忌惮的赖床和空调房里盖棉被的感觉但我就是不敢告诉你（翻自 魏如萱） — 森冬/蓬岛以左煮雪烧茶
+191. 纯白 — 双笙（陈元汐）/V.K克
+192. 迷藏 — 刘昊霖
+193. 静下来 — 赵雷
+194. 玫瑰 — 贰佰
+195. 旧词 — 愚青
+196. 也罢 — 鲁向卉
+197. 不露声色 — Jam
+198. 认真地老去 — 张希/曹方
+199. 觅香 — 栗先达
+200. 花火が瞬く夜に — 羽肿
+201. Secret — 茶太
+202. 水瓶 — 沈以诚
+203. 终有一天，我会抛弃你们 — 兔裹煎蛋卷
+204. Please Don't Go — Joel Adams
+205. i hate u i love u — Biscuits
+206. Try — Colbie Caillat
+207. Shape of You — Ed Sheeran
+208. Here With You — Asher Monroe
+209. Seve — Tez Cadey
+210. 纠结 — 庆庆
+211. アイロニ — majiko
+212. 最后一首情歌 — 苏琛
+213. 起风了 — 冯沁苑(买辣椒也用券)
+214. 我的一个道姑朋友 (cover: Lon) — 以冬
