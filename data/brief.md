@@ -485,6 +485,7 @@ training 24 · resume 5；分卷 4（隐藏 0，剔除 0）；resume.json 不带
 **没做的**：真页面截图自查，还是沙盒挡浏览器那一条，没重试。
 
 **顺带**：`brief.md` 从 `data/` 挪回 `portfolio-docs/volumes/`，与「data/ 只放数据层」对齐。
+（这条后来按 Jing 的意思反转了，见第十四段。）
 
 ---
 
@@ -505,6 +506,17 @@ Jing 定了三件事。
 **部署**：本轮改动第一次提交推送（之前都在本地）。
 
 **校验**：`npm run data` / `npm run build` 通过。
+
+### 2026-10-10 第十四段：文档收拢，portfolio-docs 退役
+
+Jing 的意思：`brief.md` 放 `data/` 就行，没必要为它留一个搬空的 `portfolio-docs/`。
+
+- `brief.md` 从 `portfolio-docs/volumes/` 挪到 `data/brief.md`。
+- `portfolio-docs/` 连同空目录一起删掉。
+- README 目录树同步：`data/` 下加 `brief.md`，去掉 `portfolio-docs/` 那行。
+- `brief.md` 是文档，不参与生成：`npm run data` 不解析它，`dist/data/` 里也没有它。
+
+**校验**：`npm run build` 通过，dist 里无 `brief.md`。
 
 ---
 
@@ -529,7 +541,7 @@ Jing 定了三件事。
 - 训练志：小米运动数据未给；2024-05 整月缺；2023-09 及更早无记录。她若给了腿日 / 胸日
   的完整清单，把深蹲、卧推那 16 条按动作单列的也统一改成一天一张卡。
 
-## 九、最近更新状态（截至 2026-10-10 · 第十三段）
+## 九、最近更新状态（截至 2026-10-10 · 第十四段）
 
 现状的单一事实源是 `data/site.md`（导航 + 各卷 `progress`）和各卷主 md，这里只记“最近动了什么”。
 

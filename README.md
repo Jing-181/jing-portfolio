@@ -35,6 +35,7 @@ jing-portfolio/
 │   ├── tastes.md  tastes.json     # 第二卷
 │   ├── timeline.md timeline.json  # 第三卷
 │   ├── training.md training.json  # 第四卷
+│   ├── brief.md                   # 交接文档（后续方向 + 最近更新状态），不参与生成
 │   ├── sources/                   # ← 原始素材层（只被主 md 引用，构建不解析）
 │   │   ├── resume/                #   projects-complete.md、projects-showcase.md
 │   │   ├── tastes/                #   网易云 / b 站 txt、微信读书 md、快照
@@ -48,7 +49,6 @@ jing-portfolio/
 ├── scripts/
 │   ├── data.js              # md → json：主 md → 页面内容集合
 │   └── build.js             # 组装 dist/：先跑 data.js，再剔除 private 内容
-├── portfolio-docs/          # 设计与写作交接文档（volumes/brief.md），与数据无关
 ├── package.json             # data / dev / build / preview 脚本
 └── .github/workflows/deploy.yml  # 推送 main 自动构建并发布到 GitHub Pages
 ```
