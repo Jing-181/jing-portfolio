@@ -52,13 +52,7 @@
     <div class="vol-kicker">第三卷 · TIMELINE</div>
     <div class="vol-state" id="vol-state" hidden></div>
     <h1>经历志</h1>
-    <p class="vol-lede">
-      从江西的小县城出发，读书在景德镇，工作在佛山、深圳，落脚在广州。
-      把记得住的那些节点按时间铺开，<b>学业、工作、迁徙、旅行、生活</b>各归一类。
-      数据源写在
-      <code style="font-family:var(--mono);font-size:13px;color:var(--muted)">data/timeline.md</code>，
-      页面读的是它生成的 <code style="font-family:var(--mono);font-size:13px;color:var(--muted)">data/timeline.json</code>。
-    </p>
+    <p class="vol-lede" id="vol-lede"></p>
     <div class="vol-stat" id="tl-stat"></div>
   </div>
 </header>
@@ -106,12 +100,11 @@
     var tags = (it.tags || []).map(function (t) { return '<span>' + esc(t) + '</span>'; }).join('');
     return '<div class="tl-item reveal' + (it.private ? ' is-private' : '') + '">' +
       '<div class="tl-date"><b>' + esc(dp.y) + '</b>' + (dp.m ? '<small>' + esc(dp.m) + '</small>' : '') +
-        (it.est ? '<span class="tl-est">推算</span>' : '') + '</div>' +
+        (it.est ? '<span class="tl-est">大致</span>' : '') + '</div>' +
       '<div class="tl-axis"><i></i></div>' +
       '<div class="tl-body">' +
         '<div class="tl-head"><span class="tl-kind">' + esc(it.kind) + '</span>' +
-          '<h3 class="tl-title">' + esc(it.title) +
-          (it.private ? ' <span class="t-priv">仅本地</span>' : '') + '</h3></div>' +
+          '<h3 class="tl-title">' + esc(it.title) + '</h3></div>' +
         (it.place ? '<div class="tl-place">' + esc(it.place) + '</div>' : '') +
         (it.note ? '<p class="tl-note">' + esc(it.note) + '</p>' : '') +
         (tags ? '<div class="tl-tags">' + tags + '</div>' : '') +
@@ -135,7 +128,7 @@
 
     var list = state.kind === '全部' ? ALL : ALL.filter(function (i) { return i.kind === state.kind; });
     listEl.innerHTML = list.length ? list.map(item).join('')
-      : '<div class="vol-empty">这一类下<b>还没有节点</b>。<br>往 data/timeline.md 里加就行。</div>';
+      : '<div class="vol-empty">这一类下还<b>空着</b>。</div>';
     if (window.__revealBind) window.__revealBind();
   }
 
@@ -152,18 +145,20 @@
       ALL = (data.items || []).slice();
       ALL.__declared = data.kinds || [];
       if (data.updated) document.getElementById('t-updated').textContent = '更新于 ' + data.updated;
+      // 卷首语只在 data/timeline.md 里写一份，页面从 json 读
+      var lede = document.getElementById('vol-lede');
+      if (lede && data.lede) lede.innerHTML = data.lede;
       var years = ALL.map(function (i) { return parseInt(String(i.date || '').slice(0, 4), 10); }).filter(Boolean);
       if (years.length) {
         var a = Math.min.apply(null, years), b = Math.max.apply(null, years);
         var est = ALL.filter(function (i) { return i.est; }).length;
-        statEl.innerHTML = '<span>' + a + ' — ' + b + '</span><span>' + ALL.length + ' 个节点</span>' +
-          (est ? '<span>' + est + ' 个年份为推算</span>' : '');
+        statEl.innerHTML = '<span>' + a + ' — ' + b + '</span><span>' + ALL.length + ' 件记得住的事</span>' +
+          (est ? '<span>' + est + ' 个年份只是大致</span>' : '');
       }
       render();
     })
     .catch(function () {
-      listEl.innerHTML = '<div class="vol-empty">经历数据没能读出来。<br>' +
-        '本地预览请用 <b>python3 -m http.server</b> 起个服务再打开。</div>';
+      listEl.innerHTML = '<div class="vol-empty">经历数据没能读出来，刷新一下再看看。</div>';
     });
 })();
 window.__volState('timeline');

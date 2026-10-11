@@ -2,16 +2,20 @@
 owner: 潘静
 title: 卷首
 subtitle: 分卷 · 各卷独立
-updated: 2026-10-10
-lede: 履历只回答了“我做过什么”。这里还放几卷别的：喜欢的东西、走过的路、练过的重量。每卷各看一个侧面，互不关联，从这一页进去就行。
+updated: 2026-10-11
+lede: 履历只回答了“我做过什么”。歌单签名里那句“些纠结些选择困难些胆小些幼稚些多愁”，履历里写不下。这里放几卷别的：喜欢的东西、走过的路、练的重量。
+prelude: 外婆家的那个夏天，一整个假期在看《武林外传》。
+seal: ISFJ · 别人说，这个类型里我算典型的
 ---
 
 # 分卷清单
 
-> 履历志、训练志是成品，另外两卷还在长：想到什么补什么。改内容只动 `data/*.md`，
+> 履历志、训练志已成，另两卷还在增补。改内容只动 `data/*.md`，
 > 页面读的 `data/*.json` 是跑出来的，不手改。
 
 > 这是分卷的事实源，`data/site.json` 由它生成（页面读 json，不读本文件）。
+> 前置元信息：`owner / title / subtitle / updated`，外加卷首那三行：
+> `lede`（开头那段）/ `prelude`（引子，一段实事）/ `seal`（落款小字）。
 > 结构：`## 标题` 开一卷，下面跟 `字段: 值` 行。
 > `accent` 可以写中国传统色名（见 README 配色表），也可以直接写 `#hex`。
 > 改完跑 `npm run data`（或 `npm run build`）重新生成 json。
@@ -26,19 +30,19 @@ page: resume.html
 data: resume.json
 accent: 绛缨
 status: 已上线
-progress: 成品
+progress: 已成
 
 ## 喜好志
 
 no: 第二卷
 id: tastes
-subtitle: 感官与偏好
-desc: 记录喜欢的东西：食物、音乐、影剧、书、游戏、城市，还有常看的人。逐条攒成一份口味地图。
+subtitle: 心上与手边
+desc: 几样放在心上很久的东西，一件一件拆开来看。
 page: tastes.html
 data: tastes.json
 accent: 烟雨青
 status: 已上线
-progress: 未完成
+progress: 未完
 lock: true
 
 ## 经历志
@@ -46,12 +50,12 @@ lock: true
 no: 第三卷
 id: timeline
 subtitle: 时间与轨迹
-desc: 把人生里的节点按时间铺开：学业、入行、迁居，以及某个开始坚持的爱好。
+desc: 从童年到此刻，读书、入行、迁居，还有一路走过的那些地方。
 page: timeline.html
 data: timeline.json
 accent: 黛蓝
 status: 已上线
-progress: 未完成
+progress: 未完
 lock: true
 
 ## 训练志
@@ -64,5 +68,5 @@ page: training.html
 data: training.json
 accent: 檀色
 status: 已上线
-progress: 成品
+progress: 已成
 lock: true

@@ -210,7 +210,7 @@
       if (window.__volState) window.__volState('resume');
     })
     .catch(function (err) {
-      root.innerHTML = '<div class="wrap" style="padding:80px 0">加载履历数据失败：' + esc(err && err.message) + '（本页需通过 HTTP 打开）</div>';
+      root.innerHTML = '<div class="wrap" style="padding:80px 0">履历数据没能读出来，刷新一下再看看。</div>';
     });
 })();
 </script>

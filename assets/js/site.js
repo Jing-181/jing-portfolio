@@ -29,9 +29,9 @@ window.__volState = function (id) {
     .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(function (site) {
       var v = (site.volumes || []).filter(function (x) { return x.id === id; })[0];
-      if (!v || !v.progress || v.progress === '成品') return;
+      if (!v || !v.progress || v.progress === '已成') return;
       el.className = 'vol-state is-wip';
-      el.textContent = '本卷' + v.progress + ' · 想到什么补什么';
+      el.textContent = '这一卷还没写完';
       el.hidden = false;
     })
     .catch(function () {});

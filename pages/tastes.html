@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>喜好志 — 潘静 · 个人志</title>
-<meta name="description" content="潘静的喜好志：食物、饮品、音乐、影剧、书、游戏与城市，逐条攒成个人口味地图。">
+<meta name="description" content="潘静的喜好志：心上与手边的几样东西，一件一件拆开来看。">
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%234E7A78'/%3E%3Ctext x='16' y='21' font-size='12.5' text-anchor='middle' fill='%23FCFAF6' font-family='serif'%3EJing%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,6 +18,78 @@
 <style>
   /* 第二卷主题色：烟雨青（.accent 取加深版以保证文字对比度） */
   :root { --accent: #4E7A78; --accent-deep: #35554F; --accent-soft: #E4EDEC; --accent-tint: #6A8D8C; }
+
+  /* 一物一签 */
+  .deep-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+  .deep-card {
+    display: flex; flex-direction: column;
+    background: var(--card); border: 1px solid var(--line); padding: 24px 24px 22px;
+    transition: border-color .25s ease, transform .25s ease;
+  }
+  .deep-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .deep-card .d-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; }
+  .deep-card .d-name { font-family: var(--serif); font-size: 21px; font-weight: 700; letter-spacing: .5px; }
+  .deep-card .d-tag { font-family: var(--mono); font-size: 11.5px; color: var(--accent-deep); letter-spacing: .03em; }
+  .d-el { display: grid; gap: 11px; margin-top: 18px; }
+  .el { display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: baseline; }
+  .el-k {
+    font-size: 12px; padding: 2px 9px; border-radius: 999px; white-space: nowrap;
+    background: var(--accent-soft); color: var(--accent-deep); border: 1px solid var(--accent-soft);
+  }
+  .el-v { font-size: 14px; line-height: 1.75; color: var(--ink-soft); }
+  .d-note {
+    margin-top: 18px; padding-top: 15px; border-top: 1px dashed var(--line);
+    font-size: 14.5px; line-height: 1.95; color: var(--ink-soft);
+  }
+  .deep-card.is-brief { padding: 20px 20px 18px; }
+  .deep-card.is-brief .d-name { font-size: 18px; }
+  .deep-card.is-brief .d-note, .deep-card.is-brief .el-v { font-size: 13.5px; }
+
+  /* 一类，一行 */
+  .roll-card {
+    background: var(--card); border: 1px solid var(--line); padding: 20px 22px;
+  }
+  .roll-card .d-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; }
+  .roll-card .d-name { font-family: var(--serif); font-size: 18px; font-weight: 600; }
+  .roll-card .d-tag { font-family: var(--mono); font-size: 11.5px; color: var(--accent-deep); }
+  .roll { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .roll span {
+    font-family: var(--mono); font-size: 12px; color: var(--ink-soft);
+    border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px;
+  }
+  .roll-note { margin-top: 14px; font-size: 14px; line-height: 1.85; color: var(--ink-soft); }
+
+  /* 一句话 */
+  .chip-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(232px, 1fr)); gap: 12px; }
+  .mini-card { background: var(--card); border: 1px solid var(--line); padding: 16px 18px; transition: border-color .25s ease; }
+  .mini-card:hover { border-color: var(--accent); }
+  .mini-card .m-name { font-family: var(--serif); font-size: 16.5px; font-weight: 600; }
+  .mini-card .m-note { margin-top: 8px; font-size: 13.5px; line-height: 1.8; color: var(--ink-soft); }
+
+  /* 走过的路 */
+  .path { display: flex; align-items: flex-start; overflow-x: auto; padding: 8px 0 2px; }
+  .stop { position: relative; flex: 1 0 auto; min-width: 72px; text-align: center; padding: 0 8px; }
+  .stop::before { content: ''; position: absolute; top: 10px; left: 0; right: 0; height: 1px; background: var(--line); }
+  .stop:first-child::before { left: 50%; }
+  .stop:last-child::before { right: 50%; }
+  .stop i {
+    position: relative; display: block; width: 9px; height: 9px; margin: 6px auto 12px;
+    border-radius: 50%; background: var(--card); border: 1.5px solid var(--accent);
+  }
+  .stop.is-now i { background: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+  .stop b { display: block; font-family: var(--serif); font-size: 14.5px; font-weight: 600; }
+  .stop small { display: block; font-family: var(--mono); font-size: 10.5px; color: var(--muted); margin-top: 5px; }
+  /* 旅游路过的：淡色小字 */
+  .stop.is-trip b { font-family: var(--sans); font-size: 12.5px; font-weight: 400; color: var(--muted); }
+  .stop.is-trip i { border-color: var(--line-strong); }
+  /* 出差去过的：不出现在线上的小地点 */
+  .stop .s-trip { font-family: var(--sans); font-size: 10.5px; color: var(--accent-deep); margin-top: 6px; letter-spacing: .02em; }
+  .path-away { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+  .path-away span {
+    font-size: 12.5px; color: var(--ink-soft);
+    border: 1px dashed var(--line-strong); border-radius: 999px; padding: 3px 10px;
+  }
+  .path-away span b { font-weight: 600; color: var(--ink); margin-right: 6px; }
 </style>
 </head>
 <body>
@@ -52,21 +124,12 @@
     <div class="vol-kicker">第二卷 · TASTES</div>
     <div class="vol-state" id="vol-state" hidden></div>
     <h1>喜好志</h1>
-    <p class="vol-lede">
-      这里记的是“我喜欢什么”。<b>食物、饮品、音乐、影剧、书、游戏、城市、关注</b>，
-      一条一条攒起来，久了就是一张自己的口味地图。数据源写在
-      <code style="font-family:var(--mono);font-size:13px;color:var(--muted)">data/tastes.md</code>，
-      页面读的是它生成的 <code style="font-family:var(--mono);font-size:13px;color:var(--muted)">data/tastes.json</code>。
-    </p>
+    <p class="vol-lede" id="vol-lede"></p>
   </div>
 </header>
 
 <main class="wrap" style="padding-bottom:96px;">
-  <div class="filter-bar" id="filter-bar">
-    <span class="fb-label">分类</span>
-    <!-- 由数据渲染 -->
-  </div>
-  <div class="taste-grid" id="taste-grid">
+  <div id="blocks">
     <div class="vol-empty">正在读取喜好数据…</div>
   </div>
 
@@ -84,97 +147,130 @@
 <script src="../assets/js/site.js"></script>
 <script>
 (function () {
-  var grid = document.getElementById('taste-grid');
-  var bar = document.getElementById('filter-bar');
-  var state = { cat: '全部', sort: 'rating' };
+  var box = document.getElementById('blocks');
+  var KIND_DEEP = '深', KIND_BRIEF = '记', KIND_ROLL = '聚', KIND_CHIP = '签', KIND_LINE = '线';
 
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
     });
   }
-  function rate(n) {
-    n = parseInt(n, 10) || 0;
-    if (!n) return '';                     // 0 = 不评分（「关注」那一栏）
-    n = Math.max(1, Math.min(5, n));
-    var out = '';
-    for (var i = 1; i <= 5; i++) out += '<i class="' + (i <= n ? 'on' : '') + '"></i>';
-    return '<span class="rate" title="喜爱度 ' + n + '/5">' + out + '</span>';
+  function linkText(u) { return String(u).replace(/^https?:\/\//, '').replace(/\/+$/, ''); }
+
+  function head(name, tagline) {
+    return '<div class="d-head"><h3 class="d-name">' + esc(name) + '</h3>' +
+      (tagline ? '<span class="d-tag">' + esc(tagline) + '</span>' : '') + '</div>';
   }
-  function linkText(u) {
-    return String(u).replace(/^https?:\/\//, '').replace(/\/+$/, '');
+  function elements(list) {
+    if (!list || !list.length) return '';
+    return '<div class="d-el">' + list.map(function (e) {
+      return '<div class="el">' + (e.k ? '<span class="el-k">' + esc(e.k) + '</span>' : '') +
+        '<span class="el-v">' + esc(e.v) + '</span></div>';
+    }).join('') + '</div>';
   }
-  function card(it) {
-    var tags = (it.tags || []).map(function (t) { return '<span>' + esc(t) + '</span>'; }).join('');
-    return '<article class="taste-card reveal' + (it.private ? ' is-private' : '') + '">' +
-      '<div class="t-top"><span class="t-name">' + esc(it.name) +
-        (it.private ? ' <span class="t-priv">仅本地</span>' : '') + '</span>' +
-        '<span class="t-cat">' + esc(it.category || '其他') + '</span></div>' +
-      '<p class="t-note">' + esc(it.note || '') + '</p>' +
-      (it.link ? '<a class="t-link" href="' + esc(it.link) + '" target="_blank" rel="noopener noreferrer">' + esc(linkText(it.link)) + ' ↗</a>' : '') +
-      (tags ? '<div class="t-tags">' + tags + '</div>' : '') +
-      ((it.rating || it.since)
-        ? '<div class="t-foot"><span>' + rate(it.rating) + '</span>' +
-            '<span>' + (it.since ? esc(it.since) : '') + '</span></div>'
-        : '') +
-      '</article>';
+  function note(it, cls) {
+    return it.note ? '<p class="' + (cls || 'd-note') + '">' + esc(it.note) + '</p>' : '';
+  }
+  function link(it) {
+    return it.link ? '<a class="t-link" href="' + esc(it.link) + '" target="_blank" rel="noopener noreferrer">' +
+      esc(linkText(it.link)) + ' ↗</a>' : '';
   }
 
-  var ALL = [];
-
-  function categories() {
-    var seen = [], declared = ALL.__declared || [];
-    ALL.forEach(function (it) { if (it.category && seen.indexOf(it.category) < 0) seen.push(it.category); });
-    var ordered = declared.filter(function (c) { return seen.indexOf(c) >= 0; });
-    seen.forEach(function (c) { if (ordered.indexOf(c) < 0) ordered.push(c); });
-    return ['全部'].concat(ordered);
+  function deepCard(it, brief) {
+    return '<article class="deep-card' + (brief ? ' is-brief' : '') + '">' +
+      head(it.name, it.tagline) + elements(it.elements) + note(it) + link(it) + '</article>';
+  }
+  function rollCard(it) {
+    var names = String(it.roll || '').split(' · ').filter(Boolean);
+    return '<article class="roll-card">' + head(it.name, it.tagline) +
+      (names.length ? '<div class="roll">' + names.map(function (n) { return '<span>' + esc(n) + '</span>'; }).join('') + '</div>' : '') +
+      note(it, 'roll-note') + '</article>';
+  }
+  function chipCard(it) {
+    return '<article class="mini-card"><h3 class="m-name">' + esc(it.name) + '</h3>' +
+      note(it, 'm-note') + '</article>';
+  }
+  function pathStop(s, last) {
+    var name = String(s == null ? '' : s), trip = false, aside = '';
+    var m = name.match(/^(.+?)（(.+?)）$/);                   // 地点（游）/ 地点（出差：甲、乙）
+    if (m) {
+      name = m[1];
+      var q = m[2].match(/^出差[:：]?\s*(.+)$/);
+      if (q) aside = '出差 · ' + q[1].split(/[、,，]/).map(function (x) { return x.trim(); }).filter(Boolean).join(' · ');
+      else if (m[2] === '游') trip = true;
+      else aside = m[2];
+    }
+    return '<div class="stop' + (trip ? ' is-trip' : '') + (last ? ' is-now' : '') + '"><i></i><b>' + esc(name) + '</b>' +
+      (aside ? '<small class="s-trip">' + esc(aside) + '</small>' : '') + '</div>';
+  }
+  function pathBlock(it) {
+    var stops = it.stops || [];
+    var line = '<div class="path">' + stops.map(function (s, i) {
+      return pathStop(s, i === stops.length - 1);
+    }).join('') + '</div>';
+    var away = (it.elements || []).length
+      ? '<div class="path-away">' + it.elements.map(function (e) {
+          return '<span><b>' + esc(e.k) + '</b>' + esc(e.v) + '</span>';
+        }).join('') + '</div>'
+      : '';
+    return line + away + note(it);
   }
 
-  function filtered() {
-    var list = ALL.slice();
-    if (state.cat !== '全部') list = list.filter(function (it) { return it.category === state.cat; });
-    list.sort(function (a, b) {
-      if (state.sort === 'since') return String(b.since || '').localeCompare(String(a.since || ''));
-      return (b.rating || 0) - (a.rating || 0);
+  function body(items) {
+    var deep = items.filter(function (i) { return i.kind === KIND_DEEP; });
+    var brief = items.filter(function (i) { return i.kind === KIND_BRIEF; });
+    var roll = items.filter(function (i) { return i.kind === KIND_ROLL; });
+    var chip = items.filter(function (i) { return i.kind === KIND_CHIP; });
+    var line = items.filter(function (i) { return i.kind === KIND_LINE; });
+    var rest = items.filter(function (i) {
+      return [KIND_DEEP, KIND_BRIEF, KIND_ROLL, KIND_CHIP, KIND_LINE].indexOf(i.kind) < 0;
     });
-    return list;
+    chip = chip.concat(rest);
+
+    var out = '';
+    if (deep.length) out += '<div class="deep-grid">' + deep.map(function (i) { return deepCard(i, false); }).join('') + '</div>';
+    if (brief.length) out += '<div class="deep-grid">' + brief.map(function (i) { return deepCard(i, true); }).join('') + '</div>';
+    if (roll.length) out += '<div class="deep-grid is-roll">' + roll.map(rollCard).join('') + '</div>';
+    if (chip.length) out += '<div class="chip-grid">' + chip.map(chipCard).join('') + '</div>';
+    if (line.length) out += line.map(pathBlock).join('');
+    return out;
   }
 
-  function render() {
-    // 分类 chips
-    var chips = categories().map(function (c) {
-      return '<button class="chip' + (c === state.cat ? ' on' : '') + '" data-cat="' + esc(c) + '">' + esc(c) + '</button>';
-    }).join('');
-    var sorts = '<button class="chip' + (state.sort === 'rating' ? ' on' : '') + '" data-sort="rating">按喜爱度</button>' +
-      '<button class="chip' + (state.sort === 'since' ? ' on' : '') + '" data-sort="since">按年份</button>';
-    bar.innerHTML = '<span class="fb-label">分类</span>' + chips +
-      '<span class="fb-spacer"></span>' + sorts;
+  function render(data) {
+    var items = (data.items || []);
+    var groups = (data.groups || data.categories || []).map(function (g) {
+      return typeof g === 'string' ? { name: g, sub: '' } : g;
+    });
+    var seen = {};
+    groups.forEach(function (g) { seen[g.name] = 1; });
+    items.forEach(function (it) {
+      if (!seen[it.category]) { seen[it.category] = 1; groups.push({ name: it.category, sub: '' }); }
+    });
 
-    var list = filtered();
-    grid.innerHTML = list.length ? list.map(card).join('')
-      : '<div class="vol-empty">这个分类下<b>还没有条目</b>。<br>往 data/tastes.md 里加就行。</div>';
+    var html = groups.map(function (g) {
+      var list = items.filter(function (it) { return it.category === g.name; });
+      if (!list.length) return '';
+      return '<section class="tblock">' +
+        '<div class="tblock-head"><h2 class="tblock-h">' + esc(g.name) + '</h2>' +
+        (g.sub ? '<span class="tblock-sub">' + esc(g.sub) + '</span>' : '') + '</div>' +
+        body(list) + '</section>';
+    }).join('');
+
+    box.innerHTML = html || '<div class="vol-empty">这一卷还<b>空着</b>。</div>';
     if (window.__revealBind) window.__revealBind();
   }
-
-  bar.addEventListener('click', function (e) {
-    var b = e.target.closest('button');
-    if (!b) return;
-    if (b.dataset.cat) state.cat = b.dataset.cat;
-    if (b.dataset.sort) state.sort = b.dataset.sort;
-    render();
-  });
 
   fetch('../data/tastes.json')
     .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(function (data) {
-      ALL = (data.items || []).slice();
-      ALL.__declared = data.categories || [];
       if (data.updated) document.getElementById('t-updated').textContent = '更新于 ' + data.updated;
-      render();
+      // 卷首语只在 data/tastes.md 里写一份，页面从 json 读
+      var lede = document.getElementById('vol-lede');
+      if (lede && data.lede) lede.innerHTML = data.lede;
+      render(data);
     })
     .catch(function () {
-      grid.innerHTML = '<div class="vol-empty">喜好数据没能读出来。<br>' +
-        '本地预览请用 <b>python3 -m http.server</b> 起个服务再打开。</div>';
+      box.innerHTML = '<div class="vol-empty">喜好数据没能读出来，刷新一下再看看。</div>';
     });
 })();
 window.__volState('tastes');

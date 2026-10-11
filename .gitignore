@@ -11,3 +11,6 @@ dist/
 
 # 临时打包产物
 .trae-html-share-packages/
+
+# 临时工作区（卡片预览包、审校报告等）
+.work/

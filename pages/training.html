@@ -52,12 +52,7 @@
     <div class="vol-kicker">第四卷 · TRAINING</div>
     <div class="vol-state" id="vol-state" hidden></div>
     <h1>训练志</h1>
-    <p class="vol-lede">
-      记录从 2017 年 8 月开始，前六年几乎没留下什么，密起来是最近三年。
-      <b>跑步</b>是底座，四年一千五百多公里；2026 年秋天转进健身房，
-      <b>胸、背、腿三分化</b>成了主线。这一卷不排流水账，只看形状：
-      练了多少、怎么分的、练到过多重。按天记的配速和主观感受还没有。
-    </p>
+    <p class="vol-lede" id="vol-lede"></p>
     <div class="figures" id="vol-figures"></div>
   </div>
 </header>
@@ -112,9 +107,7 @@
       <div class="vol-empty">正在读取训练数据…</div>
     </div>
     <div class="vol-empty" id="tr-hint" style="display:none;text-align:left;margin-top:22px;">
-      目前还没有记录。往 <b>data/training.md</b> 的 <b>## 档案</b> 里加一条就行，格式是：<br>
-      <code style="font-family:var(--mono);font-size:12.5px;">### 标题</code>，下面跟
-      <code style="font-family:var(--mono);font-size:12.5px;">date / kind / metric / note / tags</code> 这几行。
+      按天记下的训练，之后再补进来。
     </div>
   </section>
 
@@ -243,8 +236,7 @@
         (weekday(it.date) ? '<small>' + weekday(it.date) + '</small>' : '') + '</div>' +
       '<div class="tr-main">' +
         '<div class="tr-head"><span class="tr-kind">' + esc(it.kind) + '</span>' +
-          '<h3 class="tr-title">' + esc(it.title) +
-          (it.private ? ' <span class="t-priv">仅本地</span>' : '') + '</h3></div>' +
+          '<h3 class="tr-title">' + esc(it.title) + '</h3></div>' +
         (it.metric ? '<div class="tr-metric">' + esc(it.metric) + '</div>' : '') +
         (it.note ? '<p class="tr-note">' + esc(it.note) + '</p>' : '') +
         (it.tags && it.tags.length ? '<div class="tr-tags">' + chips(it.tags) + '</div>' : '') +
@@ -298,6 +290,9 @@
       STATS = (data.stats || []).slice();
       ALL.__declared = data.kinds || [];
       if (data.updated) document.getElementById('t-updated').textContent = '更新于 ' + data.updated;
+      // 卷首语只在 data/training.md 里写一份，页面从 json 读
+      var lede = document.getElementById('vol-lede');
+      if (lede && data.lede) lede.innerHTML = data.lede;
 
       renderStats();
       renderHow();
@@ -309,8 +304,7 @@
     })
     .catch(function () {
       document.getElementById('tr-hint').style.display = 'none';
-      document.getElementById('tr-list').innerHTML = '<div class="vol-empty">训练数据没能读出来。<br>' +
-        '本地预览请用 <b>python3 -m http.server</b> 起个服务再打开。</div>';
+      document.getElementById('tr-list').innerHTML = '<div class="vol-empty">训练数据没能读出来，刷新一下再看看。</div>';
       document.getElementById('arc-block').hidden = false;
     });
 })();

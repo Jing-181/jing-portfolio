@@ -239,7 +239,7 @@ link: GitHub ↗ | https://github.com/Jing-181 | ghost
 ## 页脚
 
 left: © 2026 潘静 · 广州
-right: 鍥而不舍，金石可鏤 — 基于 MOJiDict 系列真实项目经历整理
+right: 鍥而不舍，金石可鏤
 
 ## 素材导航
 

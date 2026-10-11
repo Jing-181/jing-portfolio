@@ -25,6 +25,30 @@
 .vol-hero .vol-lede { max-width: 620px; color: var(--ink-soft); font-size: 16px; }
 .vol-hero .vol-lede b { color: var(--ink); }
 
+/* 卷首引子（几件不停在单卷的事）与落款 */
+.vol-hero .vol-pre {
+  max-width: 640px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px dashed var(--line);
+  font-family: var(--serif);
+  font-size: 15px;
+  line-height: 2.05;
+  letter-spacing: .02em;
+  color: var(--ink-soft);
+}
+.vol-hero .vol-seal {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 26px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  color: var(--muted);
+}
+.vol-hero .vol-seal::before { content: ''; width: 22px; height: 1px; background: var(--line-strong); }
+
 /* ---- 导航首页：分卷卡片网格 ---- */
 .vol-grid {
   display: grid;
@@ -190,18 +214,6 @@
 }
 .rate i.on { background: var(--accent); }
 
-/* 仅本地标记（private 条目：本地可见，部署时剔除） */
-.vol-priv, .t-priv {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 1px;
-  color: var(--muted);
-  border: 1px dashed var(--line-strong);
-  border-radius: 999px;
-  padding: 1px 7px;
-  margin-left: 6px;
-  vertical-align: 1px;
-}
 .taste-card.is-private { border-style: dashed; }
 .taste-card.is-private:hover { border-color: var(--muted); }
 

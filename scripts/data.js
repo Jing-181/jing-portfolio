@@ -64,6 +64,32 @@ function resolveColor(v) {
   return PALETTE[s] ? PALETTE[s].hex : s;
 }
 
+/** `标签=一句|标签=一句` → [{ k, v }]（用于 elements / stops） */
+function pairs(v) {
+  return String(v || '').split('|').map((s) => s.trim()).filter(Boolean).map((s) => {
+    const i = s.indexOf('=');
+    return i < 0 ? { k: '', v: s } : { k: s.slice(0, i).trim(), v: s.slice(i + 1).trim() };
+  });
+}
+
+/**
+ * 卷首语：第一个 `##` 之前、连续成段的第一批 `>` 行。
+ * 页面只从 json 读它，不再把卷首语写在 HTML 里（两处存会漂）。
+ * `**x**` 转成 <b>x</b>，与 resume.md 同一套约定。
+ */
+function takeLede(body) {
+  const out = [];
+  for (const line of body) {
+    if (/^#{2,3}\s/.test(line)) break;
+    const q = line.match(/^>\s?(.*)$/);
+    if (q) { if (q[1].trim()) out.push(q[1].trim()); continue; }
+    if (!line.trim()) { if (out.length) break; continue; }   // 一段 `>` 行就是卷首语，后面的是维护者注释
+    if (out.length) break;                                   // 收完了，遇到正文就停
+  }                                                        // 之前的前导行（如 `# 卷名`）略过
+  const text = out.reduce((a, b) => (/[A-Za-z0-9]$/.test(a) && /^[A-Za-z0-9]/.test(b) ? a + ' ' + b : a + b), '');
+  return text.replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');
+}
+
 /** 按给定顺序重排对象键，保证产物稳定 */
 function orderKeys(obj, order) {
   const out = {};
@@ -96,6 +122,8 @@ function parseSite(text) {
     title: meta.title || '卷首',
     subtitle: meta.subtitle || '',
     lede: meta.lede || '',
+    prelude: meta.prelude || '',
+    seal: meta.seal || '',
     updated: meta.updated || '',
     volumes: volumes.map((v) => orderKeys({ private: false, ...v }, ORDER)),
   };
@@ -107,35 +135,51 @@ function parseTastes(text) {
   const categories = (meta.categories || '')
     .split(/[,，]/).map((s) => s.trim()).filter(Boolean);
   const items = [];
-  let cat = null, cur = null;
+  const groups = [];
+  let cat = null, cur = null, grp = null;
   for (const line of body) {
-    const h2 = line.match(/^##\s+(.+?)\s*$/);          // ## 分类
-    if (h2) { cat = h2[1]; cur = null; continue; }
+    const h2 = line.match(/^##\s+(.+?)\s*$/);          // ## 分组
+    if (h2) { cat = h2[1]; cur = null; grp = { name: cat, sub: '' }; groups.push(grp); continue; }
     const h3 = line.match(/^###\s+(.+?)\s*$/);         // ### 条目名
     if (h3) { cur = { name: h3[1], category: cat || '其他' }; items.push(cur); continue; }
-    if (!cur || !line.trim()) continue;
+    if (!line.trim()) continue;
+    if (!cur) {                                        // 分组下紧跟的 > 行是分组小注
+      const q = line.match(/^>\s*(.+?)\s*$/);
+      if (q && grp && !grp.sub) grp.sub = q[1];
+      continue;
+    }
     const kv = line.match(/^([A-Za-z_][\w-]*)\s*:\s*(.*)$/);
     if (!kv) continue;
     const k = kv[1].toLowerCase(), v = kv[2].trim();
     if (k === 'tags') cur.tags = v ? v.split(/[,，]/).map((s) => s.trim()).filter(Boolean) : [];
     else if (k === 'rating') cur.rating = Math.max(0, Math.min(5, parseInt(v, 10) || 0));
+    else if (k === 'elements') cur.elements = pairs(v);
+    else if (k === 'stops') cur.stops = v ? v.split('|').map((s) => s.trim()).filter(Boolean) : [];
+    else if (k === 'featured') cur.featured = toBool(v);
     else if (k === 'private') cur.private = toBool(v);
     else cur[k] = v;
   }
   return {
     vol: meta.vol || 'tastes',
     updated: meta.updated || '',
+    lede: takeLede(body),
     categories,
+    groups: groups.filter((g) => items.some((it) => it.category === g.name) || categories.includes(g.name)),
     items: items.map((it) => orderKeys({
       name: it.name,
       category: it.category,
-      rating: it.rating || 0,
+      kind: it.kind || '签',
+      tagline: it.tagline || '',
+      elements: it.elements || [],
+      stops: it.stops || [],
+      roll: it.roll || '',
       note: it.note || '',
       tags: it.tags || [],
       since: it.since || '',
       link: it.link || '',
+      featured: !!it.featured,
       private: !!it.private,
-    }, ['name', 'category', 'rating', 'note', 'tags', 'since', 'link', 'private'])),
+    }, ['name', 'category', 'kind', 'tagline', 'elements', 'stops', 'roll', 'note', 'tags', 'since', 'link', 'featured', 'private'])),
   };
 }
 
@@ -169,6 +213,7 @@ function parseTimeline(text) {
   return {
     vol: meta.vol || 'timeline',
     updated: meta.updated || '',
+    lede: takeLede(body),
     kinds,
     items: items.map((it) => orderKeys({
       date: String(it.date || ''),
@@ -239,6 +284,7 @@ function parseTraining(text) {
   return {
     vol: meta.vol || 'training',
     updated: meta.updated || '',
+    lede: takeLede(body),
     kinds,
     stats: stats.map((s) => orderKeys({
       label: s.title,
