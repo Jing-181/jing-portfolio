@@ -518,6 +518,20 @@ Jing 的意思：`brief.md` 放 `data/` 就行，没必要为它留一个搬空�
 
 **校验**：`npm run build` 通过，dist 里无 `brief.md`。
 
+### 2026-10-10 第十五段：口令门不闪 · 首页入口加锁 · brief.md 落根目录
+
+Jing 看完线上提了三件事：三个加锁页会闪一下、底下内容先露出来；首页入口也该有锁；`brief.md` 不放 `data/` 里。
+
+- 门改成静态铺底：新建 `assets/css/lock.css`，门整块写在三个页面 HTML 里，首帧就盖住内容；已解锁的会话由 head 里一句早期内联脚本给 `<html>` 加 `pass`，CSS 直接把门藏掉。
+- `assets/js/lock.js` 重写：不再注入样式与 DOM，改成找页面上那道门并接线；导出 `window.__askPass(title, onDone, onCancel)` 与 `window.__unlocked()`。
+- 首页入口加锁：`data/site.md` 三卷写 `lock: true`（`parseSite` 支持 `lock`，并加进 `ORDER`）。被锁的卷在首页不给 `href`（卡片与导航项都没），点它才弹同一道门，过了才跳；卡片上挂「需口令」小徽章。
+- `assets/css/volumes.css` 加 `.vol-card.is-gate`、`.vol-lock`。
+- `brief.md` 从 `data/` 挪到仓库根目录；README 目录树同步（根目录加 `brief.md`，`data/` 下删掉）；依旧不参与生成。
+
+**校验**：`npm run data` / `npm run build` 通过；`data/site.json` 里三卷 `lock: true`、履历志无；`dist/` 无 `brief.md`，`dist/assets/css/lock.css` 在。
+
+**没做的**：真页面视觉自查，还是沙盒挡浏览器那一条，没重试。
+
 ---
 
 ## 八、后续优化方向
@@ -541,7 +555,7 @@ Jing 的意思：`brief.md` 放 `data/` 就行，没必要为它留一个搬空�
 - 训练志：小米运动数据未给；2024-05 整月缺；2023-09 及更早无记录。她若给了腿日 / 胸日
   的完整清单，把深蹲、卧推那 16 条按动作单列的也统一改成一天一张卡。
 
-## 九、最近更新状态（截至 2026-10-10 · 第十四段）
+## 九、最近更新状态（截至 2026-10-10 · 第十五段）
 
 现状的单一事实源是 `data/site.md`（导航 + 各卷 `progress`）和各卷主 md，这里只记“最近动了什么”。
 

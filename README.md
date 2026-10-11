@@ -24,6 +24,7 @@
 ```
 jing-portfolio/
 ├── index.html               # 卷首 / 导航首页（读取 data/site.json 渲染分卷入口）
+├── brief.md                 # 交接文档（后续方向 + 最近更新状态），不参与生成
 ├── pages/                   # 各卷页面（每个卷一个独立 html）
 │   ├── resume.html          # 第一卷 · 履历志
 │   ├── tastes.html          # 第二卷 · 喜好志
@@ -35,7 +36,6 @@ jing-portfolio/
 │   ├── tastes.md  tastes.json     # 第二卷
 │   ├── timeline.md timeline.json  # 第三卷
 │   ├── training.md training.json  # 第四卷
-│   ├── brief.md                   # 交接文档（后续方向 + 最近更新状态），不参与生成
 │   ├── sources/                   # ← 原始素材层（只被主 md 引用，构建不解析）
 │   │   ├── resume/                #   projects-complete.md、projects-showcase.md
 │   │   ├── tastes/                #   网易云 / b 站 txt、微信读书 md、快照
@@ -45,7 +45,9 @@ jing-portfolio/
 ├── assets/
 │   ├── css/site.css         # 设计系统（纸感底色 + 墨色 + 中国传统色强调）
 │   ├── css/volumes.css      # 分卷通用组件（分卷卡片、筛选、喜好卡片…）
-│   └── js/site.js           # 全站共享交互（滚动淡入）
+│   ├── css/lock.css         # 口令门样式（静态铺底，首帧就遮住内容）
+│   ├── js/site.js           # 全站共享交互（滚动淡入）
+│   └── js/lock.js           # 口令门行为（含首页入口按需弹门）
 ├── scripts/
 │   ├── data.js              # md → json：主 md → 页面内容集合
 │   └── build.js             # 组装 dist/：先跑 data.js，再剔除 private 内容
@@ -95,6 +97,7 @@ field: value
 | `data` | 对应的数据文件（在 `data/` 下），没有就留空 |
 | `accent` | 这一卷的主题色，写中国传统色名即可（见第 4 节） |
 | `status` | `已上线` 才可点击进入；其它值显示为“规划中/锁定” |
+| `lock` | `true` = 要口令才能进（首页入口与卷内页各一道门，见第 5.1 节） |
 | `private` | `true` = 整卷不部署（见第 5 节） |
 
 ### `data/tastes.md` —— 喜好志条目
@@ -233,14 +236,25 @@ timeline 的 `##` 只作分隔，training 里没有条目的空分区不渲染�
 > 本地看到全部、线上只看到公开部分——这是设计意图，不是 bug。
 > 判断某条要不要公开的标准：**凡是你不希望陌生人看到的，就标 `private: true`。**
 
-## 5.1 三卷口令门（拦随手，不拦有心人）
+## 5.1 口令门（拦随手，不拦有心人）
 
-`喜好志 / 经历志 / 训练志` 三卷各挂了一道前端口令门（`assets/js/lock.js`）。
+要口令的卷在 `data/site.md` 里写一行 `lock: true`；目前是 `喜好志 / 经历志 / 训练志` 三卷。
 它是**礼貌性拦截，不是安全机制**：
 
 - 口令在前端比对（SHA-256），页面数据 `data/*.json` 与源码仍是公开可读的。
 - 挡住的是随手点进来的人，挡不住存心看源码或直接下 json 的人。
-- 解锁状态存 `sessionStorage`，同一浏览器会话内三卷通行，关掉标签页失效。
+- 解锁状态存 `sessionStorage`（key `jing-unlock`），同一浏览器会话内三卷通行，关掉标签页失效。
+
+两道门，同一套界面：
+
+| 位置 | 行为 |
+| --- | --- |
+| 卷内页（`pages/tastes.html` 等） | 门写在 HTML 里静态铺底，首帧就盖住内容，不会闪一下；验过口令才移除 |
+| 首页入口（`index.html`） | 被锁的卷不给直链，卡片与导航项都没 `href`；点它才弹门，过了才跳转 |
+
+实现分三块，改的时候别漏：`assets/css/lock.css`（门的样式与 `html.pass` 隐藏规则）、
+`assets/js/lock.js`（校验、接门、首页 `window.__askPass()`）、各页 head 里一句
+「已解锁就把 `html` 加上 `pass`」的早期内联脚本。
 
 **改口令**：
 
@@ -248,7 +262,8 @@ timeline 的 `##` 只作分隔，training 里没有条目的空分区不渲染�
 node -e "console.log(require('crypto').createHash('sha256').update('你的新口令').digest('hex'))"
 ```
 
-把输出的 64 位十六进制替换 `assets/js/lock.js` 里的 `HASH`；门的文案改同文件顶部的 `TITLE / HINT / WRONG`。
+把输出的 64 位十六进制替换 `assets/js/lock.js` 里的 `HASH`；门的文案改各页 HTML 里的静态标记
+（`lock-title / lock-hint / lock-btn`）。
 
 > 真要藏住东西，还是走第 5 节的 `private: true`（内容根本不进 `dist/`），
 > 或把站点放到带服务端鉴权的地方（如 Cloudflare Access）。前端口令门只是玄关，不是保险箱。

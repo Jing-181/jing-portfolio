@@ -86,6 +86,7 @@ function parseSite(text) {
     const k = kv[1], v = kv[2].trim();
     if (k === 'accent') cur.accent = resolveColor(v);
     else if (k === 'private') cur.private = toBool(v);
+    else if (k === 'lock') cur.lock = toBool(v);
     else if (k === 'data') cur.data = v || null;
     else cur[k] = v;
   }

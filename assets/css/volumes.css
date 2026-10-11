@@ -554,6 +554,20 @@
 .vol-card .vol-prog.is-done { color: var(--v-accent, var(--accent)); border-color: currentColor; }
 .vol-card .vol-prog.is-wip { border-style: dashed; }
 
+/* ---- 首页入口：需口令的卷先过门，再放行 ---- */
+.vol-card.is-gate { cursor: pointer; }
+.vol-card .vol-lock {
+  font-style: normal;
+  margin-left: 8px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px dashed var(--line-strong);
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+.nav-links a.is-gate { cursor: pointer; }
+
 .vol-hero .vol-state {
   display: inline-flex;
   align-items: center;

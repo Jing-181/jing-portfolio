@@ -13,12 +13,26 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/site.css">
 <link rel="stylesheet" href="../assets/css/volumes.css">
+<link rel="stylesheet" href="../assets/css/lock.css">
+<script>/* 已解锁的会话：首帧就把门藏掉，连闪都不会有 */try{if(sessionStorage.getItem('jing-unlock')==='1')document.documentElement.classList.add('pass')}catch(e){}</script>
 <style>
   /* 第三卷主题色：黛蓝（远山含黛，秋水凝蓝） */
   :root { --accent: #2A5C82; --accent-deep: #1E4462; --accent-soft: #E3EAF2; --accent-tint: #2A5C82; }
 </style>
 </head>
 <body>
+
+<div class="lock-gate" id="lock-gate" role="dialog" aria-modal="true" aria-label="口令">
+  <div class="lock-card">
+    <div class="lock-seal">Jing</div>
+    <h2 class="lock-title">这一卷，只给自己看</h2>
+    <div class="lock-row">
+      <input class="lock-input" type="password" autocomplete="off" spellcheck="false" aria-label="口令">
+      <button class="lock-btn" type="button">进</button>
+    </div>
+    <p class="lock-hint">输入口令</p>
+  </div>
+</div>
 
 <nav>
   <div class="nav-inner">

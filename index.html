@@ -12,8 +12,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/site.css">
 <link rel="stylesheet" href="assets/css/volumes.css">
+<link rel="stylesheet" href="assets/css/lock.css">
 </head>
 <body>
+
+<div class="lock-gate" id="lock-gate" hidden role="dialog" aria-modal="true" aria-label="口令">
+  <div class="lock-card">
+    <div class="lock-seal">Jing</div>
+    <h2 class="lock-title">这一卷，只给自己看</h2>
+    <div class="lock-row">
+      <input class="lock-input" type="password" autocomplete="off" spellcheck="false" aria-label="口令">
+      <button class="lock-btn" type="button">进</button>
+    </div>
+    <p class="lock-hint">输入口令</p>
+  </div>
+</div>
 
 <nav>
   <div class="nav-inner">
@@ -56,12 +69,35 @@
   </div>
 </footer>
 
+<script src="assets/js/lock.js"></script>
 <script src="assets/js/site.js"></script>
 <script>
 // 渲染分卷入口
 (function () {
   var grid = document.getElementById('vol-grid');
   var nav = document.getElementById('hub-nav');
+  var VOLS = [];
+
+  /* 需口令的卷：入口不给直链，先过门再跳 */
+  function isLocked(v) {
+    return !!(v.lock && v.page && !(window.__unlocked && window.__unlocked()));
+  }
+  function openGate(v) {
+    if (!window.__askPass) { location.href = 'pages/' + v.page; return; }
+    window.__askPass(v.title, function () { location.href = 'pages/' + v.page; }, function () {});
+  }
+  function gateHit(e) {
+    var el = e.target && e.target.closest ? e.target.closest('.is-gate') : null;
+    if (!el) return;
+    e.preventDefault();
+    var id = el.getAttribute('data-id');
+    var v = VOLS.filter(function (x) { return x.id === id; })[0];
+    if (v) openGate(v);
+  }
+  document.addEventListener('click', gateHit);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') gateHit(e);
+  });
 
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
@@ -71,15 +107,18 @@
 
   function card(v) {
     var ready = v.status === '已上线' && v.page;
+    var locked = ready && isLocked(v);
     var tag = ready ? 'a' : 'div';
-    var href = ready ? ' href="pages/' + esc(v.page) + '"' : '';
+    var href = ready && !locked ? ' href="pages/' + esc(v.page) + '"' : '';
     var prog = v.progress && v.progress !== '成品'
       ? '<i class="vol-prog is-wip">' + esc(v.progress) + '</i>'
       : '';
+    var lock = locked ? '<i class="vol-lock">需口令</i>' : '';
     var foot = ready
-      ? '<span>' + esc(v.status) + prog + '</span><span class="vol-go">进入 →</span>'
+      ? '<span>' + esc(v.status) + prog + lock + '</span><span class="vol-go">进入 →</span>'
       : '<span>' + esc(v.status || '规划中') + prog + '</span><span class="vol-go">待补</span>';
-    return '<' + tag + ' class="vol-card' + (ready ? '' : ' is-locked') + '"' + href +
+    return '<' + tag + ' class="vol-card' + (ready ? '' : ' is-locked') + (locked ? ' is-gate' : '') + '"' + href +
+      ' data-id="' + esc(v.id) + '"' + (locked ? ' role="link" tabindex="0"' : '') +
       ' style="--v-accent:' + esc(v.accent || 'var(--accent)') + '">' +
       '<div class="vol-no">' + esc(v.no) + ' · ' + esc((v.id || '').toUpperCase()) +
         (v.private ? ' <span class="vol-priv">仅本地</span>' : '') + '</div>' +
@@ -97,9 +136,15 @@
       if (document.getElementById('hub-lede') && site.lede) document.getElementById('hub-lede').textContent = site.lede;
       if (site.updated && document.getElementById('hub-updated')) document.getElementById('hub-updated').textContent = '更新于 ' + site.updated;
       var vols = site.volumes || [];
+      VOLS = vols;
       grid.innerHTML = vols.map(card).join('');
       if (nav) nav.innerHTML = vols.filter(function (v) { return v.status === '已上线' && v.page; })
-        .map(function (v) { return '<a href="pages/' + esc(v.page) + '">' + esc(v.title) + '</a>'; }).join('');
+        .map(function (v) {
+          var locked = isLocked(v);
+          return '<a class="' + (locked ? 'is-gate' : '') + '" data-id="' + esc(v.id) + '"' +
+            (locked ? ' role="link" tabindex="0"' : ' href="pages/' + esc(v.page) + '"') + '>' +
+            esc(v.title) + '</a>';
+        }).join('');
       if (window.__revealBind) window.__revealBind();
     })
     .catch(function () {

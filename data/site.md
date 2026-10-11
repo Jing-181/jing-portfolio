@@ -39,6 +39,7 @@ data: tastes.json
 accent: 烟雨青
 status: 已上线
 progress: 未完成
+lock: true
 
 ## 经历志
 
@@ -51,6 +52,7 @@ data: timeline.json
 accent: 黛蓝
 status: 已上线
 progress: 未完成
+lock: true
 
 ## 训练志
 
@@ -63,3 +65,4 @@ data: training.json
 accent: 檀色
 status: 已上线
 progress: 成品
+lock: true
