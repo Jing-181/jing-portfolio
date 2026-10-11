@@ -8,6 +8,9 @@ lede: 履历只回答了“我做过什么”。这里还放几卷别的：喜�
 
 # 分卷清单
 
+> 履历志、训练志是成品，另外两卷还在长：想到什么补什么。改内容只动 `data/*.md`，
+> 页面读的 `data/*.json` 是跑出来的，不手改。
+
 > 这是分卷的事实源，`data/site.json` 由它生成（页面读 json，不读本文件）。
 > 结构：`## 标题` 开一卷，下面跟 `字段: 值` 行。
 > `accent` 可以写中国传统色名（见 README 配色表），也可以直接写 `#hex`。
@@ -20,7 +23,7 @@ id: resume
 subtitle: 工作与能力
 desc: 多端前端开发负责人的职业档案：项目、技术栈、工作方式与经历。
 page: resume.html
-data:
+data: resume.json
 accent: 绛缨
 status: 已上线
 progress: 成品
@@ -59,4 +62,4 @@ page: training.html
 data: training.json
 accent: 檀色
 status: 已上线
-progress: 未完成
+progress: 成品

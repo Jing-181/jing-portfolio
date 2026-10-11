@@ -2,11 +2,15 @@
 /**
  * data/*.md（事实源） → data/*.json（页面读取的内容集合）
  *
- * 约定：所有内容都记录在 md 里，json 只是处理产物，不手改、不入库。
+ * 约定：所有内容都记录在「主 md」里，json 只是处理产物，不手改、不入库。
  *   - data/site.md     分卷清单  →  data/site.json
  *   - data/tastes.md   喜好志条目 →  data/tastes.json
  *   - data/timeline.md 经历志节点 →  data/timeline.json
  *   - data/training.md 训练记录 →  data/training.json
+ *   - data/resume.md   履历志整页 →  data/resume.json
+ *
+ * 原始素材（txt 表 / 导出 json / 描述 md）放在 data/sources/<卷>/，
+ * 只被人和 AI 读，本脚本不解析、build 不打包。
  *
  * md 结构：
  *   --- 前置元信息（key: value）---
@@ -179,7 +183,12 @@ function parseTimeline(text) {
 }
 
 /** data/training.md → 训练志数据对象
- *  记录直接写在 ### 下；date 为 YYYY-MM-DD，新的在前。
+ *  按 `##` 分区摆块（页面按 section 分组渲染），不再是一条按天倒的流水：
+ *    ## 概览       → stats（label=标题，value=metric，sub=note）
+ *    ## 常用动作   → movements
+ *    ## 单次记录   → 仍旧进 items（section 标出来，页面按约定不显示）
+ *    其余 ##       → items，各自带 section / part
+ *  date 为 YYYY-MM-DD，新的在前。
  */
 function parseTraining(text) {
   const { meta, body } = splitFrontMatter(text);
@@ -187,20 +196,28 @@ function parseTraining(text) {
     .split(/[,，]/).map((s) => s.trim()).filter(Boolean);
   const items = [];
   const movements = [];
+  const stats = [];
   let cur = null;
   let lastKey = null;
   let mode = 'items';
+  let section = '';
+  const seq = {};
   for (const line of body) {
     const h2 = line.match(/^##\s+(.+?)\s*$/);
     if (h2) {
-      mode = /常用动作/.test(h2[1]) ? 'movements' : 'items';
+      section = h2[1];
+      if (/常用动作/.test(section)) mode = 'movements';
+      else if (/概览/.test(section)) mode = 'stats';
+      else mode = 'items';
       cur = null; lastKey = null;
       continue;
     }
     const h3 = line.match(/^###\s+(.+?)\s*$/);
     if (h3) {
       cur = { title: h3[1] };
-      (mode === 'movements' ? movements : items).push(cur);
+      if (mode === 'movements') movements.push(cur);
+      else if (mode === 'stats') stats.push(cur);
+      else { cur.section = section; cur.seq = (seq[section] = (seq[section] || 0) + 1); items.push(cur); }
       lastKey = null;
       continue;
     }
@@ -222,6 +239,11 @@ function parseTraining(text) {
     vol: meta.vol || 'training',
     updated: meta.updated || '',
     kinds,
+    stats: stats.map((s) => orderKeys({
+      label: s.title,
+      value: s.metric || '',
+      sub: s.note || '',
+    }, ['label', 'value', 'sub'])),
     movements: movements.map((m) => orderKeys({
       name: m.title,
       part: m.part || '',
@@ -234,13 +256,165 @@ function parseTraining(text) {
       date: String(it.date || ''),
       kind: it.kind || '其他',
       title: it.title,
+      section: it.section || '',
+      seq: it.seq || 0,
+      part: it.part || '',
       place: it.place || '',
       metric: it.metric || '',
       note: it.note || '',
       tags: it.tags || [],
       private: !!it.private,
-    }, ['date', 'kind', 'title', 'place', 'metric', 'note', 'tags', 'private'])),
+    }, ['date', 'kind', 'title', 'section', 'seq', 'part', 'place', 'metric', 'note', 'tags', 'private'])),
   };
+}
+
+/** data/resume.md → 履历志数据对象
+ *  整页分块：## 卷首 / 关于 / 技术能力 / 技术标签云 / 工作方式 / 精选项目 / 其他经验 / 经历 / 联系 / 页脚。
+ *  块名中英混排、字段多为自由文本；`**x**` 统一转成 <b>x</b>，`|` 拆段，`- ` 行是一个子项。
+ */
+function parseResume(text) {
+  const { meta, body } = splitFrontMatter(text);
+  const inline = (s) => String(s == null ? '' : s).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');
+  const csv = (v) => String(v == null ? '' : v).split(/[,，]/).map((s) => s.trim()).filter(Boolean);
+  const parts = (v) => String(v == null ? '' : v).split('|').map((s) => s.trim());
+
+  const R = {
+    vol: meta.vol || 'resume',
+    updated: meta.updated || '',
+    meta: { title: meta.title || '', description: meta.description || '' },
+    hero: { eyebrow: [], name: '', nameEm: '', role: '', desc: '', tags: [], motto: '', mottoEm: '', mottoSub: '' },
+    about: { tag: '', title: '', paragraphs: [], quoteLabel: '', quote: '', facts: [] },
+    skills: { tag: '', title: '', groups: [] },
+    tagcloud: { title: '', groups: [] },
+    workflow: { tag: '', title: '', group: '', gsub: '', steps: [], deliveryTitle: '', delivery: [] },
+    projects: { tag: '', title: '', items: [] },
+    more: { title: '', items: [] },
+    experience: { tag: '', title: '', items: [] },
+    contact: { tag: '', title: '', desc: '', links: [] },
+    footer: { left: '', right: '' },
+  };
+
+  let block = '';
+  let sub = null;      // 当前 ### 子项对象
+  let subKind = '';    // skill | step | project | exp
+
+  const setField = (k, v) => {
+    v = String(v == null ? '' : v).trim();
+    switch (block) {
+      case '卷首':
+        if (k === 'eyebrow') R.hero.eyebrow = csv(v);
+        else if (k === 'tags') R.hero.tags = csv(v);
+        else if (k === 'name') R.hero.name = v;
+        else if (k === 'nameem') R.hero.nameEm = v;
+        else if (k === 'role') R.hero.role = inline(v);
+        else if (k === 'desc') R.hero.desc = inline(v);
+        else if (k === 'motto') R.hero.motto = v;
+        else if (k === 'mottoem') R.hero.mottoEm = v;
+        else if (k === 'mottosub') R.hero.mottoSub = v;
+        break;
+      case '关于':
+        if (k === 'tag') R.about.tag = v;
+        else if (k === 'title') R.about.title = v;
+        else if (k === 'p') R.about.paragraphs.push(inline(v));
+        else if (k === 'quotelabel') R.about.quoteLabel = v;
+        else if (k === 'quote') R.about.quote = inline(v);
+        else if (k === 'fact') { const a = parts(v); R.about.facts.push({ k: a[0] || '', v: inline(a[1] || ''), href: a[2] || '' }); }
+        break;
+      case '技术能力':
+        if (subKind === 'skill' && sub) {
+          if (k === 'level') sub.level = v;
+          else if (k === 'sub') sub.sub = v;
+        } else if (k === 'tag') R.skills.tag = v;
+        else if (k === 'title') R.skills.title = v;
+        break;
+      case '技术标签云':
+        if (k === 'title') R.tagcloud.title = v;
+        else if (k === 'fw') R.tagcloud.groups.push({ cls: 'k-fw', tags: csv(v) });
+        else if (k === 'eng') R.tagcloud.groups.push({ cls: 'k-eng', tags: csv(v) });
+        else if (k === 'lib') R.tagcloud.groups.push({ cls: 'k-lib', tags: csv(v) });
+        break;
+      case '工作方式':
+        if (k === 'deliverytitle') R.workflow.deliveryTitle = v;
+        else if (k === 'delivery') R.workflow.delivery = csv(v);
+        else if (subKind === 'step' && sub) {
+          if (k === 'num') sub.num = v;
+          else if (k === 'desc') sub.desc = v;
+        } else if (k === 'tag') R.workflow.tag = v;
+        else if (k === 'title') R.workflow.title = v;
+        else if (k === 'group') R.workflow.group = v;
+        else if (k === 'gsub') R.workflow.gsub = v;
+        break;
+      case '精选项目':
+        if (subKind === 'project' && sub) {
+          if (k === 'num') sub.num = v;
+          else if (k === 'role') sub.role = v;
+          else if (k === 'co') sub.co = toBool(v);
+          else if (k === 'stack') sub.stack = v;
+          else if (k === 'desc') sub.desc = v;
+          else if (k === 'point') sub.points.push(inline(v));
+          else if (k === 'prove') sub.prove = v;
+          else if (k === 'link') { const a = parts(v); sub.link = { text: a[0] || '', href: a[1] || '' }; }
+        } else if (k === 'tag') R.projects.tag = v;
+        else if (k === 'title') R.projects.title = v;
+        break;
+      case '其他经验':
+        if (k === 'title') R.more.title = v;
+        break;
+      case '经历':
+        if (subKind === 'exp' && sub) {
+          if (k === 'variant') sub.variant = v;
+          else if (k === 'time') sub.time = v;
+          else if (k === 'sub') sub.sub = v;
+          else if (k === 'extra') sub.extra = v;
+          else if (k === 'list') sub.list.push(inline(v));
+        } else if (k === 'tag') R.experience.tag = v;
+        else if (k === 'title') R.experience.title = v;
+        break;
+      case '联系':
+        if (k === 'tag') R.contact.tag = v;
+        else if (k === 'title') R.contact.title = v;
+        else if (k === 'desc') R.contact.desc = v;
+        else if (k === 'link') { const a = parts(v); R.contact.links.push({ label: a[0] || '', href: a[1] || '', style: a[2] || '' }); }
+        break;
+      case '页脚':
+        if (k === 'left') R.footer.left = v;
+        else if (k === 'right') R.footer.right = v;
+        break;
+    }
+  };
+
+  for (const line of body) {
+    const h2 = line.match(/^##\s+(.+?)\s*$/);
+    if (h2) { block = h2[1]; sub = null; subKind = ''; continue; }
+    const h3 = line.match(/^###\s+(.+?)\s*$/);
+    if (h3) {
+      const t = h3[1];
+      if (block === '技术能力') { sub = { name: t, level: '', sub: '', items: [] }; subKind = 'skill'; R.skills.groups.push(sub); }
+      else if (block === '工作方式') { sub = { title: t, num: '', desc: '' }; subKind = 'step'; R.workflow.steps.push(sub); }
+      else if (block === '精选项目') { sub = { num: '', title: t, role: '', co: false, stack: '', desc: '', points: [], prove: '', link: null }; subKind = 'project'; R.projects.items.push(sub); }
+      else if (block === '经历') { sub = { title: t, variant: '', time: '', sub: '', extra: '', list: [] }; subKind = 'exp'; R.experience.items.push(sub); }
+      else { sub = null; subKind = ''; }
+      continue;
+    }
+    if (!line.trim()) continue;
+    const bullet = line.match(/^\s*-\s+(.*)$/);
+    if (bullet) {
+      const v = bullet[1].trim();
+      if (block === '技术能力' && subKind === 'skill' && sub) {
+        const a = parts(v);
+        sub.items.push({ name: a[0] || '', scene: a[1] || '', evi: a[2] || '' });
+      } else if (block === '其他经验') {
+        const a = parts(v);
+        R.more.items.push({ name: a[0] || '', type: a[1] || '', desc: inline(a[2] || '') });
+      }
+      continue;
+    }
+    const kv = line.match(/^([A-Za-z_][\w-]*)\s*:\s*(.*)$/);
+    if (!kv) continue;
+    setField(kv[1].toLowerCase(), kv[2]);
+  }
+
+  return R;
 }
 
 /** 登记表：md 文件名 → 解析器。以后加卷在这里加一行即可。 */
@@ -249,6 +423,7 @@ const JOBS = [
   { md: 'tastes.md', json: 'tastes.json', parse: parseTastes },
   { md: 'timeline.md', json: 'timeline.json', parse: parseTimeline },
   { md: 'training.md', json: 'training.json', parse: parseTraining },
+  { md: 'resume.md', json: 'resume.json', parse: parseResume },
 ];
 
 function generate() {
@@ -258,13 +433,15 @@ function generate() {
     if (!fs.existsSync(src)) continue;
     const out = job.parse(read(src));
     writeJSON(path.join(DATA, job.json), out);
-    const n = Array.isArray(out.items) ? out.items.length : (out.volumes || []).length;
+    const n = Array.isArray(out.items) ? out.items.length
+      : Array.isArray(out.volumes) ? out.volumes.length
+      : Array.isArray(out.projects && out.projects.items) ? out.projects.items.length : 0;
     report.push(`${job.md} → ${job.json}（${n} 条）`);
   }
   return report;
 }
 
-module.exports = { generate, parseSite, parseTastes, parseTimeline, parseTraining, resolveColor, PALETTE };
+module.exports = { generate, parseSite, parseTastes, parseTimeline, parseTraining, parseResume, resolveColor, PALETTE };
 
 if (require.main === module) {
   const report = generate();

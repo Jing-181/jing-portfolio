@@ -73,8 +73,8 @@
     var ready = v.status === '已上线' && v.page;
     var tag = ready ? 'a' : 'div';
     var href = ready ? ' href="pages/' + esc(v.page) + '"' : '';
-    var prog = v.progress
-      ? '<i class="vol-prog' + (v.progress === '成品' ? ' is-done' : ' is-wip') + '">' + esc(v.progress) + '</i>'
+    var prog = v.progress && v.progress !== '成品'
+      ? '<i class="vol-prog is-wip">' + esc(v.progress) + '</i>'
       : '';
     var foot = ready
       ? '<span>' + esc(v.status) + prog + '</span><span class="vol-go">进入 →</span>'

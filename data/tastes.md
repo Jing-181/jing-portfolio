@@ -6,6 +6,10 @@ categories: 食物, 饮品, 音乐, 影剧, 书, 游戏, 城市, 关注, 其他
 
 # 喜好志
 
+> 这一卷是口味地图：食物、饮品、音乐、影剧、书、城市，加 11 个常看的账号，一共 63 条。
+> 主歌单攒了 214 首；微信读书加入 3112 天，读过 93 本，真读完 22 本，笔记 63 条。
+> 评分按访谈当时的语气估的，是主观粗排，不是硬指标；「关注」那一栏是账号清单，不评分。
+
 > 这是喜好志的事实源，`data/tastes.json` 由它生成（页面读 json，不读本文件）。
 > 每条 = 一个 `### 名称`，下面跟几行 `字段: 值`；分类用 `## 分类名`。
 > 字段：rating(1–5) / note / tags / since / private。`private: true` 的条目只在本地可见，部署时被剔除。
@@ -18,11 +22,11 @@ categories: 食物, 饮品, 音乐, 影剧, 书, 游戏, 城市, 关注, 其他
 >    来自网易云歌单《欸-你可笑不喜欢的音乐》（214 首）的统计，rating 按歌单里出现过几首推，
 >    只代表出现频次，不代表喜好程度。标签里的「歌单推 · N 首」就是次数。
 > 3) 「关注」那一栏不评分（rating: 0，页面不显示星）。那是账号清单，不是喜好强度；
->    名字来自本人 2026-10-10 抄录的 b 站关注列表，见 `portfolio-docs/volumes/raw/bilibili-following.txt`。
+>    名字来自本人 2026-10-10 抄录的 b 站关注列表，见 `data/sources/tastes/bilibili-following.txt`。
 > 4) 「书」那一栏的 rating 是粗排：微信读书标了称号的（最爱 / 常读常新 / 最爱玄幻）给 5；
 >    阅读时长排前面的、单次读得最久的、标了「思考最多」「共读最多」的给 4；其余给 3。
 >    几张信息卡（微信读书、什么时候读、读什么、常读的作者、常看的出版社、我给书打的分）不评分。
->    原始数据见 `portfolio-docs/volumes/raw/wechat-reading.md`。
+>    原始数据见 `data/sources/tastes/wechat-reading.md`。
 > 影剧里带 b 站标签的，来自她的公开主页。字段多一个可选的 `link`（渲染成卡片上的一行链接）。
 >
 > 本卷尚未完成，想到什么补什么。
@@ -428,3 +432,14 @@ note: 买过最不后悔的东西。电脑很值，mac 和 ios 配合起来真�
 rating: 4
 tags: 启发, 考研
 note: 考研时听他讲课，题外话讲得很有意思。他是英语老师，却会聊哲学、聊人生经历，当时受到很大启发。
+
+## 素材导航
+
+本卷的主 md 就是本文件（叙述 + 索引），页面只读 `data/tastes.json`。
+下面这些是上游的原始素材，放在 `data/sources/tastes/`：
+
+- `sources/tastes/netease-playlist.txt` —— 网易云歌单 214 首原样抓取（曲名 + 艺人），「音乐」栏的上游
+- `sources/tastes/bilibili-following.txt` —— b 站关注列表 161 行手抄，「关注」栏的上游
+- `sources/tastes/bilibili.txt` —— b 站公开主页可见数据（追番、粉丝等）
+- `sources/tastes/wechat-reading.md` —— 微信读书 App 六张截图摘录，「书」栏的上游
+- `sources/tastes/snapshot-2026-10-10.md` —— 打磨前的本卷快照（原话存档，改文风前对照）

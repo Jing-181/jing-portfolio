@@ -29,10 +29,9 @@ window.__volState = function (id) {
     .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(function (site) {
       var v = (site.volumes || []).filter(function (x) { return x.id === id; })[0];
-      if (!v || !v.progress) return;
-      var done = v.progress === '成品';
-      el.className = 'vol-state ' + (done ? 'is-done' : 'is-wip');
-      el.textContent = done ? '本卷已完成' : '本卷未完成 · 想到什么补什么';
+      if (!v || !v.progress || v.progress === '成品') return;
+      el.className = 'vol-state is-wip';
+      el.textContent = '本卷' + v.progress + ' · 想到什么补什么';
       el.hidden = false;
     })
     .catch(function () {});

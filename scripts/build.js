@@ -48,10 +48,13 @@ for (const v of publicVols) {
   const src = path.join(ROOT, 'data', v.data);
   if (!fs.existsSync(src)) continue;
   const json = readJSON(src);
-  const list = Array.isArray(json) ? json : (json.items || []);
+  const isArr = Array.isArray(json);
+  // 没有 items 数组的对象型卷数据（如 resume.json）原样复制，不塞空 items
+  if (!isArr && !Array.isArray(json.items)) { writeJSON(path.join(DIST, 'data', v.data), json); continue; }
+  const list = isArr ? json : json.items;
   const kept = list.filter((it) => !(it && it.private));
   droppedItems += list.length - kept.length;
-  const out = Array.isArray(json) ? kept : { ...json, items: kept };
+  const out = isArr ? kept : { ...json, items: kept };
   writeJSON(path.join(DIST, 'data', v.data), out);
 }
 

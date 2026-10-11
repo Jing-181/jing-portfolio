@@ -39,41 +39,70 @@
     <div class="vol-state" id="vol-state" hidden></div>
     <h1>训练志</h1>
     <p class="vol-lede">
-      华为运动健康里的运动记录：<b>跑步、力量、游泳、羽毛球</b>，
-      还有骑行、爬楼、步行这些零散的。这里放的是总结——
-      总量、每一年的形状、每个项目的分量，还有那些破纪录的月份；
-      另一层是最近练力量的每一次，<b>杠铃深蹲、哑铃卧推、背日</b>，
-      重量和组数都原样记着。按天记的跑步配速和主观感受还没有。
-      数据源写在
-      <code style="font-family:var(--mono);font-size:13px;color:var(--muted)">data/training.md</code>，
-      页面读的是它生成的 <code style="font-family:var(--mono);font-size:13px;color:var(--muted)">data/training.json</code>。
+      记录从 2017 年 8 月开始，前六年几乎没留下什么，密起来是最近三年。
+      <b>跑步</b>是底座，四年一千五百多公里；2026 年秋天转进健身房，
+      <b>胸、背、腿三分化</b>成了主线。这一卷不排流水账，只看形状：
+      练了多少、怎么分的、练到过多重。按天记的配速和主观感受还没有。
     </p>
-    <div class="vol-stat" id="tr-stat"></div>
+    <div class="figures" id="vol-figures"></div>
   </div>
 </header>
 
 <main class="wrap" style="padding-bottom:96px;">
-  <section class="mv-block" id="mv-block" hidden>
-    <div class="mv-head">
-      <h2 class="mv-h">常用动作</h2>
-      <span class="mv-sub">重量是练到过的大数</span>
+
+  <section class="tblock" id="how-block" hidden>
+    <div class="tblock-head">
+      <h2 class="tblock-h">怎么练</h2>
+      <span class="tblock-sub">没有固定课表</span>
+    </div>
+    <div class="how-body">
+      <div class="how-tags" id="how-tags"></div>
+      <p class="how-lede" id="how-lede"></p>
+    </div>
+  </section>
+
+  <section class="tblock" id="mv-block" hidden>
+    <div class="tblock-head">
+      <h2 class="tblock-h">常用动作</h2>
+      <span class="tblock-sub">重量是练到过的大数</span>
     </div>
     <div class="mv-grid" id="mv-grid"></div>
   </section>
 
-  <div class="filter-bar" id="filter-bar">
-    <span class="fb-label">分类</span>
-    <!-- 由数据渲染 -->
-  </div>
-  <div class="tr-list" id="tr-list">
-    <div class="vol-empty">正在读取训练数据…</div>
-  </div>
+  <section class="tblock" id="day-block" hidden>
+    <div class="tblock-head">
+      <h2 class="tblock-h">样例训练日</h2>
+      <span class="tblock-sub">一天长什么样</span>
+    </div>
+    <div class="day-grid" id="day-grid"></div>
+  </section>
 
-  <div class="vol-empty" id="tr-hint" style="display:none;text-align:left;margin-top:22px;">
-    目前还没有记录。往 <b>data/training.md</b> 里加一条就行，格式是：<br>
-    <code style="font-family:var(--mono);font-size:12.5px;">### 标题</code>，下面跟
-    <code style="font-family:var(--mono);font-size:12.5px;">date / kind / title / place / metric / note / tags</code> 这几行。
-  </div>
+  <section class="tblock" id="pr-block" hidden>
+    <div class="tblock-head">
+      <h2 class="tblock-h">力量突破</h2>
+      <span class="tblock-sub">练到头的那几个数</span>
+    </div>
+    <div class="mv-grid" id="pr-grid"></div>
+  </section>
+
+  <section class="tblock" id="arc-block" hidden>
+    <div class="tblock-head">
+      <h2 class="tblock-h">档案</h2>
+      <span class="tblock-sub">四年总账</span>
+    </div>
+    <div class="filter-bar" id="filter-bar">
+      <span class="fb-label">分类</span>
+      <!-- 由数据渲染 -->
+    </div>
+    <div class="tr-list" id="tr-list">
+      <div class="vol-empty">正在读取训练数据…</div>
+    </div>
+    <div class="vol-empty" id="tr-hint" style="display:none;text-align:left;margin-top:22px;">
+      目前还没有记录。往 <b>data/training.md</b> 的 <b>## 档案</b> 里加一条就行，格式是：<br>
+      <code style="font-family:var(--mono);font-size:12.5px;">### 标题</code>，下面跟
+      <code style="font-family:var(--mono);font-size:12.5px;">date / kind / metric / note / tags</code> 这几行。
+    </div>
+  </section>
 
   <a class="vol-back" href="../index.html">← 回到卷首</a>
 </main>
@@ -89,18 +118,103 @@
 <script src="../assets/js/site.js"></script>
 <script>
 (function () {
-  var listEl = document.getElementById('tr-list');
-  var bar = document.getElementById('filter-bar');
-  var statEl = document.getElementById('tr-stat');
-  var hint = document.getElementById('tr-hint');
-  var state = { kind: '全部' };
-  var ALL = [];
-  var MOVE = [];
-
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
     });
+  }
+  function bySection(name) {
+    return ALL.filter(function (i) { return i.section === name; })
+      .sort(function (a, b) { return (a.seq || 0) - (b.seq || 0); });
+  }
+  function splitLoad(s) {
+    var m = String(s || '').match(/^(.*?)\s*([^\d\s]+)$/);
+    if (m && m[1]) return '<b>' + esc(m[1]) + '</b><span>' + esc(m[2]) + '</span>';
+    return s ? '<b>' + esc(s) + '</b>' : '';
+  }
+  function chips(list) {
+    return (list || []).map(function (t) { return '<span>' + esc(t) + '</span>'; }).join('');
+  }
+  function partTag(p) {
+    return p ? '<span class="mv-part">' + esc(p) + '</span>' : '<span></span>';
+  }
+
+  /* ---- 页首大数字 ---- */
+  function renderStats() {
+    var el = document.getElementById('vol-figures');
+    if (!STATS.length) return;
+    el.innerHTML = STATS.map(function (s) {
+      return '<div class="figure reveal">' +
+        '<span class="fg-label">' + esc(s.label) + '</span>' +
+        '<b class="fg-value">' + esc(s.value) + '</b>' +
+        (s.sub ? '<span class="fg-sub">' + esc(s.sub) + '</span>' : '') +
+      '</div>';
+    }).join('');
+  }
+
+  /* ---- 怎么练 ---- */
+  function renderHow() {
+    var it = bySection('怎么练')[0];
+    if (!it) return;
+    document.getElementById('how-tags').innerHTML = chips(it.tags);
+    document.getElementById('how-lede').textContent = it.note || '';
+    document.getElementById('how-block').hidden = false;
+  }
+
+  /* ---- 常用动作 ---- */
+  function movement(m) {
+    return '<div class="mv reveal">' +
+      '<div class="mv-top">' + partTag(m.part) + '</div>' +
+      '<h3 class="mv-name">' + esc(m.name) + '</h3>' +
+      (m.load ? '<div class="mv-load">' + splitLoad(m.load) + '</div>' : '') +
+      (m.meta ? '<div class="mv-meta">' + esc(m.meta) + '</div>' : '') +
+      (m.note ? '<p class="mv-note">' + esc(m.note) + '</p>' : '') +
+      (m.tags && m.tags.length ? '<div class="tr-tags">' + chips(m.tags) + '</div>' : '') +
+    '</div>';
+  }
+  function renderMovements() {
+    if (!MOVE.length) return;
+    document.getElementById('mv-grid').innerHTML = MOVE.map(movement).join('');
+    document.getElementById('mv-block').hidden = false;
+  }
+
+  /* ---- 样例训练日 ---- */
+  function dayCard(it) {
+    return '<div class="day-card reveal">' +
+      '<div class="day-top">' + partTag(it.part) +
+        '<span class="day-date">' + esc(it.date) + '</span></div>' +
+      '<h3 class="day-name">' + esc(it.title) + '</h3>' +
+      (it.metric ? '<div class="day-meta">' + esc(it.metric) + '</div>' : '') +
+      (it.note ? '<div class="day-list">' + esc(it.note) + '</div>' : '') +
+      (it.tags && it.tags.length ? '<div class="tr-tags">' + chips(it.tags) + '</div>' : '') +
+    '</div>';
+  }
+  function renderDays() {
+    var list = bySection('样例训练日');
+    if (!list.length) return;
+    document.getElementById('day-grid').innerHTML = list.map(dayCard).join('');
+    document.getElementById('day-block').hidden = false;
+  }
+
+  /* ---- 力量突破 ---- */
+  function renderPRs() {
+    var list = bySection('力量突破');
+    if (!list.length) return;
+    document.getElementById('pr-grid').innerHTML = list.map(function (it) {
+      return '<div class="mv reveal">' +
+        '<div class="mv-top">' + partTag(it.part) + '</div>' +
+        '<h3 class="mv-name">' + esc(it.title) + '</h3>' +
+        (it.metric ? '<div class="mv-load">' + splitLoad(it.metric) + '</div>' : '') +
+        (it.note ? '<p class="mv-note">' + esc(it.note) + '</p>' : '') +
+      '</div>';
+    }).join('');
+    document.getElementById('pr-block').hidden = false;
+  }
+
+  /* ---- 档案（可筛选总账） ---- */
+  var SPECIAL = { '概览': 1, '怎么练': 1, '常用动作': 1, '样例训练日': 1, '力量突破': 1 };
+  function archive() {
+    return ALL.filter(function (i) { return !SPECIAL[i.section]; });
   }
   function weekday(d) {
     var p = String(d || '').split('-');
@@ -109,8 +223,7 @@
     if (isNaN(dt.getTime())) return '';
     return '周' + '日一二三四五六'[dt.getDay()];
   }
-  function item(it) {
-    var tags = (it.tags || []).map(function (t) { return '<span>' + esc(t) + '</span>'; }).join('');
+  function archiveItem(it) {
     return '<div class="tr-item reveal' + (it.private ? ' is-private' : '') + '">' +
       '<div class="tr-date">' + esc(it.date) +
         (weekday(it.date) ? '<small>' + weekday(it.date) + '</small>' : '') + '</div>' +
@@ -118,66 +231,49 @@
         '<div class="tr-head"><span class="tr-kind">' + esc(it.kind) + '</span>' +
           '<h3 class="tr-title">' + esc(it.title) +
           (it.private ? ' <span class="t-priv">仅本地</span>' : '') + '</h3></div>' +
-        (it.place ? '<div class="tr-place">' + esc(it.place) + '</div>' : '') +
         (it.metric ? '<div class="tr-metric">' + esc(it.metric) + '</div>' : '') +
         (it.note ? '<p class="tr-note">' + esc(it.note) + '</p>' : '') +
-        (tags ? '<div class="tr-tags">' + tags + '</div>' : '') +
+        (it.tags && it.tags.length ? '<div class="tr-tags">' + chips(it.tags) + '</div>' : '') +
       '</div></div>';
   }
-
-  function movement(m) {
-    var parts = String(m.load || '').match(/^(.*?)\s*([^\d\s]+)$/);
-    var load = '';
-    if (parts) load = '<b>' + esc(parts[1]) + '</b><span>' + esc(parts[2]) + '</span>';
-    else if (m.load) load = '<b>' + esc(m.load) + '</b>';
-    var tags = (m.tags || []).map(function (t) { return '<span>' + esc(t) + '</span>'; }).join('');
-    return '<div class="mv reveal' + (load ? '' : ' is-empty') + '">' +
-      (m.part ? '<div class="mv-top"><span class="mv-part">' + esc(m.part) + '</span></div>' : '') +
-      '<h3 class="mv-name">' + esc(m.name) + '</h3>' +
-      (load ? '<div class="mv-load">' + load + '</div>' : '') +
-      (m.meta ? '<div class="mv-meta">' + esc(m.meta) + '</div>' : '') +
-      (m.note ? '<p class="mv-note">' + esc(m.note) + '</p>' : '') +
-      (tags ? '<div class="tr-tags">' + tags + '</div>' : '') +
-    '</div>';
-  }
-
-  function renderMovements() {
-    var block = document.getElementById('mv-block');
-    var grid = document.getElementById('mv-grid');
-    if (!MOVE.length) return;
-    grid.innerHTML = MOVE.map(movement).join('');
-    block.hidden = false;
-  }
-
   function kinds() {
+    var items = archive();
     var seen = [], declared = ALL.__declared || [];
-    ALL.forEach(function (it) { if (it.kind && seen.indexOf(it.kind) < 0) seen.push(it.kind); });
+    items.forEach(function (it) { if (it.kind && seen.indexOf(it.kind) < 0) seen.push(it.kind); });
     var ordered = declared.filter(function (k) { return seen.indexOf(k) >= 0; });
     seen.forEach(function (k) { if (ordered.indexOf(k) < 0) ordered.push(k); });
     return ['全部'].concat(ordered);
   }
+  function renderArchive() {
+    var items = archive();
+    var bar = document.getElementById('filter-bar');
+    var listEl = document.getElementById('tr-list');
+    var hint = document.getElementById('tr-hint');
+    document.getElementById('arc-block').hidden = ALL.length ? false : true;
 
-  function render() {
     var ks = kinds();
-    bar.style.display = ALL.length ? '' : 'none';
+    bar.style.display = items.length ? '' : 'none';
     bar.innerHTML = '<span class="fb-label">分类</span>' + ks.map(function (k) {
-      var n = k === '全部' ? ALL.length : ALL.filter(function (i) { return i.kind === k; }).length;
+      var n = k === '全部' ? items.length : items.filter(function (i) { return i.kind === k; }).length;
       return '<button class="chip' + (k === state.kind ? ' on' : '') + '" data-kind="' + esc(k) + '">' +
         esc(k) + '<i class="chip-n">' + n + '</i></button>';
     }).join('');
 
-    var list = state.kind === '全部' ? ALL : ALL.filter(function (i) { return i.kind === state.kind; });
+    var list = state.kind === '全部' ? items : items.filter(function (i) { return i.kind === state.kind; });
     listEl.style.display = list.length ? '' : 'none';
-    hint.style.display = ALL.length ? 'none' : '';
-    if (list.length) listEl.innerHTML = list.map(item).join('');
-    if (window.__revealBind) window.__revealBind();
+    hint.style.display = items.length ? 'none' : '';
+    if (list.length) listEl.innerHTML = list.map(archiveItem).join('');
   }
 
-  bar.addEventListener('click', function (e) {
+  var ALL = [], MOVE = [], STATS = [];
+  var state = { kind: '全部' };
+
+  document.getElementById('filter-bar').addEventListener('click', function (e) {
     var b = e.target.closest('button');
     if (!b || !b.dataset.kind) return;
     state.kind = b.dataset.kind;
-    render();
+    renderArchive();
+    if (window.__revealBind) window.__revealBind();
   });
 
   fetch('../data/training.json')
@@ -185,24 +281,23 @@
     .then(function (data) {
       ALL = (data.items || []).slice();
       MOVE = (data.movements || []).slice();
-      renderMovements();
+      STATS = (data.stats || []).slice();
       ALL.__declared = data.kinds || [];
       if (data.updated) document.getElementById('t-updated').textContent = '更新于 ' + data.updated;
-      if (ALL.length) {
-        var counts = {};
-        ALL.forEach(function (i) { counts[i.kind] = (counts[i.kind] || 0) + 1; });
-        var top = Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a]; })[0];
-        var latest = ALL.map(function (i) { return i.date; }).sort().pop();
-        statEl.innerHTML = '<span>' + ALL.length + ' 条记录</span>' +
-          '<span>最近一次 ' + esc(latest) + '</span>' +
-          (top ? '<span>记录最多：' + esc(top) + '（' + counts[top] + ' 条）</span>' : '');
-      }
-      render();
+
+      renderStats();
+      renderHow();
+      renderMovements();
+      renderDays();
+      renderPRs();
+      renderArchive();
+      if (window.__revealBind) window.__revealBind();
     })
     .catch(function () {
-      hint.style.display = 'none';
-      listEl.innerHTML = '<div class="vol-empty">训练数据没能读出来。<br>' +
+      document.getElementById('tr-hint').style.display = 'none';
+      document.getElementById('tr-list').innerHTML = '<div class="vol-empty">训练数据没能读出来。<br>' +
         '本地预览请用 <b>python3 -m http.server</b> 起个服务再打开。</div>';
+      document.getElementById('arc-block').hidden = false;
     });
 })();
 window.__volState('training');

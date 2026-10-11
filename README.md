@@ -15,9 +15,9 @@
   - 第二卷 · 喜好志 —— 感官与偏好（`pages/tastes.html`）
   - 第三卷 · 经历志 —— 时间与轨迹（`pages/timeline.html`）
   - 第四卷 · 训练志 —— 身体与负荷（`pages/training.html`）
-- **记录写在 md，页面读 json**：内容一律记录在 `data/*.md` 里（人读、AI 写都舒服），
-  由 `scripts/data.js` 处理成 `data/*.json`（页面读取的内容集合）。
-  页面不写死内容；要改内容，改 md；要加一卷，加一条 md + 一个页面模板。
+- **内容写在主 md，页面读主 json**：正文与结构化事实记在 `data/<卷>.md`（人读、AI 写都舒服），
+  由 `scripts/data.js` 处理成 `data/<卷>.json`（页面读取的内容集合）；上游的原始素材堆在 `data/sources/<卷>/`。
+  页面不写死内容；要改内容，改主 md；要加一卷，加一条 md + 一个页面模板。
 
 ## 2. 目录结构
 
@@ -29,27 +29,50 @@ jing-portfolio/
 │   ├── tastes.html          # 第二卷 · 喜好志
 │   ├── timeline.html        # 第三卷 · 经历志
 │   └── training.html        # 第四卷 · 训练志
-├── data/                    # ← 事实源在这里（md）
-│   ├── site.md              # 分卷清单
-│   ├── tastes.md            # 喜好志条目
-│   ├── timeline.md          # 经历志节点
-│   ├── training.md          # 训练记录
-│   └── *.json               # 由上面的 md 生成（页面读它），不入库
+├── data/                    # ← 事实层：每卷「主 md + 主 json」
+│   ├── site.md   site.json          # 卷首 · 分卷清单
+│   ├── resume.md  resume.json       # 第一卷 · 履历志（整页）
+│   ├── tastes.md  tastes.json     # 第二卷
+│   ├── timeline.md timeline.json  # 第三卷
+│   ├── training.md training.json  # 第四卷
+│   ├── sources/                   # ← 原始素材层（只被主 md 引用，构建不解析）
+│   │   ├── resume/                #   projects-complete.md、projects-showcase.md
+│   │   ├── tastes/                #   网易云 / b 站 txt、微信读书 md、快照
+│   │   ├── timeline/              #   快照
+│   │   └── training/              #   训练导出 json
+│   └── *.json                     # 由主 md 生成（页面读它），不入库
 ├── assets/
 │   ├── css/site.css         # 设计系统（纸感底色 + 墨色 + 中国传统色强调）
 │   ├── css/volumes.css      # 分卷通用组件（分卷卡片、筛选、喜好卡片…）
 │   └── js/site.js           # 全站共享交互（滚动淡入）
 ├── scripts/
-│   ├── data.js              # md → json：事实源 → 页面内容集合
+│   ├── data.js              # md → json：主 md → 页面内容集合
 │   └── build.js             # 组装 dist/：先跑 data.js，再剔除 private 内容
-├── portfolio-docs/          # 早期的人写档案（写作区/草稿，不参与渲染）
+├── portfolio-docs/          # 设计与写作交接文档（volumes/brief.md），与数据无关
 ├── package.json             # data / dev / build / preview 脚本
 └── .github/workflows/deploy.yml  # 推送 main 自动构建并发布到 GitHub Pages
 ```
 
-## 3. 数据规范（md 事实源）
+## 3. 数据规范
 
-两种数据文件共用一套极简结构：
+每一卷的数据分三层，各管一件事，不要混：
+
+| 层 | 文件 | 谁读 | 能手写吗 | 管什么 |
+| --- | --- | --- | --- | --- |
+| **主 md** | `data/<卷>.md` | 人 / AI | 就写这里 | 卷的叙述 + 结构化事实 + 素材导航 |
+| **主 json** | `data/<卷>.json` | 页面 | 产物，别改 | 只放页面要展示的内容 |
+| **原始素材** | `data/sources/<卷>/…` | 人 / AI | ✓ | txt 表 / 导出 json / 描述 md，是事实的上游 |
+
+- `<卷>` 取该卷的 `id`：`site / tastes / timeline / training / resume`。
+  一律小写、单数、无空格。
+- 主 md 与主 json **同名不同后缀，都放在 `data/` 顶层**；要改内容，改主 md，再跑 `npm run data`。
+- 原始素材放 `data/sources/<卷>/`，格式随便、不进页面，被主 md 引用即可。
+  命名 `<来源或主题>.<ext>`；带日期的快照或导出加后缀 `-YYYY-MM-DD`
+  （例：`workouts-export-2026-10-10.json`、`snapshot-2026-10-10.md`）。
+- 素材层**只有人 / AI 读**：`scripts/data.js` 与 `scripts/build.js` 都不碰它，
+  往里堆多少原始数据都不影响生成与构建。
+
+主 md（以及 `site.md`）共用一套极简结构：
 
 ```
 --- 前置元信息（key: value）---
@@ -107,23 +130,76 @@ field: value
 
 > 时间锚点（写在 `timeline.md` 顶部注释里）：1997 出生 · 2015 上大学 · 2019 毕业工作。
 
-### `data/training.md` —— 训练记录
+### `data/training.md` —— 训练志
 
-前置元信息写 `vol / updated / kinds`；每条写成 `### 标题`，下面跟：
+前置元信息写 `vol / updated / kinds`（`kinds` 是底部档案筛选器的分类顺序）。
+
+**这一卷按 `##` 分区摆块**，页面不再按天倒流水。分区与用到的字段：
+
+| `##` 分区 | 页面呈现 | 用到的字段 |
+| --- | --- | --- |
+| `概览` | 页首那排大数字 | `### 标题` → label，`metric` → value，`note` → 小字 |
+| `怎么练` | 一段练法（`tags` 变成胸/背/腿小签） | `note`、`tags` |
+| `常用动作` | 那排动作卡（顺序＝条目顺序） | `part / load / meta / note` |
+| `样例训练日` | 一天一张卡，`note` 每行一个动作 | `part / metric / note / tags` |
+| `力量突破` | 里程碑卡（复用动作卡样式） | `part / metric / note` |
+| `档案` | 底部可筛选总账 | `date / kind / metric / note / tags` |
+
+通用字段：
 
 | 字段 | 必填 | 说明 |
 | --- | --- | --- |
-| `date` | ✓ | `YYYY-MM-DD`，排序用（**新的在前**） |
-| `kind` | | 分类：力量 / 跑步 / 跑山 / 羽毛球 / 有氧恢复 / 其他 |
-| `title` | ✓ | 这条练的是什么，如「深蹲日」 |
-| `place` | | 在哪练的（可留空） |
-| `metric` | | 关键数据，一行写完，如 `深蹲 5×5 @100kg` |
-| `note` | | 主观感受、状态、恢复情况 |
-| `tags` | | 标签，用逗号分隔 |
+| `date` | ✓ | `YYYY-MM-DD` 或 `YYYY-MM`，排序用（**新的在前**） |
+| `kind` | | 档案分类：总计 / 年份（「2026 年」）/ 力量 / 跑步 / 功能性 / 有氧 / 其他 |
+| `title` | ✓ | 取 `### 标题` |
+| `part` | | 部位小标签：胸 / 背 / 腿 / 后链 / 后束 / 三头 / 二头 |
+| `metric` | | 关键数据，一行写完 |
+| `note` | | 说明，可多行（缩进的行会接到上一字段后面） |
+| `tags` | | 标签，用逗号分隔；**值里不能出现逗号**（会被切开） |
 | `private` | | `true` = 只在本地可见，部署时剔除 |
 
-> 四个卷的解析器都在 `scripts/data.js` 里，登记在文件末尾的 `JOBS` 表中；
+> `section` 不用手写：`parseTraining` 按条目所在的 `##` 自动打上，页面据此分区渲染。
+> 约定：**页面只显示「形状」，不显示流水**；只有力量上的突破才往 `## 力量突破` 补条目。
+> 逐次流水不写在 md 里，放在 `data/sources/training/workouts-export-2026-10-10.json`，用来核对卡片里的数字。
+
+### `data/resume.md` —— 履历志整页
+
+这一卷不是条目流，而是整页：按 `## 块名` 分块，块内 `field: value`，`### ` 作子项。
+
+| 块 | 页面位置 | 说明 |
+| --- | --- | --- |
+| `卷首` | hero | `eyebrow / name / nameEm / role / desc / tags / motto / mottoEm / mottoSub` |
+| `关于` | 01 · ABOUT | `p` 累积成段落；`fact: 名 \| 值 \| 链接` 是右侧事实表；`quote / quoteLabel` 是旁白 |
+| `技术能力` | 02 · SKILLS | `### 分组名` + `level / sub`；`- 名称 \| 场景 \| 佐证` 是一条技能 |
+| `技术标签云` | 标签云 | `fw / eng / lib` 三行分类，各自逗号分隔 |
+| `工作方式` | 03 · WORKFLOW | `group / gsub` 是标题；`### 步骤` + `num / desc`；`delivery` 是交付能力清单 |
+| `精选项目` | 04 · PROJECTS | `### 项目名` + `num / role / co / stack / desc / prove / link: 文案 \| 地址`；`point` 累积成要点 |
+| `其他经验` | 项目下方 | `- 名称 \| 类型 \| 说明` |
+| `经历` | 05 · EXPERIENCE | `### 标题` + `variant(compact/edu) / time / sub / extra`；`list` 累积成小点 |
+| `联系` | 06 · CONTACT | `link: 文案 \| 地址 \| solid/ghost` |
+| `页脚` | footer | `left / right` |
+
+> 字段值里的 `**x**` 会渲染成加粗；用 `|` 分隔的字段按位置拆段。页面 `pages/resume.html`
+> 读 `data/resume.json` 渲染，标题与描述取自前置元信息的 `title / description`。
+
+> 五个卷的解析器都在 `scripts/data.js` 里，登记在文件末尾的 `JOBS` 表中；
 > 以后新增卷，在 `JOBS` 里加一行，再在 `pages/` 加一个模板页即可。
+
+### 素材导航段（约定）
+
+每卷主 md 的末尾统一放一段 `## 素材导航`，把本卷的上游素材列出来；它既是给人的描述，
+也是文件索引。四个解析器都不会把这段当成数据：tastes 的分类只认前置元信息里的 `categories`，
+timeline 的 `##` 只作分隔，training 里没有条目的空分区不渲染。所以写它不影响生成。
+
+```md
+## 素材导航
+
+本卷的主 md 就是本文件（叙述 + 索引），页面只读 `data/<卷>.json`。
+原始素材放在 `data/sources/<卷>/`：
+
+- `sources/tastes/netease-playlist.txt` —— 网易云歌单 214 首原样抓取
+- `sources/tastes/snapshot-2026-10-10.md` —— 打磨前的本卷快照（原话存档）
+```
 
 ## 4. 设计与主题（中国传统色）
 

@@ -1,0 +1,4786 @@
+[
+    {
+        "id": 1787916525535,
+        "note": "胸部训练，哑铃卧推、哑铃上斜卧推、推举机、二头弯举、绳索下压、龙门架夹胸",
+        "unit": "分钟",
+        "image": "",
+        "title": "力量训练",
+        "layout": "default",
+        "target": 60,
+        "current": 60,
+        "updated_at": "2026-08-28T11:29:46.202Z"
+    },
+    {
+        "id": 1788139170674,
+        "note": "蝴蝶机夹背、辅助引体向上、哑铃俯身划船、二头弯举、跑步、绳索划船、高位下拉、绳索下压",
+        "unit": "分钟",
+        "image": "",
+        "title": "力量训练：背部训练",
+        "layout": "default",
+        "target": 60,
+        "current": 80,
+        "updated_at": "2026-08-31T01:21:13.823Z"
+    },
+    {
+        "id": "workout-1788175391439-909c28852436d8",
+        "date": "2026-08-31",
+        "kind": "workout_session",
+        "note": "",
+        "title": "有氧恢复",
+        "status": "completed",
+        "exercises": [
+            {
+                "id": "exercise-1788175395255-215ead0c39b5d8",
+                "name": "跑步机",
+                "note": "",
+                "sets": [],
+                "angle": "",
+                "body_part": "心肺",
+                "equipment": "有氧",
+                "exercise_id": "treadmill"
+            }
+        ],
+        "updated_at": "2026-08-31T11:23:51.481Z",
+        "duration_min": 40,
+        "training_day": "cardio",
+        "schema_version": 2
+    },
+    {
+        "id": "workout-1788260496377-4a4c3c405b115",
+        "date": "2026-09-01",
+        "kind": "workout_session",
+        "note": "",
+        "title": "胸日",
+        "status": "completed",
+        "exercises": [
+            {
+                "id": "exercise-1788264016003-3083f4ca89302",
+                "name": "哑铃卧推（上斜）",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 26
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 26
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 24
+                    }
+                ],
+                "angle": "上斜",
+                "body_part": "上胸",
+                "equipment": "哑铃",
+                "exercise_id": "dumbbell_bench_press_incline"
+            },
+            {
+                "id": "exercise-1788264017831-10cd74fb4565d",
+                "name": "推胸机（下斜）",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 60
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 60
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 60
+                    }
+                ],
+                "angle": "下斜",
+                "body_part": "下胸",
+                "equipment": "器械",
+                "exercise_id": "machine_chest_press_decline"
+            },
+            {
+                "id": "exercise-1788264021703-8474ba662a4168",
+                "name": "推胸机（上斜）",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 40
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 40
+                    }
+                ],
+                "angle": "上斜",
+                "body_part": "上胸",
+                "equipment": "器械",
+                "exercise_id": "machine_chest_press_incline"
+            },
+            {
+                "id": "exercise-1788264026100-fc2f19b3aa48f8",
+                "name": "杠铃卧推",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 40
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 50
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 50
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 50
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 5,
+                        "completed": true,
+                        "weight_kg": 60
+                    }
+                ],
+                "angle": "水平",
+                "body_part": "胸",
+                "equipment": "杠铃",
+                "exercise_id": "barbell_bench_press"
+            },
+            {
+                "id": "exercise-1788264037638-67f3914920fe1",
+                "name": "绳索下压",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 12
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 12
+                    }
+                ],
+                "angle": "",
+                "body_part": "三头",
+                "equipment": "绳索",
+                "exercise_id": "rope_pushdown"
+            },
+            {
+                "id": "exercise-1788264068580-a60a1d4172673",
+                "name": "实力推",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 20
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 20
+                    }
+                ],
+                "angle": "",
+                "body_part": "肩",
+                "equipment": "杠铃",
+                "exercise_id": "strict_press"
+            }
+        ],
+        "updated_at": "2026-09-01T12:08:15.095Z",
+        "duration_min": 60,
+        "training_day": "chest",
+        "schema_version": 2
+    },
+    {
+        "id": "workout-1788350002789-824d847f70f3e8",
+        "date": "2026-09-02",
+        "kind": "workout_session",
+        "note": "",
+        "title": "背日",
+        "status": "completed",
+        "exercises": [
+            {
+                "id": "exercise-1788350006177-03af4c0a441ff",
+                "name": "引体向上",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": -31
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": -31
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 6,
+                        "completed": true,
+                        "weight_kg": -22
+                    }
+                ],
+                "angle": "",
+                "body_part": "背",
+                "equipment": "自重",
+                "exercise_id": "pull_up"
+            },
+            {
+                "id": "exercise-1788350009572-437345dc3e9d",
+                "name": "高位下拉（窄握）",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 40
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 40
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 40
+                    }
+                ],
+                "angle": "",
+                "body_part": "背阔肌",
+                "equipment": "绳索",
+                "exercise_id": "lat_pulldown_close"
+            },
+            {
+                "id": "exercise-1788350013461-43477fcb48b73",
+                "name": "高位下拉（宽握）",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 40
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 40
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 40
+                    }
+                ],
+                "angle": "",
+                "body_part": "背阔肌",
+                "equipment": "绳索",
+                "exercise_id": "lat_pulldown_wide"
+            },
+            {
+                "id": "exercise-1788350016243-9bb8d9ada9a5c8",
+                "name": "坐姿绳索划船",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 50
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 50
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 50
+                    }
+                ],
+                "angle": "",
+                "body_part": "中背",
+                "equipment": "绳索",
+                "exercise_id": "seated_cable_row"
+            },
+            {
+                "id": "exercise-1788350019488-3cdf4abfe555f8",
+                "name": "反向蝴蝶机",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 15,
+                        "completed": true,
+                        "weight_kg": 32
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 12,
+                        "completed": true,
+                        "weight_kg": 32
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 12,
+                        "completed": true,
+                        "weight_kg": 32
+                    }
+                ],
+                "angle": "",
+                "body_part": "后束",
+                "equipment": "器械",
+                "exercise_id": "reverse_pec_deck"
+            },
+            {
+                "id": "exercise-1788350021992-396f3f5206b84",
+                "name": "直臂下压",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 15,
+                        "completed": true,
+                        "weight_kg": 9
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 15,
+                        "completed": true,
+                        "weight_kg": 9
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 12,
+                        "completed": true,
+                        "weight_kg": 9
+                    }
+                ],
+                "angle": "",
+                "body_part": "背阔肌",
+                "equipment": "绳索",
+                "exercise_id": "straight_arm_pulldown"
+            }
+        ],
+        "updated_at": "2026-09-02T12:14:55.864Z",
+        "duration_min": 60,
+        "training_day": "back",
+        "schema_version": 2
+    },
+    {
+        "id": "workout-1788615606464-89825184815ac8",
+        "date": "2026-09-05",
+        "kind": "workout_session",
+        "note": "",
+        "title": "腿日",
+        "status": "completed",
+        "exercises": [
+            {
+                "id": "exercise-1788615609101-a1ba9db238146",
+                "name": "杠铃深蹲",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 5,
+                        "completed": true,
+                        "weight_kg": 70
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 5,
+                        "completed": true,
+                        "weight_kg": 70
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 5,
+                        "completed": true,
+                        "weight_kg": 70
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 5,
+                        "completed": true,
+                        "weight_kg": 70
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 5,
+                        "completed": true,
+                        "weight_kg": 70
+                    }
+                ],
+                "angle": "",
+                "body_part": "腿",
+                "equipment": "杠铃",
+                "exercise_id": "barbell_squat"
+            },
+            {
+                "id": "exercise-1788615610489-34ac9e36e7544",
+                "name": "腿屈伸",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 63
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 63
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 63
+                    }
+                ],
+                "angle": "",
+                "body_part": "股四头",
+                "equipment": "器械",
+                "exercise_id": "leg_extension"
+            },
+            {
+                "id": "exercise-1788615611639-333f6f3e6a993",
+                "name": "腿弯举",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 63
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 63
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 63
+                    }
+                ],
+                "angle": "",
+                "body_part": "腘绳肌",
+                "equipment": "器械",
+                "exercise_id": "leg_curl"
+            },
+            {
+                "id": "exercise-1788615619975-a59d752de931c",
+                "name": "杠铃弯举",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 20
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 20
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 20
+                    }
+                ],
+                "angle": "",
+                "body_part": "二头",
+                "equipment": "杠铃",
+                "exercise_id": "barbell_curl"
+            },
+            {
+                "id": "exercise-1788615622291-f30067024427d8",
+                "name": "绳索下压",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 12,
+                        "completed": true,
+                        "weight_kg": 10
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 12,
+                        "completed": true,
+                        "weight_kg": 10
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 12,
+                        "completed": true,
+                        "weight_kg": 10
+                    }
+                ],
+                "angle": "",
+                "body_part": "三头",
+                "equipment": "绳索",
+                "exercise_id": "rope_pushdown"
+            },
+            {
+                "id": "exercise-1788615630875-fa086afab47ba8",
+                "name": "腿举",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 80
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 80
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 80
+                    }
+                ],
+                "angle": "",
+                "body_part": "腿",
+                "equipment": "器械",
+                "exercise_id": "leg_press"
+            }
+        ],
+        "updated_at": "2026-09-05T13:42:38.059Z",
+        "duration_min": 60,
+        "training_day": "legs",
+        "schema_version": 2
+    },
+    {
+        "id": "workout-1788744080146-fcc3140a0eda9",
+        "date": "2026-09-06",
+        "kind": "workout_session",
+        "note": "一般般",
+        "title": "胸日",
+        "status": "completed",
+        "exercises": [
+            {
+                "id": "exercise-1788744089112-ac5b8e2a98741",
+                "name": "哑铃卧推",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 20
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 20
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 20
+                    }
+                ],
+                "angle": "水平",
+                "body_part": "胸",
+                "equipment": "哑铃",
+                "exercise_id": "dumbbell_bench_press"
+            },
+            {
+                "id": "exercise-1788744091656-b28a11a9b85c58",
+                "name": "推胸机（下斜）",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 50
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 50
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 50
+                    }
+                ],
+                "angle": "下斜",
+                "body_part": "下胸",
+                "equipment": "器械",
+                "exercise_id": "machine_chest_press_decline"
+            },
+            {
+                "id": "exercise-1788744092293-5bf9f8456a8f78",
+                "name": "推胸机（上斜）",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 50
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 50
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 50
+                    }
+                ],
+                "angle": "上斜",
+                "body_part": "上胸",
+                "equipment": "器械",
+                "exercise_id": "machine_chest_press_incline"
+            },
+            {
+                "id": "exercise-1788744103028-7c8b88125cc018",
+                "name": "绳索下压",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 12,
+                        "completed": true,
+                        "weight_kg": 9
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 12,
+                        "completed": true,
+                        "weight_kg": 9
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 12,
+                        "completed": true,
+                        "weight_kg": 9
+                    }
+                ],
+                "angle": "",
+                "body_part": "三头",
+                "equipment": "绳索",
+                "exercise_id": "rope_pushdown"
+            },
+            {
+                "id": "exercise-1788744110540-fed50349fdfd38",
+                "name": "哑铃弯举",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 10
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 10
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 10
+                    }
+                ],
+                "angle": "",
+                "body_part": "二头",
+                "equipment": "哑铃",
+                "exercise_id": "dumbbell_curl"
+            }
+        ],
+        "updated_at": "2026-09-07T01:23:05.974Z",
+        "duration_min": 60,
+        "training_day": "chest",
+        "schema_version": 2
+    },
+    {
+        "id": "workout-1790858756297-bb558216f30b9",
+        "date": "2026-10-01",
+        "kind": "workout_session",
+        "note": "",
+        "title": "有氧恢复",
+        "status": "completed",
+        "exercises": [
+            {
+                "id": "exercise-1790858777324-1d93fc989c3298",
+                "icon": "户外",
+                "name": "户外跑",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "pace": "",
+                        "distance_km": 10,
+                        "duration_min": 63
+                    }
+                ],
+                "tips": "选择平整路线，保持轻快步频。跑前热身，出现疼痛及时停止。",
+                "angle": "",
+                "muscles": "心肺、臀腿",
+                "body_part": "心肺",
+                "equipment": "有氧",
+                "exercise_id": "outdoor_run",
+                "planned_sets": 1
+            }
+        ],
+        "updated_at": "2026-10-01T12:46:34.234Z",
+        "duration_min": 63,
+        "training_day": "cardio",
+        "schema_version": 2
+    },
+    {
+        "id": "workout-1788844931021-819d187d158c98",
+        "date": "2026-09-07",
+        "kind": "workout_session",
+        "note": "一般般，开始很疲惫，上班累了",
+        "title": "背日",
+        "status": "completed",
+        "exercises": [
+            {
+                "id": "exercise-1788844938171-b1f1411fe2d88",
+                "name": "引体向上",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 6,
+                        "completed": true,
+                        "weight_kg": -22
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 6,
+                        "completed": true,
+                        "weight_kg": -22
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 6,
+                        "completed": true,
+                        "weight_kg": -22
+                    }
+                ],
+                "angle": "",
+                "body_part": "背",
+                "equipment": "自重",
+                "exercise_id": "pull_up"
+            },
+            {
+                "id": "exercise-1788844952258-6a9c0bf711549",
+                "name": "高位下拉（宽握）",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 45
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 45
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 45
+                    }
+                ],
+                "angle": "",
+                "body_part": "背阔肌",
+                "equipment": "绳索",
+                "exercise_id": "lat_pulldown_wide"
+            },
+            {
+                "id": "exercise-1788844953270-492107e8f091a8",
+                "name": "高位下拉（窄握）",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 40
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 40
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 40
+                    }
+                ],
+                "angle": "",
+                "body_part": "背阔肌",
+                "equipment": "绳索",
+                "exercise_id": "lat_pulldown_close"
+            },
+            {
+                "id": "exercise-1788844955123-d1a1eb743ba58",
+                "name": "坐姿绳索划船",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 55
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 55
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 55
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 55
+                    }
+                ],
+                "angle": "",
+                "body_part": "中背",
+                "equipment": "绳索",
+                "exercise_id": "seated_cable_row"
+            },
+            {
+                "id": "exercise-1788844969459-f40fdaa77256b8",
+                "name": "哑铃弯举",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 10
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 10
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 10
+                    }
+                ],
+                "angle": "",
+                "body_part": "二头",
+                "equipment": "哑铃",
+                "exercise_id": "dumbbell_curl"
+            },
+            {
+                "id": "exercise-1788844972909-7e7051020a4e98",
+                "name": "绳索下压",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 12,
+                        "completed": true,
+                        "weight_kg": 9
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 12,
+                        "completed": true,
+                        "weight_kg": 9
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 12,
+                        "completed": true,
+                        "weight_kg": 9
+                    }
+                ],
+                "angle": "",
+                "body_part": "三头",
+                "equipment": "绳索",
+                "exercise_id": "rope_pushdown"
+            },
+            {
+                "id": "exercise-1788844979728-3482e5fb76e7c8",
+                "name": "器械划船",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 56
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 56
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 56
+                    }
+                ],
+                "angle": "",
+                "body_part": "中背",
+                "equipment": "器械",
+                "exercise_id": "machine_row"
+            }
+        ],
+        "updated_at": "2026-09-08T05:25:15.253Z",
+        "duration_min": 60,
+        "training_day": "back",
+        "schema_version": 2
+    },
+    {
+        "id": "workout-1788868637485-b6898ed554cca8",
+        "date": "2026-09-08",
+        "kind": "workout_session",
+        "note": "",
+        "title": "背日",
+        "status": "completed",
+        "exercises": [
+            {
+                "id": "exercise-1788868666225-0267f01daecbf",
+                "name": "跑步机",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 30,
+                        "completed": false,
+                        "weight_kg": 0
+                    }
+                ],
+                "angle": "",
+                "body_part": "心肺",
+                "equipment": "有氧",
+                "exercise_id": "treadmill"
+            },
+            {
+                "id": "exercise-1788868695063-ead050e764b0f",
+                "name": "引体向上",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 6,
+                        "completed": true,
+                        "weight_kg": -30
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 6,
+                        "completed": true,
+                        "weight_kg": -30
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 6,
+                        "completed": true,
+                        "weight_kg": -30
+                    }
+                ],
+                "angle": "",
+                "body_part": "背",
+                "equipment": "自重",
+                "exercise_id": "pull_up"
+            },
+            {
+                "id": "exercise-1788868700816-d9768e251ecfe8",
+                "name": "哑铃卧推",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 5,
+                        "completed": true,
+                        "weight_kg": 26
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 18
+                    }
+                ],
+                "angle": "水平",
+                "body_part": "胸",
+                "equipment": "哑铃",
+                "exercise_id": "dumbbell_bench_press"
+            },
+            {
+                "id": "exercise-1788868712332-5cc091c03ed1f",
+                "name": "坐姿绳索划船",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 45
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 45
+                    }
+                ],
+                "angle": "",
+                "body_part": "中背",
+                "equipment": "绳索",
+                "exercise_id": "seated_cable_row"
+            }
+        ],
+        "updated_at": "2026-09-08T11:59:20.648Z",
+        "duration_min": 60,
+        "training_day": "back",
+        "schema_version": 2
+    },
+    {
+        "id": "workout-1789037856641-c0403ebe9d6178",
+        "date": "2026-09-10",
+        "kind": "workout_session",
+        "note": "还不错，减容量几天了状态回升了",
+        "title": "腿日",
+        "status": "completed",
+        "exercises": [
+            {
+                "id": "exercise-1789037858940-2bd9ed29f5f158",
+                "name": "杠铃深蹲",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 5,
+                        "completed": true,
+                        "weight_kg": 70
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 5,
+                        "completed": true,
+                        "weight_kg": 70
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 5,
+                        "completed": true,
+                        "weight_kg": 72
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 5,
+                        "completed": true,
+                        "weight_kg": 74.5
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 5,
+                        "completed": true,
+                        "weight_kg": 74.5
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 3,
+                        "completed": true,
+                        "weight_kg": 80
+                    }
+                ],
+                "angle": "",
+                "body_part": "腿",
+                "equipment": "杠铃",
+                "exercise_id": "barbell_squat"
+            },
+            {
+                "id": "exercise-1789038568703-040f35c434cdc8",
+                "name": "腿屈伸",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 40
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 35
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 35
+                    }
+                ],
+                "angle": "",
+                "body_part": "股四头",
+                "equipment": "器械",
+                "exercise_id": "leg_extension"
+            },
+            {
+                "id": "exercise-1789038569477-baaddd8351d608",
+                "name": "腿弯举",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 40
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 35
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 35
+                    }
+                ],
+                "angle": "",
+                "body_part": "腘绳肌",
+                "equipment": "器械",
+                "exercise_id": "leg_curl"
+            },
+            {
+                "id": "exercise-1789039453929-e0575363fe4d78",
+                "name": "腿举",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 70
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 70
+                    }
+                ],
+                "angle": "",
+                "body_part": "腿",
+                "equipment": "器械",
+                "exercise_id": "leg_press"
+            },
+            {
+                "id": "exercise-1789040727586-eec8f0ab24bbb",
+                "name": "杠铃弯举",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 20
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 20
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 20
+                    }
+                ],
+                "angle": "",
+                "body_part": "二头",
+                "equipment": "杠铃",
+                "exercise_id": "barbell_curl"
+            },
+            {
+                "id": "exercise-1789041404879-6f14aa4ee949f",
+                "name": "绳索下压",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 12,
+                        "completed": true,
+                        "weight_kg": 9
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 12,
+                        "completed": true,
+                        "weight_kg": 25
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 25
+                    }
+                ],
+                "angle": "",
+                "body_part": "三头",
+                "equipment": "绳索",
+                "exercise_id": "rope_pushdown"
+            }
+        ],
+        "updated_at": "2026-09-10T11:57:01.150Z",
+        "duration_min": 60,
+        "training_day": "legs",
+        "schema_version": 2
+    },
+    {
+        "id": "workout-1789102923163-2a0093d3a6a98",
+        "date": "2026-09-11",
+        "kind": "workout_session",
+        "note": "不错不错，周五啦",
+        "title": "胸日",
+        "status": "completed",
+        "exercises": [
+            {
+                "id": "exercise-1789124660936-889b176fcd8e7",
+                "name": "哑铃卧推",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 20
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 26
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 26
+                    }
+                ],
+                "angle": "水平",
+                "body_part": "胸",
+                "equipment": "哑铃",
+                "exercise_id": "dumbbell_bench_press"
+            },
+            {
+                "id": "exercise-1789124788871-e1bd66940e5f18",
+                "name": "杠铃卧推",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 5,
+                        "completed": true,
+                        "weight_kg": 40
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 5,
+                        "completed": true,
+                        "weight_kg": 50
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 5,
+                        "completed": true,
+                        "weight_kg": 55
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 5,
+                        "completed": true,
+                        "weight_kg": 60
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 3,
+                        "completed": true,
+                        "weight_kg": 60
+                    }
+                ],
+                "angle": "水平",
+                "body_part": "胸",
+                "equipment": "杠铃",
+                "exercise_id": "barbell_bench_press"
+            },
+            {
+                "id": "exercise-1789124800303-a1562ef1e04578",
+                "name": "哑铃卧推（上斜）",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 24
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 7,
+                        "completed": true,
+                        "weight_kg": 24
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 24
+                    }
+                ],
+                "angle": "上斜",
+                "body_part": "上胸",
+                "equipment": "哑铃",
+                "exercise_id": "dumbbell_bench_press_incline"
+            },
+            {
+                "id": "exercise-1789124804077-f34463123e8978",
+                "name": "推胸机（下斜）",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 50
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 50
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 60
+                    }
+                ],
+                "angle": "下斜",
+                "body_part": "下胸",
+                "equipment": "器械",
+                "exercise_id": "machine_chest_press_decline"
+            },
+            {
+                "id": "exercise-1789124823913-cb98792468b7c8",
+                "name": "实力推",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 20
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 20
+                    }
+                ],
+                "angle": "",
+                "body_part": "肩",
+                "equipment": "杠铃",
+                "exercise_id": "strict_press"
+            },
+            {
+                "id": "exercise-1789128250100-bbb3040f7ae68",
+                "name": "杠铃弯举",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 20
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 22
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 22
+                    }
+                ],
+                "angle": "",
+                "body_part": "二头",
+                "equipment": "杠铃",
+                "exercise_id": "barbell_curl"
+            }
+        ],
+        "updated_at": "2026-09-11T12:04:33.801Z",
+        "duration_min": 60,
+        "training_day": "chest",
+        "schema_version": 2
+    },
+    {
+        "id": "workout-1789215942593-a23af41be13c48",
+        "date": "2026-09-12",
+        "kind": "workout_session",
+        "note": "一般般，前两天练爽了，昨天胸日练完左背有点痛应该是推胸导致的",
+        "title": "背日",
+        "status": "completed",
+        "exercises": [
+            {
+                "id": "exercise-1789215947029-e6cde92dcfde48",
+                "name": "引体向上",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 6,
+                        "completed": true,
+                        "weight_kg": -30
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 6,
+                        "completed": true,
+                        "weight_kg": -25
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 6,
+                        "completed": true,
+                        "weight_kg": -18
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 6,
+                        "completed": true,
+                        "weight_kg": -18
+                    }
+                ],
+                "angle": "",
+                "body_part": "背",
+                "equipment": "自重",
+                "exercise_id": "pull_up"
+            },
+            {
+                "id": "exercise-1789215979715-0618f28de83768",
+                "name": "高位下拉（宽握）",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 45
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 45
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 45
+                    }
+                ],
+                "angle": "",
+                "body_part": "背阔肌",
+                "equipment": "绳索",
+                "exercise_id": "lat_pulldown_wide"
+            },
+            {
+                "id": "exercise-1789215983547-abda85aea386a8",
+                "name": "坐姿绳索划船",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 45
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 45
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 45
+                    }
+                ],
+                "angle": "",
+                "body_part": "中背",
+                "equipment": "绳索",
+                "exercise_id": "seated_cable_row"
+            },
+            {
+                "id": "exercise-1789217229209-326a1c4b32c228",
+                "name": "哑铃侧平举",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 6
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 6
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 6
+                    }
+                ],
+                "angle": "",
+                "body_part": "中束",
+                "equipment": "哑铃",
+                "exercise_id": "dumbbell_lateral_raise"
+            },
+            {
+                "id": "exercise-1789217256045-7df5c68e8827",
+                "name": "哑铃弯举",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 10
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 10
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 6,
+                        "completed": true,
+                        "weight_kg": 12
+                    }
+                ],
+                "angle": "",
+                "body_part": "二头",
+                "equipment": "哑铃",
+                "exercise_id": "dumbbell_curl"
+            },
+            {
+                "id": "exercise-1789217261233-295122201a5ac8",
+                "name": "绳索下压",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 15,
+                        "completed": true,
+                        "weight_kg": 9
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 12,
+                        "completed": true,
+                        "weight_kg": 9
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 15,
+                        "completed": true,
+                        "weight_kg": 9
+                    }
+                ],
+                "angle": "",
+                "body_part": "三头",
+                "equipment": "绳索",
+                "exercise_id": "rope_pushdown"
+            }
+        ],
+        "updated_at": "2026-09-12T13:03:43.780Z",
+        "duration_min": 60,
+        "training_day": "back",
+        "schema_version": 2
+    },
+    {
+        "id": "workout-1790679484482-da4e679fc6b11",
+        "date": "2026-09-29",
+        "kind": "workout_session",
+        "note": "",
+        "title": "胸日",
+        "status": "completed",
+        "exercises": [
+            {
+                "id": "exercise-1790679499223-fb25beda3609a8",
+                "icon": "杠卧",
+                "name": "杠铃卧推",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 8,
+                        "weight_kg": 55
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 8,
+                        "weight_kg": 55
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 8,
+                        "weight_kg": 52.5
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 8,
+                        "weight_kg": 52.5
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 8,
+                        "weight_kg": 52.5
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 8,
+                        "weight_kg": 52.5
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 8,
+                        "weight_kg": 52.5
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 6,
+                        "weight_kg": 52.5
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 2,
+                        "weight_kg": 52.5
+                    }
+                ],
+                "tips": "仰卧水平凳，肩胛收紧后收，双脚踩实。握距略宽于肩，杠铃下落至中胸部轻触后推起。肘部约 45 度避免外展过大，杠铃沿胸部中线垂直运动，核心全程收紧。",
+                "angle": "水平",
+                "muscles": "胸大肌、三角肌前束、肱三头肌、前锯肌",
+                "body_part": "胸",
+                "equipment": "杠铃",
+                "exercise_id": "barbell_bench_press",
+                "planned_sets": 9
+            },
+            {
+                "id": "exercise-1790681672383-2cc073ea335ba",
+                "icon": "实推",
+                "name": "实力推",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 20
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 20
+                    }
+                ],
+                "tips": "双脚与肩同宽，腰背挺直，杠铃置于颈前。向上推至头顶锁定，下放吸气推举呼气。保持杠铃在脚掌中线上垂直移动，避免耸肩、过度拱腰，核心持续收紧。",
+                "angle": "",
+                "muscles": "三角肌前束、三角肌中束、肱三头肌、上斜方肌、核心",
+                "body_part": "肩",
+                "equipment": "杠铃",
+                "exercise_id": "strict_press",
+                "planned_sets": 2
+            }
+        ],
+        "updated_at": "2026-09-29T11:40:23.049Z",
+        "duration_min": 45,
+        "training_day": "chest",
+        "schema_version": 2
+    },
+    {
+        "id": "workout-1789382948028-2b6f7bdc424e78",
+        "date": "2026-09-14",
+        "kind": "workout_session",
+        "note": "",
+        "title": "腿日",
+        "status": "completed",
+        "exercises": [
+            {
+                "id": "exercise-1789383623748-c48cc22a4a1a9",
+                "name": "罗马尼亚硬拉",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 40
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 40
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 40
+                    }
+                ],
+                "angle": "",
+                "body_part": "后链",
+                "equipment": "杠铃",
+                "exercise_id": "romanian_deadlift"
+            },
+            {
+                "id": "exercise-1789383639929-6b13751aa7e928",
+                "name": "杠铃深蹲",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 60
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 60
+                    }
+                ],
+                "angle": "",
+                "body_part": "腿",
+                "equipment": "杠铃",
+                "exercise_id": "barbell_squat"
+            },
+            {
+                "id": "exercise-1789385317666-19636431ff14c8",
+                "name": "腿举",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 122
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 122
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 122
+                    }
+                ],
+                "angle": "",
+                "body_part": "腿",
+                "equipment": "器械",
+                "exercise_id": "leg_press"
+            },
+            {
+                "id": "exercise-1789385322564-97811dc500648",
+                "name": "腿弯举",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 59
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 59
+                    }
+                ],
+                "angle": "",
+                "body_part": "腘绳肌",
+                "equipment": "器械",
+                "exercise_id": "leg_curl"
+            },
+            {
+                "id": "exercise-1789385323766-a2f7de657e1638",
+                "name": "腿屈伸",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 59
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 59
+                    }
+                ],
+                "angle": "",
+                "body_part": "股四头",
+                "equipment": "器械",
+                "exercise_id": "leg_extension"
+            },
+            {
+                "id": "exercise-1789385326701-6059a2e79883d",
+                "name": "哑铃弯举",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 12
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 12
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 6,
+                        "completed": true,
+                        "weight_kg": 12
+                    }
+                ],
+                "angle": "",
+                "body_part": "二头",
+                "equipment": "哑铃",
+                "exercise_id": "dumbbell_curl"
+            },
+            {
+                "id": "exercise-1789385336106-e5c3c5d5b71028",
+                "name": "绳索下压",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 12,
+                        "completed": true,
+                        "weight_kg": 12
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 15,
+                        "completed": true,
+                        "weight_kg": 9
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 15,
+                        "completed": true,
+                        "weight_kg": 9
+                    }
+                ],
+                "angle": "",
+                "body_part": "三头",
+                "equipment": "绳索",
+                "exercise_id": "rope_pushdown"
+            },
+            {
+                "id": "exercise-1789432635707-ddf8672ac05af8",
+                "icon": "保加利亚蹲",
+                "name": "保加利亚分腿蹲",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 28
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 28
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 28
+                    }
+                ],
+                "tips": "后脚背放在凳上，前脚站稳并保持足弓支撑。屈髋屈膝垂直下沉，前膝对准脚尖，下降到舒适深度后以前脚中部和脚跟发力站起。先用自重熟悉平衡，再逐步增加哑铃重量，避免身体左右晃动和膝盖内扣。",
+                "angle": "",
+                "muscles": "股四头肌、臀大肌、腘绳肌、中臀肌、核心",
+                "body_part": "股四头、臀部",
+                "equipment": "哑铃/自重",
+                "exercise_id": "bulgarian_split_squat"
+            }
+        ],
+        "updated_at": "2026-09-15T01:38:44.673Z",
+        "duration_min": 60,
+        "training_day": "legs",
+        "schema_version": 2
+    },
+    {
+        "id": "workout-1789472809338-f3eff8f60b60a8",
+        "date": "2026-09-15",
+        "kind": "workout_session",
+        "note": "还不错，不过昨天肩膀酸了应该是拎哑铃的原因",
+        "title": "胸日",
+        "status": "completed",
+        "exercises": [
+            {
+                "id": "exercise-1789472815787-387c30ce18b4e8",
+                "icon": "卧推",
+                "name": "哑铃卧推",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 26
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 26
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 26
+                    }
+                ],
+                "tips": "仰卧水平凳，双脚踩实，肩胛收紧后收。下落至胸侧缓慢控制，推起均匀发力至接近伸直但不锁死。全程核心稳定，避免腰背过度拱起。",
+                "angle": "水平",
+                "muscles": "胸大肌、三角肌前束、肱三头肌",
+                "body_part": "胸",
+                "equipment": "哑铃",
+                "exercise_id": "dumbbell_bench_press"
+            },
+            {
+                "id": "exercise-1789472818755-76d2c1d7c654f",
+                "icon": "推胸",
+                "name": "推胸机（水平）",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 60
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 60
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 60
+                    }
+                ],
+                "tips": "调整座椅使把手与胸部中线对齐，肩胛贴靠垫。沿固定轨迹前推至接近伸直不锁死，返回时缓慢控制保持胸肌张力，避免耸肩。",
+                "angle": "水平",
+                "muscles": "胸大肌、三角肌前束、肱三头肌",
+                "body_part": "胸",
+                "equipment": "器械",
+                "exercise_id": "machine_chest_press"
+            },
+            {
+                "id": "exercise-1789472834544-020dfbe41266a",
+                "icon": "蝴蝶",
+                "name": "蝴蝶机夹胸",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 12,
+                        "completed": true,
+                        "weight_kg": 35
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 12,
+                        "completed": true,
+                        "weight_kg": 35
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 12,
+                        "completed": true,
+                        "weight_kg": 35
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 35
+                    }
+                ],
+                "tips": "调整座椅使把手与胸部中线对齐，背部贴紧靠垫挺胸收肩。肘部微屈沿轨迹向胸前合拢，顶峰挤压胸肌避免锁死。返回时缓慢控制保持胸部张力。",
+                "angle": "",
+                "muscles": "胸大肌、前锯肌",
+                "body_part": "胸",
+                "equipment": "器械",
+                "exercise_id": "pec_deck"
+            },
+            {
+                "id": "exercise-1789472849013-8b9f3d4d8b7c38",
+                "icon": "索压",
+                "name": "绳索下压",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 15,
+                        "completed": true,
+                        "weight_kg": 9
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 15,
+                        "completed": true,
+                        "weight_kg": 9
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 15,
+                        "completed": true,
+                        "weight_kg": 9
+                    }
+                ],
+                "tips": "面对高位滑轮双脚与肩同宽膝盖微屈核心收紧。双手正握绳索肘部紧贴身体不动，呼气下压至大腿旁手臂伸直时分绳两端挤压三头肌，顶峰 1 秒。缓慢回放至肘屈略大于 90 度。避免身体前倾借力和肘部外张。",
+                "angle": "",
+                "muscles": "肱三头肌",
+                "body_part": "三头",
+                "equipment": "绳索",
+                "exercise_id": "rope_pushdown"
+            },
+            {
+                "id": "exercise-1789474035376-a1d6a16ed9bdc8",
+                "icon": "哑弯",
+                "name": "哑铃弯举",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 12
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 12
+                    }
+                ],
+                "tips": "双脚与肩同宽挺胸收紧核心，大臂贴紧身体固定。掌心朝前以肘为轴弯曲上举至靠近胸部，顶点挤压。缓慢下放约 3 秒最低点不完全伸直，向上呼气向下吸气。避免前倾借力和肘部前移。",
+                "angle": "",
+                "muscles": "肱二头肌、肱肌、肱桡肌、前臂屈肌",
+                "body_part": "二头",
+                "equipment": "哑铃",
+                "exercise_id": "dumbbell_curl"
+            }
+        ],
+        "updated_at": "2026-09-15T12:08:11.269Z",
+        "duration_min": 60,
+        "training_day": "chest",
+        "schema_version": 2
+    },
+    {
+        "id": "workout-1789561099302-5a249096019338",
+        "date": "2026-09-16",
+        "kind": "workout_session",
+        "note": "累了，爬坡稍微走走就休息了",
+        "title": "有氧恢复",
+        "status": "completed",
+        "exercises": [
+            {
+                "id": "exercise-1789561108575-895c2064b073c8",
+                "icon": "跑步",
+                "name": "跑步机",
+                "note": "",
+                "sets": [
+                    {
+                        "pace": "爬坡档数15",
+                        "completed": true,
+                        "distance_km": 2,
+                        "duration_min": 25
+                    }
+                ],
+                "tips": "抬头、收紧核心，步频自然。先以能完整说话的强度热身，再逐步提速。",
+                "angle": "",
+                "muscles": "心肺、臀腿",
+                "body_part": "心肺",
+                "equipment": "有氧",
+                "exercise_id": "treadmill"
+            }
+        ],
+        "updated_at": "2026-09-16T12:19:44.658Z",
+        "duration_min": 25,
+        "training_day": "cardio",
+        "schema_version": 2
+    },
+    {
+        "id": "workout-1789645239144-b7467c3ba35ed8",
+        "date": "2026-09-17",
+        "kind": "workout_session",
+        "note": "",
+        "title": "背日",
+        "status": "completed",
+        "exercises": [
+            {
+                "id": "exercise-1789645245982-943d9359d033a",
+                "icon": "引体",
+                "name": "引体向上",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": -18
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": -18
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": -18
+                    }
+                ],
+                "tips": "正手握杠略宽于肩，肩胛先下沉后收，用背部发力拉起身体至下巴过杠。下落时不完全放松肩胛避免借力摆动，全程核心收紧躯干稳定不摇晃。",
+                "angle": "",
+                "muscles": "背阔肌、大圆肌、肱二头肌、菱形肌、斜方肌中下部",
+                "body_part": "背",
+                "equipment": "自重",
+                "exercise_id": "pull_up"
+            },
+            {
+                "id": "exercise-1789645250312-bd430fb022e428",
+                "icon": "宽拉",
+                "name": "高位下拉（宽握）",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 45
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 45
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 45
+                    }
+                ],
+                "tips": "正手握宽把，大腿固定坐直挺胸。肩胛下沉后收，下拉想象肘部向后下方拉至横杆到上胸部。顶峰挤压背部 1-2 秒，返回时缓慢控制避免耸肩和过度后仰。",
+                "angle": "",
+                "muscles": "背阔肌上束及外侧、大圆肌、肱二头肌、后三角肌、菱形肌",
+                "body_part": "背阔肌",
+                "equipment": "绳索",
+                "exercise_id": "lat_pulldown_wide"
+            },
+            {
+                "id": "exercise-1789645257575-5a748e064050b8",
+                "icon": "反蝶",
+                "name": "反向蝴蝶机",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 12,
+                        "completed": true,
+                        "weight_kg": 32
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 12,
+                        "completed": true,
+                        "weight_kg": 32
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 32
+                    }
+                ],
+                "tips": "调整座椅使肩与转轴同高，胸部贴靠垫肘微屈。向后打开至最大幅度停顿 1-2 秒，向后呼气还原吸气。避免耸肩、伸直锁死、后仰借力或重量过大。",
+                "angle": "",
+                "muscles": "三角肌后束、菱形肌、中下斜方肌",
+                "body_part": "后束",
+                "equipment": "器械",
+                "exercise_id": "reverse_pec_deck"
+            },
+            {
+                "id": "exercise-1789645275503-73efa17c375e4",
+                "icon": "坐划",
+                "name": "坐姿绳索划船",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 45
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 45
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 45
+                    }
+                ],
+                "tips": "坐姿挺胸双脚踩踏板膝盖微屈。发力时先沉肩再沿身体两侧将手把拉至下胸或腹部，顶峰挤压肩胛。返回时缓慢控制，避免身体后仰借力，保持脊柱中立。",
+                "angle": "",
+                "muscles": "背阔肌、菱形肌、斜方肌中下部、后三角肌、肱二头肌",
+                "body_part": "中背",
+                "equipment": "绳索",
+                "exercise_id": "seated_cable_row"
+            },
+            {
+                "id": "exercise-1789645292171-1a463e8f2ff718",
+                "icon": "单划",
+                "name": "单臂哑铃划船",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 18
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 18
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 18
+                    }
+                ],
+                "tips": "单膝跪于凳上同侧手扶凳，躯干接近水平背部挺直。肩胛先下沉后收，沿侧面向髋部拉起，顶峰挤压背部避免耸肩。返回时缓慢控制，保持躯干稳定避免身体旋转。",
+                "angle": "",
+                "muscles": "背阔肌、菱形肌、斜方肌中下部、后三角肌、肱二头肌",
+                "body_part": "背阔肌",
+                "equipment": "哑铃",
+                "exercise_id": "one_arm_dumbbell_row"
+            },
+            {
+                "id": "exercise-1789645363403-643cd518d0598",
+                "icon": "哑弯",
+                "name": "哑铃弯举",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 10
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 12
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 12
+                    }
+                ],
+                "tips": "双脚与肩同宽挺胸收紧核心，大臂贴紧身体固定。掌心朝前以肘为轴弯曲上举至靠近胸部，顶点挤压。缓慢下放约 3 秒最低点不完全伸直，向上呼气向下吸气。避免前倾借力和肘部前移。",
+                "angle": "",
+                "muscles": "肱二头肌、肱肌、肱桡肌、前臂屈肌",
+                "body_part": "二头",
+                "equipment": "哑铃",
+                "exercise_id": "dumbbell_curl"
+            }
+        ],
+        "updated_at": "2026-09-17T11:43:25.315Z",
+        "duration_min": 60,
+        "training_day": "back",
+        "schema_version": 2
+    },
+    {
+        "id": "workout-1789795346493-ff33ffb779a49",
+        "date": "2026-09-19",
+        "kind": "workout_session",
+        "note": "状态不错，深蹲突破了，今天带同事来练，教了一圈所有的器械",
+        "title": "腿日",
+        "status": "completed",
+        "exercises": [
+            {
+                "id": "exercise-1789795358494-8042507682d568",
+                "icon": "深蹲",
+                "name": "杠铃深蹲",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 5,
+                        "completed": true,
+                        "weight_kg": 80
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 5,
+                        "completed": true,
+                        "weight_kg": 80
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 5,
+                        "completed": true,
+                        "weight_kg": 80
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 5,
+                        "completed": true,
+                        "weight_kg": 85
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 5,
+                        "completed": true,
+                        "weight_kg": 85
+                    }
+                ],
+                "tips": "站距略宽于髋，脚尖自然外旋 15 到 30 度。吸气收紧腹压，髋膝同步下蹲，膝盖沿脚尖方向移动；下降到大腿至少平行地面，脚掌三点受力后稳定站起。全程保持脊柱中立，避免塌腰、膝内扣和脚跟离地。",
+                "angle": "",
+                "muscles": "股四头肌、臀大肌、腘绳肌、核心",
+                "body_part": "股四头、臀部、腘绳肌",
+                "equipment": "杠铃",
+                "exercise_id": "barbell_squat"
+            },
+            {
+                "id": "exercise-1789801622688-983bd47068206",
+                "icon": "保加利亚蹲",
+                "name": "保加利亚分腿蹲",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 18
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 18
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 18
+                    }
+                ],
+                "tips": "后脚背放在凳上，前脚站稳并保持足弓支撑。屈髋屈膝垂直下沉，前膝对准脚尖，下降到舒适深度后以前脚中部和脚跟发力站起。先用自重熟悉平衡，再逐步增加哑铃重量，避免身体左右晃动和膝盖内扣。",
+                "angle": "",
+                "muscles": "股四头肌、臀大肌、腘绳肌、中臀肌、核心",
+                "body_part": "股四头、臀部",
+                "equipment": "哑铃/自重",
+                "exercise_id": "bulgarian_split_squat"
+            },
+            {
+                "id": "exercise-1789808330658-84ab431074f788",
+                "icon": "屈伸",
+                "name": "腿屈伸",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 59
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 59
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 59
+                    }
+                ],
+                "tips": "坐稳背部贴靠垫大腿贴座椅前沿，双脚背勾住垫板。发力呼气抬起至接近伸直顶端保持 1 秒，缓慢回落吸气。避免膝盖完全锁死、借助惯性甩动和身体晃动。",
+                "angle": "",
+                "muscles": "股四头肌",
+                "body_part": "股四头",
+                "equipment": "器械",
+                "exercise_id": "leg_extension"
+            },
+            {
+                "id": "exercise-1789808331668-c390b215c7e9a",
+                "icon": "腿弯",
+                "name": "腿弯举",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 59
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 59
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 59
+                    }
+                ],
+                "tips": "俯卧或坐姿大腿贴垫板，脚踝放滚轮下方。呼气弯曲小腿向臀部贴近顶峰停留 1-2 秒，吸气缓慢放回。避免臀部抬起、下背拱起、借力甩动和动作过快。",
+                "angle": "",
+                "muscles": "腘绳肌、小腿肌群",
+                "body_part": "腘绳肌",
+                "equipment": "器械",
+                "exercise_id": "leg_curl"
+            },
+            {
+                "id": "exercise-1789808336739-07257d368b3be",
+                "icon": "杠弯",
+                "name": "杠铃弯举",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 22
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 22
+                    }
+                ],
+                "tips": "挺胸站立双脚与肩同宽膝盖微曲，反手握杠握距与肩同宽。肘部紧贴身体两侧不动，以肘弯曲上举至锁骨高度顶点停顿 1 秒。缓慢下放 3 秒底部不完全放松，向上呼气向下吸气。避免弓背借力和肘部前移。",
+                "angle": "",
+                "muscles": "肱二头肌、肱肌、肱桡肌、前臂屈肌",
+                "body_part": "二头",
+                "equipment": "杠铃",
+                "exercise_id": "barbell_curl"
+            },
+            {
+                "id": "exercise-1789808339281-74c088e81efd",
+                "icon": "索压",
+                "name": "绳索下压",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 15,
+                        "completed": true,
+                        "weight_kg": 9
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 15,
+                        "completed": true,
+                        "weight_kg": 9
+                    }
+                ],
+                "tips": "面对高位滑轮双脚与肩同宽膝盖微屈核心收紧。双手正握绳索肘部紧贴身体不动，呼气下压至大腿旁手臂伸直时分绳两端挤压三头肌，顶峰 1 秒。缓慢回放至肘屈略大于 90 度。避免身体前倾借力和肘部外张。",
+                "angle": "",
+                "muscles": "肱三头肌",
+                "body_part": "三头",
+                "equipment": "绳索",
+                "exercise_id": "rope_pushdown"
+            }
+        ],
+        "updated_at": "2026-09-19T09:00:24.175Z",
+        "duration_min": 70,
+        "training_day": "legs",
+        "schema_version": 2
+    },
+    {
+        "id": "workout-1789963706328-61e50cda81d4d8",
+        "date": "2026-09-21",
+        "kind": "workout_session",
+        "note": "还不错",
+        "title": "背日",
+        "status": "completed",
+        "exercises": [
+            {
+                "id": "exercise-1789988101559-d6e16110220aa8",
+                "icon": "引体",
+                "name": "引体向上",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": -25
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": -25
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": -25
+                    }
+                ],
+                "tips": "正手握杠略宽于肩，肩胛先下沉后收，用背部发力拉起身体至下巴过杠。下落时不完全放松肩胛避免借力摆动，全程核心收紧躯干稳定不摇晃。",
+                "angle": "",
+                "muscles": "背阔肌、大圆肌、肱二头肌、菱形肌、斜方肌中下部",
+                "body_part": "背",
+                "equipment": "自重",
+                "exercise_id": "pull_up"
+            },
+            {
+                "id": "exercise-1789988123452-b76127c670fb6",
+                "icon": "宽拉",
+                "name": "高位下拉（宽握）",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 37.5
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 37.5
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 37.5
+                    }
+                ],
+                "tips": "正手握宽把，大腿固定坐直挺胸。肩胛下沉后收，下拉想象肘部向后下方拉至横杆到上胸部。顶峰挤压背部 1-2 秒，返回时缓慢控制避免耸肩和过度后仰。",
+                "angle": "",
+                "muscles": "背阔肌上束及外侧、大圆肌、肱二头肌、后三角肌、菱形肌",
+                "body_part": "背阔肌",
+                "equipment": "绳索",
+                "exercise_id": "lat_pulldown_wide"
+            },
+            {
+                "id": "exercise-1789988129303-46d1ac646dbdd",
+                "icon": "坐划",
+                "name": "坐姿绳索划船",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 52.5
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 45
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 45
+                    }
+                ],
+                "tips": "坐姿挺胸双脚踩踏板膝盖微屈。发力时先沉肩再沿身体两侧将手把拉至下胸或腹部，顶峰挤压肩胛。返回时缓慢控制，避免身体后仰借力，保持脊柱中立。",
+                "angle": "",
+                "muscles": "背阔肌、菱形肌、斜方肌中下部、后三角肌、肱二头肌",
+                "body_part": "中背",
+                "equipment": "绳索",
+                "exercise_id": "seated_cable_row"
+            },
+            {
+                "id": "exercise-1789988130701-7c95554c9b3e1",
+                "icon": "窄拉",
+                "name": "高位下拉（窄握）",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 40
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 40
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 40
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 40
+                    }
+                ],
+                "tips": "使用 V 把略窄于肩，坐直挺胸。肩胛下沉后收，下拉时肘部靠近身体拉至中上胸位置。顶峰挤压背部，返回时缓慢控制保持肘部贴紧躯干避免借力。",
+                "angle": "",
+                "muscles": "背阔肌下束及内侧、菱形肌、肱二头肌、后三角肌",
+                "body_part": "背阔肌",
+                "equipment": "绳索",
+                "exercise_id": "lat_pulldown_close"
+            },
+            {
+                "id": "exercise-1789989885453-9345af413ff7a8",
+                "icon": "单划",
+                "name": "单臂哑铃划船",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 18
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 18
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 18
+                    }
+                ],
+                "tips": "单膝跪于凳上同侧手扶凳，躯干接近水平背部挺直。肩胛先下沉后收，沿侧面向髋部拉起，顶峰挤压背部避免耸肩。返回时缓慢控制，保持躯干稳定避免身体旋转。",
+                "angle": "",
+                "muscles": "背阔肌、菱形肌、斜方肌中下部、后三角肌、肱二头肌",
+                "body_part": "背阔肌",
+                "equipment": "哑铃",
+                "exercise_id": "one_arm_dumbbell_row"
+            },
+            {
+                "id": "exercise-1789991013805-d85f8a0c09cb58",
+                "icon": "反蝶",
+                "name": "反向蝴蝶机",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 15,
+                        "completed": true,
+                        "weight_kg": 25
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 15,
+                        "completed": true,
+                        "weight_kg": 25
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 15,
+                        "completed": true,
+                        "weight_kg": 25
+                    }
+                ],
+                "tips": "调整座椅使肩与转轴同高，胸部贴靠垫肘微屈。向后打开至最大幅度停顿 1-2 秒，向后呼气还原吸气。避免耸肩、伸直锁死、后仰借力或重量过大。",
+                "angle": "",
+                "muscles": "三角肌后束、菱形肌、中下斜方肌",
+                "body_part": "后束",
+                "equipment": "器械",
+                "exercise_id": "reverse_pec_deck"
+            },
+            {
+                "id": "exercise-1789991896554-86f23596fe85e",
+                "icon": "索压",
+                "name": "绳索下压",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 15,
+                        "completed": true,
+                        "weight_kg": 9
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 9
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 9
+                    }
+                ],
+                "tips": "面对高位滑轮双脚与肩同宽膝盖微屈核心收紧。双手正握绳索肘部紧贴身体不动，呼气下压至大腿旁手臂伸直时分绳两端挤压三头肌，顶峰 1 秒。缓慢回放至肘屈略大于 90 度。避免身体前倾借力和肘部外张。",
+                "angle": "",
+                "muscles": "肱三头肌",
+                "body_part": "三头",
+                "equipment": "绳索",
+                "exercise_id": "rope_pushdown"
+            }
+        ],
+        "updated_at": "2026-09-21T11:58:38.393Z",
+        "duration_min": 75,
+        "training_day": "back",
+        "schema_version": 2
+    },
+    {
+        "id": "workout-1790077562717-4388db50ae5de8",
+        "date": "2026-09-22",
+        "kind": "workout_session",
+        "note": "还不错，来宝岗大道这的健身房来练了",
+        "title": "胸日",
+        "status": "completed",
+        "exercises": [
+            {
+                "id": "exercise-1790077568921-fafc8b65957e9",
+                "icon": "杠卧",
+                "name": "杠铃卧推",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 5,
+                        "completed": true,
+                        "weight_kg": 60
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 5,
+                        "completed": true,
+                        "weight_kg": 55
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 5,
+                        "completed": true,
+                        "weight_kg": 55
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 5,
+                        "completed": true,
+                        "weight_kg": 55
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 5,
+                        "completed": true,
+                        "weight_kg": 55
+                    }
+                ],
+                "tips": "仰卧水平凳，肩胛收紧后收，双脚踩实。握距略宽于肩，杠铃下落至中胸部轻触后推起。肘部约 45 度避免外展过大，杠铃沿胸部中线垂直运动，核心全程收紧。",
+                "angle": "水平",
+                "muscles": "胸大肌、三角肌前束、肱三头肌、前锯肌",
+                "body_part": "胸",
+                "equipment": "杠铃",
+                "exercise_id": "barbell_bench_press"
+            },
+            {
+                "id": "exercise-1790077573136-1db99d77101fc8",
+                "icon": "斜推",
+                "name": "推胸机（上斜）",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 50
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 50
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 50
+                    }
+                ],
+                "tips": "调整上斜座椅使把手与上胸对齐，挺胸收肩。沿轨迹前推重点感受上胸发力，返回时缓慢控制保持肘部微屈，避免身体前倾借力。",
+                "angle": "上斜",
+                "muscles": "胸大肌上束、三角肌前束、肱三头肌",
+                "body_part": "上胸",
+                "equipment": "器械",
+                "exercise_id": "machine_chest_press_incline"
+            },
+            {
+                "id": "exercise-1790077573634-d2b8662db39208",
+                "icon": "下斜",
+                "name": "推胸机（下斜）",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 50
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 50
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 50
+                    }
+                ],
+                "tips": "调整下斜座椅使把手与下胸对齐，肩胛贴靠垫挺胸收腹。沿轨迹前推感受下胸发力，手臂接近伸直不锁死。返回时缓慢控制保持张力，避免肩胛过度外展。",
+                "angle": "下斜",
+                "muscles": "胸大肌下束、三角肌前束、肱三头肌",
+                "body_part": "下胸",
+                "equipment": "器械",
+                "exercise_id": "machine_chest_press_decline"
+            },
+            {
+                "id": "exercise-1790077578552-fd8f9b7e4671c8",
+                "icon": "卧推",
+                "name": "哑铃卧推",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 23.5
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 4,
+                        "completed": true,
+                        "weight_kg": 23.5
+                    }
+                ],
+                "tips": "仰卧水平凳，双脚踩实，肩胛收紧后收。下落至胸侧缓慢控制，推起均匀发力至接近伸直但不锁死。全程核心稳定，避免腰背过度拱起。",
+                "angle": "水平",
+                "muscles": "胸大肌、三角肌前束、肱三头肌",
+                "body_part": "胸",
+                "equipment": "哑铃",
+                "exercise_id": "dumbbell_bench_press"
+            },
+            {
+                "id": "exercise-1790077597204-169d568e0e9d28",
+                "icon": "实推",
+                "name": "实力推",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 20
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 20
+                    }
+                ],
+                "tips": "双脚与肩同宽，腰背挺直，杠铃置于颈前。向上推至头顶锁定，下放吸气推举呼气。保持杠铃在脚掌中线上垂直移动，避免耸肩、过度拱腰，核心持续收紧。",
+                "angle": "",
+                "muscles": "三角肌前束、三角肌中束、肱三头肌、上斜方肌、核心",
+                "body_part": "肩",
+                "equipment": "杠铃",
+                "exercise_id": "strict_press"
+            },
+            {
+                "id": "exercise-1790077674803-58cf7582c231f8",
+                "icon": "哑弯",
+                "name": "哑铃弯举",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 12
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 12
+                    }
+                ],
+                "tips": "双脚与肩同宽挺胸收紧核心，大臂贴紧身体固定。掌心朝前以肘为轴弯曲上举至靠近胸部，顶点挤压。缓慢下放约 3 秒最低点不完全伸直，向上呼气向下吸气。避免前倾借力和肘部前移。",
+                "angle": "",
+                "muscles": "肱二头肌、肱肌、肱桡肌、前臂屈肌",
+                "body_part": "二头",
+                "equipment": "哑铃",
+                "exercise_id": "dumbbell_curl"
+            }
+        ],
+        "updated_at": "2026-09-22T11:48:40.513Z",
+        "duration_min": 60,
+        "training_day": "chest",
+        "schema_version": 2
+    },
+    {
+        "id": "workout-1790159943286-5838264fd7e63",
+        "date": "2026-09-23",
+        "kind": "workout_session",
+        "note": "",
+        "title": "腿日",
+        "status": "completed",
+        "exercises": [
+            {
+                "id": "exercise-1790159989366-e307767a12e19",
+                "icon": "深蹲",
+                "name": "杠铃深蹲",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 5,
+                        "completed": true,
+                        "weight_kg": 70
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 5,
+                        "completed": true,
+                        "weight_kg": 70
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 5,
+                        "completed": true,
+                        "weight_kg": 70
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 5,
+                        "completed": true,
+                        "weight_kg": 70
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 2,
+                        "completed": true,
+                        "weight_kg": 70
+                    }
+                ],
+                "tips": "站距略宽于髋，脚尖自然外旋 15 到 30 度。吸气收紧腹压，髋膝同步下蹲，膝盖沿脚尖方向移动；下降到大腿至少平行地面，脚掌三点受力后稳定站起。全程保持脊柱中立，避免塌腰、膝内扣和脚跟离地。",
+                "angle": "",
+                "muscles": "股四头肌、臀大肌、腘绳肌、核心",
+                "body_part": "股四头、臀部、腘绳肌",
+                "equipment": "杠铃",
+                "exercise_id": "barbell_squat"
+            },
+            {
+                "id": "exercise-1790159990097-a18d9bdf9bd64",
+                "icon": "保加利亚蹲",
+                "name": "保加利亚分腿蹲",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 36
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 36
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 36
+                    }
+                ],
+                "tips": "后脚背放在凳上，前脚站稳并保持足弓支撑。屈髋屈膝垂直下沉，前膝对准脚尖，下降到舒适深度后以前脚中部和脚跟发力站起。先用自重熟悉平衡，再逐步增加哑铃重量，避免身体左右晃动和膝盖内扣。",
+                "angle": "",
+                "muscles": "股四头肌、臀大肌、腘绳肌、中臀肌、核心",
+                "body_part": "股四头、臀部",
+                "equipment": "哑铃/自重",
+                "exercise_id": "bulgarian_split_squat"
+            },
+            {
+                "id": "exercise-1790160002001-804ff4372fe0c8",
+                "icon": "硬拉",
+                "name": "罗马尼亚硬拉",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 40
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 40
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 40
+                    }
+                ],
+                "tips": "双脚与髋同宽核心收紧背部挺直。臀部向后推以髋铰链前倾，杠铃紧贴大腿垂直下放。下落吸气起身呼气，避免膝盖弯曲角度变化、圆背和杠铃远离身体。",
+                "angle": "",
+                "muscles": "腘绳肌、臀大肌、竖脊肌",
+                "body_part": "后链",
+                "equipment": "杠铃",
+                "exercise_id": "romanian_deadlift"
+            },
+            {
+                "id": "exercise-1790160009318-ef232b0fb978d8",
+                "icon": "屈伸",
+                "name": "腿屈伸",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 59
+                    }
+                ],
+                "tips": "坐稳背部贴靠垫大腿贴座椅前沿，双脚背勾住垫板。发力呼气抬起至接近伸直顶端保持 1 秒，缓慢回落吸气。避免膝盖完全锁死、借助惯性甩动和身体晃动。",
+                "angle": "",
+                "muscles": "股四头肌",
+                "body_part": "股四头",
+                "equipment": "器械",
+                "exercise_id": "leg_extension"
+            },
+            {
+                "id": "exercise-1790160010949-9402d3c42fb2b",
+                "icon": "腿弯",
+                "name": "腿弯举",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 59
+                    }
+                ],
+                "tips": "俯卧或坐姿大腿贴垫板，脚踝放滚轮下方。呼气弯曲小腿向臀部贴近顶峰停留 1-2 秒，吸气缓慢放回。避免臀部抬起、下背拱起、借力甩动和动作过快。",
+                "angle": "",
+                "muscles": "腘绳肌、小腿肌群",
+                "body_part": "腘绳肌",
+                "equipment": "器械",
+                "exercise_id": "leg_curl"
+            },
+            {
+                "id": "exercise-1790160024320-3b18d14ae9adc8",
+                "icon": "哑弯",
+                "name": "哑铃弯举",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 12
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 12
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 12
+                    }
+                ],
+                "tips": "双脚与肩同宽挺胸收紧核心，大臂贴紧身体固定。掌心朝前以肘为轴弯曲上举至靠近胸部，顶点挤压。缓慢下放约 3 秒最低点不完全伸直，向上呼气向下吸气。避免前倾借力和肘部前移。",
+                "angle": "",
+                "muscles": "肱二头肌、肱肌、肱桡肌、前臂屈肌",
+                "body_part": "二头",
+                "equipment": "哑铃",
+                "exercise_id": "dumbbell_curl"
+            },
+            {
+                "id": "exercise-1790160026738-85f1395126b1f",
+                "icon": "索压",
+                "name": "绳索下压",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 15,
+                        "completed": true,
+                        "weight_kg": 9
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 9
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 9
+                    }
+                ],
+                "tips": "面对高位滑轮双脚与肩同宽膝盖微屈核心收紧。双手正握绳索肘部紧贴身体不动，呼气下压至大腿旁手臂伸直时分绳两端挤压三头肌，顶峰 1 秒。缓慢回放至肘屈略大于 90 度。避免身体前倾借力和肘部外张。",
+                "angle": "",
+                "muscles": "肱三头肌",
+                "body_part": "三头",
+                "equipment": "绳索",
+                "exercise_id": "rope_pushdown"
+            }
+        ],
+        "updated_at": "2026-09-23T22:11:00.080Z",
+        "duration_min": 60,
+        "training_day": "legs",
+        "schema_version": 2
+    },
+    {
+        "id": "workout-1790248668670-9a7853a3a9ee6",
+        "date": "2026-09-24",
+        "kind": "workout_session",
+        "note": "",
+        "title": "胸日",
+        "status": "completed",
+        "exercises": [
+            {
+                "id": "exercise-1790248676472-7b2107209a643",
+                "icon": "杠卧",
+                "name": "杠铃卧推",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 50
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 50
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 50
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 50
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 50
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 7,
+                        "completed": true,
+                        "weight_kg": 50
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 50
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 50
+                    }
+                ],
+                "tips": "仰卧水平凳，肩胛收紧后收，双脚踩实。握距略宽于肩，杠铃下落至中胸部轻触后推起。肘部约 45 度避免外展过大，杠铃沿胸部中线垂直运动，核心全程收紧。",
+                "angle": "水平",
+                "muscles": "胸大肌、三角肌前束、肱三头肌、前锯肌",
+                "body_part": "胸",
+                "equipment": "杠铃",
+                "exercise_id": "barbell_bench_press"
+            },
+            {
+                "id": "exercise-1790249874790-1aea1ee505b508",
+                "icon": "高夹",
+                "name": "绳索夹胸（高位）",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 15
+                    }
+                ],
+                "tips": "高位滑轮，双脚前后站立身体略后倾。双臂展开肘微屈 10-20 度，从高位向低胸画弧合拢。顶峰挤压胸肌 1-2 秒，肘部角度不变，返回时缓慢控制不过度打开。",
+                "angle": "",
+                "muscles": "胸大肌下束及内侧、前锯肌",
+                "body_part": "下胸",
+                "equipment": "绳索",
+                "exercise_id": "cable_fly_high"
+            },
+            {
+                "id": "exercise-1790249877024-760253e1ef1a3",
+                "icon": "中夹",
+                "name": "绳索夹胸（中位）",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 20
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 20
+                    }
+                ],
+                "tips": "中位滑轮与胸部齐高，双脚前后站立。双臂从两侧打开肘微屈 10-20 度，沿水平弧线向胸前合拢。顶峰挤压胸肌保持肘部角度不变，返回时缓慢控制保持胸部张力。",
+                "angle": "",
+                "muscles": "胸大肌中束、前锯肌",
+                "body_part": "胸",
+                "equipment": "绳索",
+                "exercise_id": "cable_fly_mid"
+            },
+            {
+                "id": "exercise-1790250585435-a33689ce92cf4",
+                "icon": "侧举",
+                "name": "哑铃侧平举",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 8
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 8
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 8
+                    }
+                ],
+                "tips": "双脚与肩同宽，肘微屈 20-30 度并全程锁定。以手肘为引导向两侧抬起至肩高，上举呼气下放吸气。避免耸肩甩臂借力，重量不宜过大，动作要慢。",
+                "angle": "",
+                "muscles": "三角肌中束、三角肌前束、上斜方肌",
+                "body_part": "中束",
+                "equipment": "哑铃",
+                "exercise_id": "dumbbell_lateral_raise"
+            },
+            {
+                "id": "exercise-1790250594536-a9df1d49ff17c8",
+                "icon": "杠弯",
+                "name": "杠铃弯举",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 20
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 20
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 20
+                    }
+                ],
+                "tips": "挺胸站立双脚与肩同宽膝盖微曲，反手握杠握距与肩同宽。肘部紧贴身体两侧不动，以肘弯曲上举至锁骨高度顶点停顿 1 秒。缓慢下放 3 秒底部不完全放松，向上呼气向下吸气。避免弓背借力和肘部前移。",
+                "angle": "",
+                "muscles": "肱二头肌、肱肌、肱桡肌、前臂屈肌",
+                "body_part": "二头",
+                "equipment": "杠铃",
+                "exercise_id": "barbell_curl"
+            }
+        ],
+        "updated_at": "2026-09-24T11:50:31.284Z",
+        "duration_min": 60,
+        "training_day": "chest",
+        "schema_version": 2
+    },
+    {
+        "id": "workout-1790653520195-be4f1ef9c4c848",
+        "date": "2026-09-28",
+        "kind": "workout_session",
+        "note": "疲劳了，没睡好，有氧跑恢复恢复",
+        "title": "有氧恢复",
+        "status": "completed",
+        "exercises": [
+            {
+                "id": "exercise-1790653531765-ff5ddcd12c7e2",
+                "icon": "跑步",
+                "name": "跑步机",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "pace": "爬坡档数2",
+                        "distance_km": 5,
+                        "duration_min": 38
+                    }
+                ],
+                "tips": "抬头、收紧核心，步频自然。先以能完整说话的强度热身，再逐步提速。",
+                "angle": "",
+                "muscles": "心肺、臀腿",
+                "body_part": "心肺",
+                "equipment": "有氧",
+                "exercise_id": "treadmill",
+                "planned_sets": 1
+            }
+        ],
+        "updated_at": "2026-09-29T03:46:14.051Z",
+        "duration_min": 40,
+        "training_day": "cardio",
+        "schema_version": 2
+    },
+    {
+        "id": "workout-1790338121651-5c9e3839d78388",
+        "date": "2026-09-25",
+        "kind": "workout_session",
+        "note": "还不错，今日中秋节，躺了一天睡了好几次，似乎把之前的疲劳休息回来了",
+        "title": "背日",
+        "status": "completed",
+        "exercises": [
+            {
+                "id": "exercise-1790338123671-23e7943289c588",
+                "icon": "引体",
+                "name": "引体向上",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 5,
+                        "completed": true,
+                        "weight_kg": 0
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 3,
+                        "completed": true,
+                        "weight_kg": 0
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 3,
+                        "completed": true,
+                        "weight_kg": 0
+                    }
+                ],
+                "tips": "正手握杠略宽于肩，肩胛先下沉后收，用背部发力拉起身体至下巴过杠。下落时不完全放松肩胛避免借力摆动，全程核心收紧躯干稳定不摇晃。",
+                "angle": "",
+                "muscles": "背阔肌、大圆肌、肱二头肌、菱形肌、斜方肌中下部",
+                "body_part": "背",
+                "equipment": "自重",
+                "exercise_id": "pull_up"
+            },
+            {
+                "id": "exercise-1790338130853-e5dd4872ae2d7",
+                "icon": "坐划",
+                "name": "坐姿绳索划船",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 45
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 45
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 45
+                    }
+                ],
+                "tips": "坐姿挺胸双脚踩踏板膝盖微屈。发力时先沉肩再沿身体两侧将手把拉至下胸或腹部，顶峰挤压肩胛。返回时缓慢控制，避免身体后仰借力，保持脊柱中立。",
+                "angle": "",
+                "muscles": "背阔肌、菱形肌、斜方肌中下部、后三角肌、肱二头肌",
+                "body_part": "中背",
+                "equipment": "绳索",
+                "exercise_id": "seated_cable_row"
+            },
+            {
+                "id": "exercise-1790338131570-dd072ca0e858c",
+                "icon": "宽拉",
+                "name": "高位下拉（宽握）",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 38.5
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 38.5
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 38.5
+                    }
+                ],
+                "tips": "正手握宽把，大腿固定坐直挺胸。肩胛下沉后收，下拉想象肘部向后下方拉至横杆到上胸部。顶峰挤压背部 1-2 秒，返回时缓慢控制避免耸肩和过度后仰。",
+                "angle": "",
+                "muscles": "背阔肌上束及外侧、大圆肌、肱二头肌、后三角肌、菱形肌",
+                "body_part": "背阔肌",
+                "equipment": "绳索",
+                "exercise_id": "lat_pulldown_wide"
+            },
+            {
+                "id": "exercise-1790338481007-7a9c1f29556cb",
+                "icon": "窄拉",
+                "name": "高位下拉（窄握）",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "reps": 8,
+                        "completed": true,
+                        "weight_kg": 40
+                    },
+                    {
+                        "rpe": "",
+                        "reps": 10,
+                        "completed": true,
+                        "weight_kg": 40
+                    }
+                ],
+                "tips": "使用 V 把略窄于肩，坐直挺胸。肩胛下沉后收，下拉时肘部靠近身体拉至中上胸位置。顶峰挤压背部，返回时缓慢控制保持肘部贴紧躯干避免借力。",
+                "angle": "",
+                "muscles": "背阔肌下束及内侧、菱形肌、肱二头肌、后三角肌",
+                "body_part": "背阔肌",
+                "equipment": "绳索",
+                "exercise_id": "lat_pulldown_close"
+            }
+        ],
+        "updated_at": "2026-09-25T12:20:04.434Z",
+        "duration_min": 40,
+        "training_day": "back",
+        "schema_version": 2
+    },
+    {
+        "id": "workout-1790509200577-a58dea51685ae",
+        "date": "2026-09-27",
+        "kind": "workout_session",
+        "note": "",
+        "title": "腿日",
+        "status": "completed",
+        "exercises": [
+            {
+                "id": "exercise-1790509203327-d2ed57ba953fb8",
+                "icon": "深蹲",
+                "name": "杠铃深蹲",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 5,
+                        "weight_kg": 80
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 5,
+                        "weight_kg": 80
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 5,
+                        "weight_kg": 80
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 5,
+                        "weight_kg": 80
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 2,
+                        "weight_kg": 90
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 5,
+                        "weight_kg": 80
+                    }
+                ],
+                "tips": "站距略宽于髋，脚尖自然外旋 15 到 30 度。吸气收紧腹压，髋膝同步下蹲，膝盖沿脚尖方向移动；下降到大腿至少平行地面，脚掌三点受力后稳定站起。全程保持脊柱中立，避免塌腰、膝内扣和脚跟离地。",
+                "angle": "",
+                "muscles": "股四头肌、臀大肌、腘绳肌、核心",
+                "body_part": "股四头、臀部、腘绳肌",
+                "equipment": "杠铃",
+                "exercise_id": "barbell_squat",
+                "planned_sets": 6
+            },
+            {
+                "id": "exercise-1790509207546-84ef0566d97d",
+                "icon": "硬拉",
+                "name": "罗马尼亚硬拉",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 8,
+                        "weight_kg": 40
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 40
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 8,
+                        "weight_kg": 40
+                    }
+                ],
+                "tips": "双脚与髋同宽核心收紧背部挺直。臀部向后推以髋铰链前倾，杠铃紧贴大腿垂直下放。下落吸气起身呼气，避免膝盖弯曲角度变化、圆背和杠铃远离身体。",
+                "angle": "",
+                "muscles": "腘绳肌、臀大肌、竖脊肌",
+                "body_part": "后链",
+                "equipment": "杠铃",
+                "exercise_id": "romanian_deadlift",
+                "planned_sets": 3
+            },
+            {
+                "id": "exercise-1790509209178-db436dfc04b0f8",
+                "icon": "保加利亚蹲",
+                "name": "保加利亚分腿蹲",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 36
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 36
+                    }
+                ],
+                "tips": "后脚背放在凳上，前脚站稳并保持足弓支撑。屈髋屈膝垂直下沉，前膝对准脚尖，下降到舒适深度后以前脚中部和脚跟发力站起。先用自重熟悉平衡，再逐步增加哑铃重量，避免身体左右晃动和膝盖内扣。",
+                "angle": "",
+                "muscles": "股四头肌、臀大肌、腘绳肌、中臀肌、核心",
+                "body_part": "股四头、臀部",
+                "equipment": "哑铃/自重",
+                "exercise_id": "bulgarian_split_squat",
+                "planned_sets": 2
+            },
+            {
+                "id": "exercise-1790509222103-c00a4f78e15ab",
+                "icon": "杠弯",
+                "name": "杠铃弯举",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 20
+                    }
+                ],
+                "tips": "挺胸站立双脚与肩同宽膝盖微曲，反手握杠握距与肩同宽。肘部紧贴身体两侧不动，以肘弯曲上举至锁骨高度顶点停顿 1 秒。缓慢下放 3 秒底部不完全放松，向上呼气向下吸气。避免弓背借力和肘部前移。",
+                "angle": "",
+                "muscles": "肱二头肌、肱肌、肱桡肌、前臂屈肌",
+                "body_part": "二头",
+                "equipment": "杠铃",
+                "exercise_id": "barbell_curl",
+                "planned_sets": 1
+            }
+        ],
+        "updated_at": "2026-09-29T05:57:24.602Z",
+        "duration_min": 60,
+        "training_day": "legs",
+        "schema_version": 2
+    },
+    {
+        "id": "workout-1790765704475-d622f4acf90ca",
+        "date": "2026-09-30",
+        "kind": "workout_session",
+        "note": "还阔以",
+        "title": "背日",
+        "status": "completed",
+        "exercises": [
+            {
+                "id": "exercise-1790765709758-203661f2080178",
+                "icon": "引体",
+                "name": "引体向上",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "note": null,
+                        "reps": 8,
+                        "weight_kg": ""
+                    },
+                    {
+                        "rpe": "",
+                        "note": null,
+                        "reps": 8,
+                        "weight_kg": 0
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 8,
+                        "weight_kg": 0
+                    }
+                ],
+                "tips": "正手握杠略宽于肩，肩胛先下沉后收，用背部发力拉起身体至下巴过杠。下落时不完全放松肩胛避免借力摆动，全程核心收紧躯干稳定不摇晃。",
+                "angle": "",
+                "muscles": "背阔肌、大圆肌、肱二头肌、菱形肌、斜方肌中下部",
+                "body_part": "背",
+                "equipment": "自重",
+                "exercise_id": "pull_up",
+                "planned_sets": 3
+            },
+            {
+                "id": "exercise-1790765843138-e9fd5004cb4318",
+                "icon": "宽拉",
+                "name": "高位下拉（宽握）",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 38.5
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 38.5
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 8,
+                        "weight_kg": 38.5
+                    }
+                ],
+                "tips": "正手握宽把，大腿固定坐直挺胸。肩胛下沉后收，下拉想象肘部向后下方拉至横杆到上胸部。顶峰挤压背部 1-2 秒，返回时缓慢控制避免耸肩和过度后仰。",
+                "angle": "",
+                "muscles": "背阔肌上束及外侧、大圆肌、肱二头肌、后三角肌、菱形肌",
+                "body_part": "背阔肌",
+                "equipment": "绳索",
+                "exercise_id": "lat_pulldown_wide",
+                "planned_sets": 3
+            },
+            {
+                "id": "exercise-1790766219193-d251eeb575e408",
+                "icon": "坐划",
+                "name": "坐姿绳索划船（窄握）",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 45
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 45
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 45
+                    }
+                ],
+                "tips": "坐姿挺胸双脚踩踏板膝盖微屈，使用 V 把（窄握、掌心相对）。发力时先沉肩再沿身体两侧将手把拉至下腹或腹部，顶峰挤压肩胛。返回时缓慢控制，避免身体后仰借力，保持脊柱中立。",
+                "angle": "",
+                "muscles": "背阔肌、菱形肌、斜方肌中下部、后三角肌、肱二头肌",
+                "body_part": "中背",
+                "equipment": "绳索",
+                "exercise_id": "seated_cable_row",
+                "planned_sets": 3
+            },
+            {
+                "id": "exercise-1790766639022-e4b806e72a58f",
+                "icon": "窄拉",
+                "name": "高位下拉（窄握）",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 32.5
+                    },
+                    {
+                        "rpe": "",
+                        "note": null,
+                        "reps": 10,
+                        "weight_kg": 32.5
+                    }
+                ],
+                "tips": "使用 V 把略窄于肩，坐直挺胸。肩胛下沉后收，下拉时肘部靠近身体拉至中上胸位置。顶峰挤压背部，返回时缓慢控制保持肘部贴紧躯干避免借力。",
+                "angle": "",
+                "muscles": "背阔肌下束及内侧、菱形肌、肱二头肌、后三角肌",
+                "body_part": "背阔肌",
+                "equipment": "绳索",
+                "exercise_id": "lat_pulldown_close",
+                "planned_sets": 2
+            },
+            {
+                "id": "exercise-1790766978899-7103deb2a6268",
+                "icon": "单划",
+                "name": "单臂哑铃划船",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 20
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 20
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 20
+                    }
+                ],
+                "tips": "单膝跪于凳上同侧手扶凳，躯干接近水平背部挺直。肩胛先下沉后收，沿侧面向髋部拉起，顶峰挤压背部避免耸肩。返回时缓慢控制，保持躯干稳定避免身体旋转。",
+                "angle": "",
+                "muscles": "背阔肌、菱形肌、斜方肌中下部、后三角肌、肱二头肌",
+                "body_part": "背阔肌",
+                "equipment": "哑铃",
+                "exercise_id": "one_arm_dumbbell_row",
+                "planned_sets": 3
+            },
+            {
+                "id": "exercise-1790767453680-1a81081d4f9f58",
+                "icon": "反蝶",
+                "name": "反向蝴蝶机",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 15,
+                        "weight_kg": 22.5
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 15,
+                        "weight_kg": 22.5
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 15,
+                        "weight_kg": 22.5
+                    }
+                ],
+                "tips": "调整座椅使肩与转轴同高，胸部贴靠垫肘微屈。向后打开至最大幅度停顿 1-2 秒，向后呼气还原吸气。避免耸肩、伸直锁死、后仰借力或重量过大。",
+                "angle": "",
+                "muscles": "三角肌后束、菱形肌、中下斜方肌",
+                "body_part": "后束",
+                "equipment": "器械",
+                "exercise_id": "reverse_pec_deck",
+                "planned_sets": 3
+            },
+            {
+                "id": "exercise-1790767456927-01b44111b3be58",
+                "icon": "哑弯",
+                "name": "哑铃弯举",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 8,
+                        "weight_kg": 12
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 6,
+                        "weight_kg": 12
+                    }
+                ],
+                "tips": "双脚与肩同宽挺胸收紧核心，大臂贴紧身体固定。掌心朝前以肘为轴弯曲上举至靠近胸部，顶点挤压。缓慢下放约 3 秒最低点不完全伸直，向上呼气向下吸气。避免前倾借力和肘部前移。",
+                "angle": "",
+                "muscles": "肱二头肌、肱肌、肱桡肌、前臂屈肌",
+                "body_part": "二头",
+                "equipment": "哑铃",
+                "exercise_id": "dumbbell_curl",
+                "planned_sets": 2
+            }
+        ],
+        "updated_at": "2026-09-30T11:44:26.515Z",
+        "duration_min": 40,
+        "training_day": "back",
+        "schema_version": 2
+    },
+    {
+        "id": "workout-1791000933831-b96a3c24bc5eb8",
+        "date": "2026-10-02",
+        "kind": "workout_session",
+        "note": "",
+        "title": "胸日",
+        "status": "completed",
+        "exercises": [
+            {
+                "id": "exercise-1791000945531-8d5d8d8b767db8",
+                "icon": "卧推",
+                "name": "哑铃卧推",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 8,
+                        "weight_kg": 20
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 8,
+                        "weight_kg": 28
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 8,
+                        "weight_kg": 28
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 8,
+                        "weight_kg": 28
+                    }
+                ],
+                "tips": "仰卧水平凳，双脚踩实，肩胛收紧后收。下落至胸侧缓慢控制，推起均匀发力至接近伸直但不锁死。全程核心稳定，避免腰背过度拱起。",
+                "angle": "水平",
+                "muscles": "胸大肌、三角肌前束、肱三头肌",
+                "body_part": "胸",
+                "equipment": "哑铃",
+                "exercise_id": "dumbbell_bench_press",
+                "planned_sets": 4
+            },
+            {
+                "id": "exercise-1791000992214-e2844de25d034",
+                "icon": "下斜",
+                "name": "推胸机（下斜）",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 50
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 50
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 50
+                    }
+                ],
+                "tips": "调整下斜座椅使把手与下胸对齐，肩胛贴靠垫挺胸收腹。沿轨迹前推感受下胸发力，手臂接近伸直不锁死。返回时缓慢控制保持张力，避免肩胛过度外展。",
+                "angle": "下斜",
+                "muscles": "胸大肌下束、三角肌前束、肱三头肌",
+                "body_part": "下胸",
+                "equipment": "器械",
+                "exercise_id": "machine_chest_press_decline",
+                "planned_sets": 3
+            },
+            {
+                "id": "exercise-1791000998898-87f8e0796d9a08",
+                "icon": "中夹",
+                "name": "绳索夹胸（中位）",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 18
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 18
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 18
+                    }
+                ],
+                "tips": "中位滑轮与胸部齐高，双脚前后站立。双臂从两侧打开肘微屈 10-20 度，沿水平弧线向胸前合拢。顶峰挤压胸肌保持肘部角度不变，返回时缓慢控制保持胸部张力。",
+                "angle": "",
+                "muscles": "胸大肌中束、前锯肌",
+                "body_part": "胸",
+                "equipment": "绳索",
+                "exercise_id": "cable_fly_mid",
+                "planned_sets": 3
+            },
+            {
+                "id": "exercise-1791001001435-b307b6e62fe8f",
+                "icon": "实推",
+                "name": "实力推",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 20
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 20
+                    }
+                ],
+                "tips": "双脚与肩同宽，腰背挺直，杠铃置于颈前。向上推至头顶锁定，下放吸气推举呼气。保持杠铃在脚掌中线上垂直移动，避免耸肩、过度拱腰，核心持续收紧。",
+                "angle": "",
+                "muscles": "三角肌前束、三角肌中束、肱三头肌、上斜方肌、核心",
+                "body_part": "肩",
+                "equipment": "杠铃",
+                "exercise_id": "strict_press",
+                "planned_sets": 2
+            },
+            {
+                "id": "exercise-1791001006184-2808bef91fb128",
+                "icon": "索压",
+                "name": "绳索下压",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 15,
+                        "weight_kg": 9
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 15,
+                        "weight_kg": 9
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 15,
+                        "weight_kg": 9
+                    }
+                ],
+                "tips": "面对高位滑轮双脚与肩同宽膝盖微屈核心收紧。双手正握绳索肘部紧贴身体不动，呼气下压至大腿旁手臂伸直时分绳两端挤压三头肌，顶峰 1 秒。缓慢回放至肘屈略大于 90 度。避免身体前倾借力和肘部外张。",
+                "angle": "",
+                "muscles": "肱三头肌",
+                "body_part": "三头",
+                "equipment": "绳索",
+                "exercise_id": "rope_pushdown",
+                "planned_sets": 3
+            }
+        ],
+        "updated_at": "2026-10-03T04:17:38.835Z",
+        "duration_min": 60,
+        "training_day": "chest",
+        "schema_version": 2
+    },
+    {
+        "id": "seed-workout-chest-1",
+        "date": "2026-09-18",
+        "kind": "workout_session",
+        "note": "先把卧推的动作轨迹练稳，重量慢慢加。",
+        "title": "胸日",
+        "status": "completed",
+        "exercises": [
+            {
+                "id": "seed-exercise-chest-1-dumbbell_bench_press",
+                "icon": "卧推",
+                "name": "哑铃卧推",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": 8,
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 18
+                    },
+                    {
+                        "rpe": 8,
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 18
+                    },
+                    {
+                        "rpe": 9,
+                        "note": "",
+                        "reps": 8,
+                        "weight_kg": 18
+                    }
+                ],
+                "tips": "控制动作节奏，保持躯干稳定；重量以动作质量为先。",
+                "angle": "水平",
+                "muscles": "胸大肌、三角肌前束、肱三头肌",
+                "body_part": "胸",
+                "equipment": "哑铃",
+                "exercise_id": "dumbbell_bench_press",
+                "planned_sets": 3
+            },
+            {
+                "id": "seed-exercise-chest-1-pec_deck",
+                "icon": "蝴蝶",
+                "name": "蝴蝶机夹胸",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": 8,
+                        "note": "",
+                        "reps": 12,
+                        "weight_kg": 30
+                    },
+                    {
+                        "rpe": 8,
+                        "note": "",
+                        "reps": 12,
+                        "weight_kg": 30
+                    },
+                    {
+                        "rpe": 9,
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 30
+                    }
+                ],
+                "tips": "控制动作节奏，保持躯干稳定；重量以动作质量为先。",
+                "angle": "",
+                "muscles": "胸大肌、前锯肌",
+                "body_part": "胸",
+                "equipment": "器械",
+                "exercise_id": "pec_deck",
+                "planned_sets": 3
+            }
+        ],
+        "updated_at": "2026-10-08T08:58:30.088Z",
+        "duration_min": 50,
+        "training_day": "chest",
+        "schema_version": 2
+    },
+    {
+        "id": "seed-workout-chest-2",
+        "date": "2026-10-02",
+        "kind": "workout_session",
+        "note": "卧推 +2.5kg，最后一组有点吃力但姿势没散。",
+        "title": "胸日",
+        "status": "completed",
+        "exercises": [
+            {
+                "id": "seed-exercise-chest-2-dumbbell_bench_press",
+                "icon": "卧推",
+                "name": "哑铃卧推",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": 8,
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 22.5
+                    },
+                    {
+                        "rpe": 9,
+                        "note": "",
+                        "reps": 9,
+                        "weight_kg": 22.5
+                    },
+                    {
+                        "rpe": 9,
+                        "note": "",
+                        "reps": 8,
+                        "weight_kg": 22.5
+                    }
+                ],
+                "tips": "控制动作节奏，保持躯干稳定；重量以动作质量为先。",
+                "angle": "水平",
+                "muscles": "胸大肌、三角肌前束、肱三头肌",
+                "body_part": "胸",
+                "equipment": "哑铃",
+                "exercise_id": "dumbbell_bench_press",
+                "planned_sets": 3
+            },
+            {
+                "id": "seed-exercise-chest-2-cable_fly_mid",
+                "icon": "中夹",
+                "name": "绳索夹胸（中位）",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": 8,
+                        "note": "",
+                        "reps": 12,
+                        "weight_kg": 15
+                    },
+                    {
+                        "rpe": 8,
+                        "note": "",
+                        "reps": 12,
+                        "weight_kg": 15
+                    },
+                    {
+                        "rpe": 9,
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 15
+                    }
+                ],
+                "tips": "控制动作节奏，保持躯干稳定；重量以动作质量为先。",
+                "angle": "",
+                "muscles": "胸大肌中束、前锯肌",
+                "body_part": "胸",
+                "equipment": "绳索",
+                "exercise_id": "cable_fly_mid",
+                "planned_sets": 3
+            }
+        ],
+        "updated_at": "2026-10-08T08:58:30.088Z",
+        "duration_min": 55,
+        "training_day": "chest",
+        "schema_version": 2
+    },
+    {
+        "id": "workout-1791540934249-eb12342c9c11c8",
+        "date": "2026-10-09",
+        "kind": "workout_session",
+        "note": "不太行，刚放完假状态还没回来",
+        "title": "胸日",
+        "status": "completed",
+        "exercises": [
+            {
+                "id": "exercise-1791540939239-e97b1760776da",
+                "icon": "卧推",
+                "name": "哑铃卧推",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": 9,
+                        "note": "",
+                        "reps": 8,
+                        "weight_kg": 20
+                    },
+                    {
+                        "rpe": 9,
+                        "note": "",
+                        "reps": 8,
+                        "weight_kg": 20
+                    },
+                    {
+                        "rpe": 9,
+                        "note": "",
+                        "reps": 8,
+                        "weight_kg": 20
+                    }
+                ],
+                "tips": "仰卧水平凳，双脚踩实，肩胛收紧后收。下落至胸侧缓慢控制，推起均匀发力至接近伸直但不锁死。全程核心稳定，避免腰背过度拱起。",
+                "angle": "水平",
+                "muscles": "胸大肌、三角肌前束、肱三头肌",
+                "body_part": "胸",
+                "equipment": "哑铃",
+                "exercise_id": "dumbbell_bench_press",
+                "planned_sets": 3
+            },
+            {
+                "id": "exercise-1791545235771-fe89dc0fe2fa1",
+                "icon": "斜推",
+                "name": "推胸机（上斜）",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 50
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 50
+                    }
+                ],
+                "tips": "调整上斜座椅使把手与上胸对齐，挺胸收肩。沿轨迹前推重点感受上胸发力，返回时缓慢控制保持肘部微屈，避免身体前倾借力。",
+                "angle": "上斜",
+                "muscles": "胸大肌上束、三角肌前束、肱三头肌",
+                "body_part": "上胸",
+                "equipment": "器械",
+                "exercise_id": "machine_chest_press_incline",
+                "planned_sets": 2
+            },
+            {
+                "id": "exercise-1791545236616-8f2cdcba46b228",
+                "icon": "下斜",
+                "name": "推胸机（下斜）",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 50
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 50
+                    }
+                ],
+                "tips": "调整下斜座椅使把手与下胸对齐，肩胛贴靠垫挺胸收腹。沿轨迹前推感受下胸发力，手臂接近伸直不锁死。返回时缓慢控制保持张力，避免肩胛过度外展。",
+                "angle": "下斜",
+                "muscles": "胸大肌下束、三角肌前束、肱三头肌",
+                "body_part": "下胸",
+                "equipment": "器械",
+                "exercise_id": "machine_chest_press_decline",
+                "planned_sets": 2
+            },
+            {
+                "id": "exercise-1791545244887-872b3cba61fca",
+                "icon": "侧举",
+                "name": "哑铃侧平举",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 8
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 8
+                    }
+                ],
+                "tips": "双脚与肩同宽，肘微屈 20-30 度并全程锁定。以手肘为引导向两侧抬起至肩高，上举呼气下放吸气。避免耸肩甩臂借力，重量不宜过大，动作要慢。",
+                "angle": "",
+                "muscles": "三角肌中束、三角肌前束、上斜方肌",
+                "body_part": "中束",
+                "equipment": "哑铃",
+                "exercise_id": "dumbbell_lateral_raise",
+                "planned_sets": 2
+            }
+        ],
+        "updated_at": "2026-10-09T11:28:09.933Z",
+        "duration_min": 60,
+        "training_day": "chest",
+        "schema_version": 2
+    },
+    {
+        "id": "workout-1791630368673-4e9ba0b68cf808",
+        "date": "2026-10-10",
+        "kind": "workout_session",
+        "note": "",
+        "title": "腿日",
+        "status": "completed",
+        "exercises": [
+            {
+                "id": "exercise-1791630376591-7e37187eac973",
+                "icon": "深蹲",
+                "name": "杠铃深蹲",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 5,
+                        "weight_kg": 70
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 5,
+                        "weight_kg": 70
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 5,
+                        "weight_kg": 70
+                    }
+                ],
+                "tips": "站距略宽于髋，脚尖自然外旋 15 到 30 度。吸气收紧腹压，髋膝同步下蹲，膝盖沿脚尖方向移动；下降到大腿至少平行地面，脚掌三点受力后稳定站起。全程保持脊柱中立，避免塌腰、膝内扣和脚跟离地。",
+                "angle": "",
+                "muscles": "股四头肌、臀大肌、腘绳肌、核心",
+                "body_part": "股四头、臀部、腘绳肌",
+                "equipment": "杠铃",
+                "exercise_id": "barbell_squat",
+                "planned_sets": 3
+            },
+            {
+                "id": "exercise-1791630550465-d3f624ddfe512",
+                "icon": "硬拉",
+                "name": "罗马尼亚硬拉",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 8,
+                        "weight_kg": 40
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 8,
+                        "weight_kg": 40
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 8,
+                        "weight_kg": 40
+                    }
+                ],
+                "tips": "双脚与髋同宽核心收紧背部挺直。臀部向后推以髋铰链前倾，杠铃紧贴大腿垂直下放。下落吸气起身呼气，避免膝盖弯曲角度变化、圆背和杠铃远离身体。",
+                "angle": "",
+                "muscles": "腘绳肌、臀大肌、竖脊肌",
+                "body_part": "后链",
+                "equipment": "杠铃",
+                "exercise_id": "romanian_deadlift",
+                "planned_sets": 3
+            },
+            {
+                "id": "exercise-1791632466081-9616df53851db",
+                "icon": "保加利亚蹲",
+                "name": "保加利亚分腿蹲",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 8,
+                        "weight_kg": 34
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 8,
+                        "weight_kg": 34
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 8,
+                        "weight_kg": 34
+                    }
+                ],
+                "tips": "后脚背放在凳上，前脚站稳并保持足弓支撑。屈髋屈膝垂直下沉，前膝对准脚尖，下降到舒适深度后以前脚中部和脚跟发力站起。先用自重熟悉平衡，再逐步增加哑铃重量，避免身体左右晃动和膝盖内扣。",
+                "angle": "",
+                "muscles": "股四头肌、臀大肌、腘绳肌、中臀肌、核心",
+                "body_part": "股四头、臀部",
+                "equipment": "哑铃/自重",
+                "exercise_id": "bulgarian_split_squat",
+                "planned_sets": 3
+            },
+            {
+                "id": "exercise-1791632944044-7190efeceeaa48",
+                "icon": "屈伸",
+                "name": "腿屈伸",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 8,
+                        "weight_kg": 59
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 8,
+                        "weight_kg": 59
+                    }
+                ],
+                "tips": "坐稳背部贴靠垫大腿贴座椅前沿，双脚背勾住垫板。发力呼气抬起至接近伸直顶端保持 1 秒，缓慢回落吸气。避免膝盖完全锁死、借助惯性甩动和身体晃动。",
+                "angle": "",
+                "muscles": "股四头肌",
+                "body_part": "股四头",
+                "equipment": "器械",
+                "exercise_id": "leg_extension",
+                "planned_sets": 2
+            },
+            {
+                "id": "exercise-1791632947774-9658e740c453c8",
+                "icon": "腿弯",
+                "name": "腿弯举",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 8,
+                        "weight_kg": 59
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 8,
+                        "weight_kg": 59
+                    }
+                ],
+                "tips": "俯卧或坐姿大腿贴垫板，脚踝放滚轮下方。呼气弯曲小腿向臀部贴近顶峰停留 1-2 秒，吸气缓慢放回。避免臀部抬起、下背拱起、借力甩动和动作过快。",
+                "angle": "",
+                "muscles": "腘绳肌、小腿肌群",
+                "body_part": "腘绳肌",
+                "equipment": "器械",
+                "exercise_id": "leg_curl",
+                "planned_sets": 2
+            },
+            {
+                "id": "exercise-1791651947121-d03ab740d0077",
+                "icon": "内收",
+                "name": "坐姿腿内收",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 59
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 59
+                    }
+                ],
+                "tips": "坐稳背部贴靠垫，双腿外侧贴住挡板。呼气用大腿内侧夹拢至最大幅度停顿 1-2 秒，吸气缓慢外展回位保持张力。避免借惯性猛夹、骨盆前后晃动和幅度过大牵拉内侧。",
+                "angle": "",
+                "muscles": "大腿内收肌群（大收肌、长收肌）、耻骨肌",
+                "body_part": "内收肌",
+                "equipment": "器械",
+                "exercise_id": "seated_hip_adduction",
+                "planned_sets": 2
+            },
+            {
+                "id": "exercise-1791651949438-bbf3dff069e4f",
+                "icon": "外展",
+                "name": "坐姿腿外展",
+                "note": "",
+                "sets": [
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 60
+                    },
+                    {
+                        "rpe": "",
+                        "note": "",
+                        "reps": 10,
+                        "weight_kg": 60
+                    }
+                ],
+                "tips": "坐稳躯干直立，双腿内侧贴住挡板。呼气向外打开至最大幅度停顿 1-2 秒，吸气缓慢收回不完全放松。避免上身后仰借力、幅度超过舒适范围和速度过快。",
+                "angle": "",
+                "muscles": "臀中肌、臀小肌、阔筋膜张肌",
+                "body_part": "臀中肌",
+                "equipment": "器械",
+                "exercise_id": "seated_hip_abduction",
+                "planned_sets": 2
+            }
+        ],
+        "updated_at": "2026-10-10T17:06:42.180Z",
+        "duration_min": 60,
+        "training_day": "legs",
+        "schema_version": 2
+    }
+]
