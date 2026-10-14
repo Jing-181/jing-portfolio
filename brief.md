@@ -558,6 +558,73 @@ README 目录树与第 8 节、本文件抬头都已加指向，新会话绕不�
 
 ---
 
+### 2026-10-13 第十七段：训练志的「常用动作 / 样例训练日」改成从 cat-newsroom 算
+
+Jing 的意思：训练志里那两块手写的「运动模版」可以去掉。她自己有个记录运动的站
+（同目录的 `cat-newsroom`），那边才是记录的入口；能复用取记录的逻辑，或者在那加个接口专门取。
+
+**读到的现状**：
+
+- `sources/training/workouts-export-2026-10-10.json` 本来就是 cat-newsroom `data.sport` 的原样导出
+  （30 条 `workout_session` + 2 条旧版 progress），一直手动对接，没接线。
+- cat-newsroom 的数据在 localStorage `cat-newsroom-data-v2` 与 Supabase `workbench_records`
+  （`module_key = 'sport'`）。RLS 是 `auth.uid() = user_id`，匿名读不到——所以**光有 user_id 不够**，
+  得带她的 access token 或 service_role key。
+
+**做掉的**：
+
+- 新增 `scripts/workout-blocks.js`：从记录算 movements / days。口径照 cat-newsroom 的
+  `src/lib/workout.js`（力量组以次数为准、自重 0、助力写负数、容量＝重量×次数逐组累加），
+  但不 import 那边模块：小志在 GitHub Actions 里单独构建，兄弟仓库不在场。字段语义对齐就够。
+- `scripts/data.js`：`parseTraining(text, source)` 多收一个 records；`generate()` 里训练志读
+  `sources/training/workouts*.json`（取文件名最靠后的）。产物多两个字段：`days`
+  （原来靠 `## 样例训练日` 的 items）和 `records`（条数 / 最后日期）。拿不到记录文件时，
+  解析器退回 md 里手写的同名分区，空目录也能构建。
+- `data/training.md`：删掉 `## 常用动作`（11 条）和 `## 样例训练日`（4 条）两节，文件头与素材导航改写。
+  剩下 概览 / 怎么练 / 力量突破 / 档案。
+- `pages/training.html`：样例训练日改读 `data.days`；常用动作的小注改成「练到过的大数 · 记录到 <最后日期>」。
+- `scripts/pull-workouts.js` + `npm run training:pull`：读 Supabase 的公开只读视图 `sport_feed`
+  （cat-newsroom 侧那条 migration 建的），不需要密钥；`deploy.yml` 每天定时拉一次。
+  连不上时的正路是 cat-newsroom 里导出备份再取出 sport。
+- `README.md` 第四卷 schema 两张表同步。
+
+**几个判断（都能改）**：
+
+- 常用动作取前 14 个力量动作（按练到的次数排，同次数按最大重量）。只取 11 个会漏掉杠铃卧推
+  （5 次，被同为 5 次的保加利亚分腿蹲按日期挤掉），14 个能带上。
+- `load` 是历史最大重量，`meta` 取最近一次的组次规律，`note` 是最近一次的整串组次。
+- 样例训练日先按训练日各取一个整天，不够再按日期补，避免四张卡里三张是胸日。
+- **力量突破没交给算法**：卧推口径是她口述的 60 kg，硬拉 100 是旧账、不在 `workout_session` 里；
+  「口径 > 记录」这条规矩照旧。
+
+**顺带发现两处数据对不上（没改，报了）**：
+
+- `绳索下压` 最大记到 25 kg，其余每次都是 9–12 kg（25 只出现在 2026-09-10 那一组）。
+- `坐姿绳索划船` 记录里最大 55 kg，旧 md 上写的是 52.5。
+
+校验：`training.json` items 21（怎么练 1 / 力量突破 3 / 档案 17）、movements 14、days 4、stats 4；
+`npm run data` / `npm run build` 全绿，dist 无 private 泄漏。
+
+---
+
+### 2026-10-14 第十八段：sport_feed 上线，训练志自动拉取真正跑通
+
+前一段把拉取链路写好了，但 cat-newsroom 那条只读视图还没建，`pull` 一直没跑过。这段把它接上。
+
+- **视图上线**：cat-newsroom 的 `supabase/migrations/20261013120000_sport_readonly_feed.sql`
+  已应用到云端（`public.sport_feed`，`anon` / `authenticated` 可 SELECT）。走 Supabase MCP 应用，
+  没用 CLI（本机没装）。线上 `workbench_records` 列与脚本口径完全吻合。
+- **首次拉通**：`npm run training:pull` 成功，34 条（训练 32 次，最近 2026-10-13），
+  写入 `data/sources/training/workouts-2026-10-14.json`。
+- **重算**：`training.json` movements 14 / days 4 / items 21；动作表较 10-10 那份新增「实力推」、
+  挤出「保加利亚分腿蹲」（14 个名额按练到的次数排）。样例训练日 `10-13 胸 / 10-11 背 / 10-10 腿 / 10-09 胸`。
+- **文件策略**：`pull-workouts.js` 每次拉取前清掉上一份自动文件（`workouts-<日期>.json`）；
+  自动产物加进 `.gitignore`（可随时重拉，不抖 git），手存 `workouts-export-*.json` 保留兜底。
+
+校验：`npm run data` / `npm run build` 全绿；清理逻辑用两个假文件实测，删旧留新，`-export-` 不动。
+
+---
+
 ## 八、后续优化方向
 
 按“要 Jing 拍板”和“可以直接做”分开。
@@ -579,7 +646,7 @@ README 目录树与第 8 节、本文件抬头都已加指向，新会话绕不�
 - 训练志：小米运动数据未给；2024-05 整月缺；2023-09 及更早无记录。她若给了腿日 / 胸日
   的完整清单，把深蹲、卧推那 16 条按动作单列的也统一改成一天一张卡。
 
-## 九、最近更新状态（截至 2026-10-11 · 第十六段）
+## 九、最近更新状态（截至 2026-10-14 · 第十八段）
 
 现状的单一事实源是 `data/site.md`（导航 + 各卷 `progress`）和各卷主 md，这里只记“最近动了什么”。
 
@@ -589,7 +656,7 @@ README 目录树与第 8 节、本文件抬头都已加指向，新会话绕不�
 | 第一卷 · 履历志 | `data/resume.md` | `pages/resume.html` | **成品** | 第十二段：整页数据化（md → json → fetch 渲染） |
 | 第二卷 · 喜好志 | `data/tastes.md` | `pages/tastes.html` | 未完成 | 第十二段：加卷首散文；63 条 |
 | 第三卷 · 经历志 | `data/timeline.md` | `pages/timeline.html` | 未完成 | 第十二段：加卷首散文；16 条 |
-| 第四卷 · 训练志 | `data/training.md` | `pages/training.html` | **成品** | 第十三段：卧推口径改 60 kg；去重后 24 条 |
+| 第四卷 · 训练志 | `data/training.md` | `pages/training.html` | **成品** | 第十八段：sport_feed 上线，`training:pull` 首次跑通 |
 
 **数据层**：三层（主 md / 主 json / `data/sources/<卷>/`）已落地；`npm run data` → `npm run build` 全绿。
 **未决**：只剩履历页的 HTTP 兜底要不要做（第八节第 1 条）。

@@ -155,10 +155,15 @@ field: value
 | --- | --- | --- |
 | `概览` | 页首那排大数字 | `### 标题` → label，`metric` → value，`note` → 小字 |
 | `怎么练` | 一段练法（`tags` 变成胸/背/腿小签） | `note`、`tags` |
-| `常用动作` | 那排动作卡（顺序＝条目顺序） | `part / load / meta / note` |
-| `样例训练日` | 一天一张卡，`note` 每行一个动作 | `part / metric / note / tags` |
 | `力量突破` | 里程碑卡（复用动作卡样式） | `part / metric / note` |
 | `档案` | 底部可筛选总账 | `date / kind / metric / note / tags` |
+
+> **「常用动作」「样例训练日」不在 md 里，也不手写**，由 `scripts/workout-blocks.js` 从
+> `data/sources/training/workouts*.json`（cat-newsroom 运动记录的原样导出）算出来，
+> 写进 `training.json` 的 `movements` / `days`：动作按练到的次数排（前 14 个力量动作，
+> `load` 是历史最大重量、`meta` 取最近一次的组次规律）；样例训练日按训练日各取一个整日。
+> `training.json` 另带一个 `records` 字段（条数 / 最后日期），页面底部据此说明数据到哪天。
+> 拿不到 records 文件时，解析器退回 md 里手写的同名分区，空目录也能构建。
 
 通用字段：
 
@@ -175,7 +180,12 @@ field: value
 
 > `section` 不用手写：`parseTraining` 按条目所在的 `##` 自动打上，页面据此分区渲染。
 > 约定：**页面只显示「形状」，不显示流水**；只有力量上的突破才往 `## 力量突破` 补条目。
-> 逐次流水不写在 md 里，放在 `data/sources/training/workouts-export-2026-10-10.json`，用来核对卡片里的数字。
+> 逐次流水以 cat-newsroom 为唯一事实源；导出到 `data/sources/training/workouts*.json` 后重跑
+> `npm run data`。刷新那份导出的两条路：cat-newsroom 里导出备份（不用密钥），或
+> `npm run training:pull`（走 Supabase 的公开只读视图 `sport_feed`，不需要任何密钥；
+> 见 `scripts/pull-workouts.js` 与 cat-newsroom 的 `supabase/migrations/*_sport_readonly_feed.sql`）。
+> 自动拉取的 `workouts-<日期>.json` 不入库，每次拉取前先清掉上一份；手存的
+> `workouts-export-<日期>.json` 留着当离线兜底。
 
 ### `data/resume.md` —— 履历志整页
 

@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    # 每天 22:00 UTC（北京时间 06:00）自动重跑，让训练志追上 cat-newsroom 的最新记录
+    - cron: '0 22 * * *'
 
 permissions:
   contents: read
@@ -27,6 +30,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+      # 只读拉取：cat-newsroom 云端的最新运动记录（公开只读视图 sport_feed）。
+      # 不需要任何密钥；读不到就退回仓库里已有的导出，不挡住发布。
+      - name: Pull latest workouts
+        continue-on-error: true
+        run: node scripts/pull-workouts.js
       - name: Build static site (filters private data)
         run: node scripts/build.js
       - name: Upload artifact

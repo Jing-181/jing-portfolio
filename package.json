@@ -5,6 +5,7 @@
   "description": "潘静的个人志 —— 履历志 + 喜好志等四卷分卷，静态站点，数据驱动",
   "scripts": {
     "data": "node scripts/data.js",
+    "training:pull": "node scripts/pull-workouts.js",
     "predev": "node scripts/data.js",
     "dev": "python3 -m http.server 8000",
     "build": "node scripts/build.js",

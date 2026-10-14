@@ -73,7 +73,7 @@
   <section class="tblock" id="mv-block" hidden>
     <div class="tblock-head">
       <h2 class="tblock-h">常用动作</h2>
-      <span class="tblock-sub">重量是练到过的大数</span>
+      <span class="tblock-sub">练到过的大数</span>
     </div>
     <div class="mv-grid" id="mv-grid"></div>
   </section>
@@ -197,9 +197,8 @@
     '</div>';
   }
   function renderDays() {
-    var list = bySection('样例训练日');
-    if (!list.length) return;
-    document.getElementById('day-grid').innerHTML = list.map(dayCard).join('');
+    if (!DAYS.length) return;
+    document.getElementById('day-grid').innerHTML = DAYS.map(dayCard).join('');
     document.getElementById('day-block').hidden = false;
   }
 
@@ -271,7 +270,7 @@
     if (list.length) listEl.innerHTML = list.map(archiveItem).join('');
   }
 
-  var ALL = [], MOVE = [], STATS = [];
+  var ALL = [], MOVE = [], STATS = [], DAYS = [];
   var state = { kind: '全部' };
 
   document.getElementById('filter-bar').addEventListener('click', function (e) {
@@ -288,8 +287,13 @@
       ALL = (data.items || []).slice();
       MOVE = (data.movements || []).slice();
       STATS = (data.stats || []).slice();
+      DAYS = (data.days || []).slice();
       ALL.__declared = data.kinds || [];
       if (data.updated) document.getElementById('t-updated').textContent = '更新于 ' + data.updated;
+      // 常用动作 / 样例训练日：由 cat-newsroom 的运动记录算出来，不手写
+      var rc = data.records;
+      var mvSub = document.querySelector('#mv-block .tblock-sub');
+      if (mvSub && rc && rc.latest) mvSub.textContent = '练到过的大数 · 记录到 ' + rc.latest;
       // 卷首语只在 data/training.md 里写一份，页面从 json 读
       var lede = document.getElementById('vol-lede');
       if (lede && data.lede) lede.innerHTML = data.lede;

@@ -20,9 +20,36 @@
  */
 const fs = require('fs');
 const path = require('path');
+const { deriveBlocks } = require('./workout-blocks');
 
 const ROOT = path.resolve(__dirname, '..');
 const DATA = path.join(ROOT, 'data');
+
+/**
+ * 训练志的上游：cat-newsroom 的运动记录导出。
+ * 取 data/sources/training/workouts*.json 里「日期最新」的一个。
+ * 按文件名里的 YYYY-MM-DD 排，而不是按文件名字符串：手存的 workouts-export-<日期>.json
+ * 按字典序会排在自动拉的 workouts-<日期>.json 之后，把新数据顶掉。
+ * 拿不到就返回 null，parseTraining 退回手写内容，不让构建挂掉。
+ */
+function loadWorkoutRecords() {
+  const dir = path.join(DATA, 'sources', 'training');
+  if (!fs.existsSync(dir)) return null;
+  const stampOf = (f) => (f.match(/\d{4}-\d{2}-\d{2}/) || [''])[0];
+  const files = fs.readdirSync(dir)
+    .filter((f) => /^workouts.*\.json$/.test(f))
+    .sort((a, b) => stampOf(a).localeCompare(stampOf(b)) || a.localeCompare(b));
+  if (!files.length) return null;
+  const file = files[files.length - 1];
+  try {
+    const raw = JSON.parse(read(path.join(dir, file)));
+    const records = Array.isArray(raw) ? raw : (raw.sport || raw.records || raw.items || []);
+    return { file, records };
+  } catch (err) {
+    console.warn(`训练记录读不动（${file}）：${err.message}`);
+    return null;
+  }
+}
 
 /**
  * 中国传统色：名字 → 色值。
@@ -231,12 +258,13 @@ function parseTimeline(text) {
 /** data/training.md → 训练志数据对象
  *  按 `##` 分区摆块（页面按 section 分组渲染），不再是一条按天倒的流水：
  *    ## 概览       → stats（label=标题，value=metric，sub=note）
- *    ## 常用动作   → movements
- *    ## 单次记录   → 仍旧进 items（section 标出来，页面按约定不显示）
  *    其余 ##       → items，各自带 section / part
  *  date 为 YYYY-MM-DD，新的在前。
+ *
+ *  「常用动作」「样例训练日」不写 md，从 sources/training 的运动记录算（见 workout-blocks.js）；
+ *  传了 records 就用算出来的，没传就退回 md 里手写的那两段（兼容旧文件，也方便离线构建）。
  */
-function parseTraining(text) {
+function parseTraining(text, source) {
   const { meta, body } = splitFrontMatter(text);
   const kinds = (meta.kinds || '')
     .split(/[,，]/).map((s) => s.trim()).filter(Boolean);
@@ -281,6 +309,10 @@ function parseTraining(text) {
     else cur[k] = v;
   }
   items.sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')));
+  const derived = source && source.records && source.records.length
+    ? deriveBlocks(source.records, { file: source.file })
+    : null;
+  const sampleDays = items.filter((it) => it.section === '样例训练日');
   return {
     vol: meta.vol || 'training',
     updated: meta.updated || '',
@@ -291,8 +323,18 @@ function parseTraining(text) {
       value: s.metric || '',
       sub: s.note || '',
     }, ['label', 'value', 'sub'])),
-    movements: movements.map((m) => orderKeys({
-      name: m.title,
+    // 数据来源写在产物里，页面底部能说清「这份形状是从哪算的、到哪天」
+    records: derived ? derived.records : null,
+    days: derived ? derived.days : sampleDays.map((it) => orderKeys({
+      date: String(it.date || ''),
+      title: it.title,
+      part: it.part || '',
+      metric: it.metric || '',
+      note: it.note || '',
+      tags: it.tags || [],
+    }, ['date', 'title', 'part', 'metric', 'note', 'tags'])),
+    movements: (derived ? derived.movements : movements).map((m) => orderKeys({
+      name: m.name || m.title || '',
       part: m.part || '',
       load: m.load || '',
       meta: m.meta || '',
@@ -478,7 +520,8 @@ function generate() {
   for (const job of JOBS) {
     const src = path.join(DATA, job.md);
     if (!fs.existsSync(src)) continue;
-    const out = job.parse(read(src));
+    const source = job.md === 'training.md' ? loadWorkoutRecords() : undefined;
+    const out = job.parse(read(src), source);
     writeJSON(path.join(DATA, job.json), out);
     const n = Array.isArray(out.items) ? out.items.length
       : Array.isArray(out.volumes) ? out.volumes.length

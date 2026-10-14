@@ -4,6 +4,10 @@
 # 由 data/*.md 生成的内容集合（页面读它，别手改、不入库）
 data/*.json
 
+# 训练记录：自动拉取产物（npm run training:pull 生成，可随时重拉），不入库；
+# 手存的离线导出 workouts-export-<日期>.json 不受影响，照常入库。
+data/sources/training/workouts-????-??-??.json
+
 # 构建产物
 node_modules/
 dist/
@@ -14,3 +18,8 @@ dist/
 
 # 临时工作区（卡片预览包、审校报告等）
 .work/
+
+# 本地凭证（Supabase secret key 等），绝不入库
+.env.local
+.env
+.secrets/
