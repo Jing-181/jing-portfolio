@@ -1,6 +1,6 @@
 ---
 vol: tastes
-updated: 2026-10-11
+updated: 2026-10-21
 categories: 放在心上的, 灯下读的, 追的动画, 电影, 吃的, 动的, 走过的地方
 ---
 
@@ -194,6 +194,11 @@ note: 目前最重 60 kg。
 kind: 签
 note: 现在还不太行，心里一直惦记着练成它。
 
+### 睡前那十分钟
+
+kind: 签
+note: 一张垫子，或者干脆躺着。十分钟的拉伸，二十分钟的躺平冥想，有时候十五分钟就睡着了。收藏夹里专门留了一个夹放这些，点开就能用。
+
 ## 走过的地方
 > 说不上最喜欢哪一座
 
@@ -210,6 +215,8 @@ stops: 抚州|温州（游）|厦门（游）|景德镇|桂林（游）|黄山�
 - `sources/tastes/netease-playlist.txt` —— 网易云歌单 214 首原样抓取（曲名 + 艺人）
 - `sources/tastes/bilibili-following.txt` —— b 站关注列表 161 行手抄
 - `sources/tastes/bilibili.txt` —— b 站公开主页可见数据（追番、粉丝等）
+- `sources/tastes/bilibili-favorites-2026-10-21.md` —— b 站收藏夹全量整理结果（18 个夹收到 12 个，另留默认收藏夹当收件箱；含收藏时间分布）
+- `sources/tastes/bilibili-favorites-removed-2026-10-21.md` —— 整理时取消收藏的 21 条存档（标题、UP、时长、链接）
 - `sources/tastes/wechat-reading.md` —— 微信读书 App 六张截图摘录
 - `sources/tastes/snapshot-2026-10-10.md` —— 打磨前的本卷快照（原话存档）
 - `sources/tastes/snapshot-2026-10-11-full.md` —— 改版前的 63 条全量存档

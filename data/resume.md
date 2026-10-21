@@ -21,9 +21,9 @@ nameEm: 静
 role: 多端前端开发负责人 · **MOJiDict 全系列**长期迭代
 desc: 长期负责 MOJiDict 全系列产品线的前端工程化和多平台交付：H5、Hybrid 三平台、PC Web、微信小程序与 AI Agent 前端。相比一次性写出优雅代码，更在意项目能不能被长期迭代。
 tags: 多端前端开发, 老项目长周期迭代, AI 工具协作实践, 工程化与发布治理
-motto: 鍥而不舍，金石可鏤
+motto: 锲而不舍，金石可镂
 mottoEm: 金石
-mottoSub: 堅持不懈 · 金石可鏤
+mottoSub: 坚持不懈 · 金石可镂
 
 ## 关于
 
@@ -239,7 +239,7 @@ link: GitHub ↗ | https://github.com/Jing-181 | ghost
 ## 页脚
 
 left: © 2026 潘静 · 广州
-right: 鍥而不舍，金石可鏤
+right: 锲而不舍，金石可镂
 
 ## 素材导航
 

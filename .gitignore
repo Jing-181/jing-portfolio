@@ -23,3 +23,6 @@ dist/
 .env.local
 .env
 .secrets/
+
+# 本地预览日志
+.dev.log
