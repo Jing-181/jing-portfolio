@@ -1,0 +1,184 @@
+<!-- 个人志 · 导航首页 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>潘静 · 个人志</title>
+<meta name="description" content="潘静的个人志：履历、喜好、经历、训练，四个侧面拼出一个人。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%239E3B3B'/%3E%3Ctext x='16' y='21' font-size='12.5' text-anchor='middle' fill='%23FCFAF6' font-family='serif'%3EJing%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css?v=20261108">
+<link rel="stylesheet" href="assets/css/volumes.css?v=20261108">
+<link rel="stylesheet" href="assets/css/lock.css">
+</head>
+<body>
+
+<div class="lock-gate" id="lock-gate" hidden role="dialog" aria-modal="true" aria-label="口令">
+  <div class="lock-card">
+    <div class="lock-seal">Jing</div>
+    <h2 class="lock-title">这一卷，只给自己看</h2>
+    <div class="lock-row">
+      <input class="lock-input" type="password" autocomplete="off" spellcheck="false" aria-label="口令">
+      <button class="lock-btn" type="button">进</button>
+    </div>
+    <p class="lock-hint">输入口令</p>
+  </div>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html"><span class="seal-mini">Jing</span><span class="brand">潘静</span></a>
+    <div class="nav-links" id="hub-nav">
+      <a href="pages/resume.html">履历志</a>
+      <a href="pages/tastes.html">喜好志</a>
+      <a href="pages/timeline.html">经历志</a>
+      <a href="pages/training.html">训练志</a>
+    </div>
+  </div>
+</nav>
+
+<header class="vol-hero">
+  <div class="wrap">
+    <div class="vol-kicker rv">CONTENTS</div>
+    <h1 id="hub-title">卷首</h1>
+    <p class="vol-lede" id="hub-lede"></p>
+    <p class="vol-pre" id="hub-pre"></p>
+    <p class="vol-seal" id="hub-seal"></p>
+  </div>
+</header>
+
+<main class="wrap" style="padding-bottom:96px;">
+  <div class="sec-head reveal" style="margin-top:56px;">
+    <div class="sec-tag">分卷 · VOLUMES</div>
+    <h2 class="sec-title">从这里进入</h2>
+    <p class="sec-latest" id="hub-latest" hidden></p>
+  </div>
+  <div class="vol-grid" id="vol-grid">
+    <!-- 由 data/site.json 渲染 -->
+    <div class="vol-empty">正在读取分卷清单…</div>
+  </div>
+
+  <section class="same-line" id="same-line" hidden>
+    <div class="same-head">
+      <span class="same-tag">各卷一样东西 · FOUR THINGS</span>
+      <span class="same-hint">不解释，摆在一起。</span>
+    </div>
+    <div class="same-grid" id="same-grid"></div>
+  </section>
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <span>© 2026 潘静 · <span id="hub-updated">个人志</span></span>
+    <span>锲而不舍，金石可镂</span>
+  </div>
+</footer>
+
+<script src="assets/js/lock.js?v=20261108"></script>
+<script src="assets/js/site.js"></script>
+<script>
+// 渲染分卷入口
+(function () {
+  var grid = document.getElementById('vol-grid');
+  var nav = document.getElementById('hub-nav');
+  var VOLS = [];
+
+  /* 需口令的卷：入口不给直链，先过门再跳 */
+  function isLocked(v) {
+    return !!(v.lock && v.page && !(window.__unlocked && window.__unlocked()));
+  }
+  function openGate(v) {
+    if (!window.__askPass) { location.href = 'pages/' + v.page; return; }
+    window.__askPass(v.title, function () { location.href = 'pages/' + v.page; }, function () {});
+  }
+  function gateHit(e) {
+    var el = e.target && e.target.closest ? e.target.closest('.is-gate') : null;
+    if (!el) return;
+    e.preventDefault();
+    var id = el.getAttribute('data-id');
+    var v = VOLS.filter(function (x) { return x.id === id; })[0];
+    if (v) openGate(v);
+  }
+  document.addEventListener('click', gateHit);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') gateHit(e);
+  });
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function card(v) {
+    var ready = v.status === '已上线' && v.page;
+    var locked = ready && isLocked(v);
+    var tag = ready ? 'a' : 'div';
+    var href = ready && !locked ? ' href="pages/' + esc(v.page) + '"' : '';
+    var prog = v.progress && v.progress !== '已成'
+      ? '<i class="vol-prog is-wip">' + esc(v.progress) + '</i>'
+      : '';
+    var lock = locked ? '<i class="vol-lock">需口令</i>' : '';
+    var foot = ready
+      ? '<span>' + esc(v.status) + prog + lock + '</span><span class="vol-go">进入 →</span>'
+      : '<span>' + esc(v.status || '规划中') + prog + '</span><span class="vol-go">待补</span>';
+    return '<' + tag + ' class="vol-card' + (ready ? '' : ' is-locked') + (locked ? ' is-gate' : '') + '"' + href +
+      ' data-id="' + esc(v.id) + '"' + (locked ? ' role="link" tabindex="0"' : '') +
+      ' style="--v-accent:' + esc(v.accent || 'var(--accent)') + '">' +
+      '<div class="vol-no">' + esc(v.no) + ' · ' + esc((v.id || '').toUpperCase()) + '</div>' +
+      '<div class="vol-title">' + esc(v.title) + '</div>' +
+      '<div class="vol-sub">' + esc(v.subtitle || '') + '</div>' +
+      '<p class="vol-desc">' + esc(v.desc || '') + '</p>' +
+      '<div class="vol-foot">' + foot + '</div>' +
+      '</' + tag + '>';
+  }
+
+  fetch('data/site.json')
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (site) {
+      if (document.getElementById('hub-title')) document.getElementById('hub-title').textContent = site.title || '卷首';
+      if (document.getElementById('hub-lede') && site.lede) document.getElementById('hub-lede').textContent = site.lede;
+      if (document.getElementById('hub-pre') && site.prelude) document.getElementById('hub-pre').textContent = site.prelude;
+      if (document.getElementById('hub-seal') && site.seal) document.getElementById('hub-seal').textContent = site.seal;
+      if (site.updated && document.getElementById('hub-updated')) document.getElementById('hub-updated').textContent = '更新于 ' + site.updated;
+      var latestEl = document.getElementById('hub-latest');
+      if (latestEl && site.latest) { latestEl.textContent = '最近 · ' + site.latest; latestEl.hidden = false; }
+      var vols = site.volumes || [];
+      VOLS = vols;
+      grid.innerHTML = vols.map(card).join('');
+      if (nav) nav.innerHTML = vols.filter(function (v) { return v.status === '已上线' && v.page; })
+        .map(function (v) {
+          var locked = isLocked(v);
+          return '<a class="' + (locked ? 'is-gate' : '') + '" data-id="' + esc(v.id) + '"' +
+            (locked ? ' role="link" tabindex="0"' : ' href="pages/' + esc(v.page) + '"') + '>' +
+            esc(v.title) + '</a>';
+        }).join('');
+      if (window.__revealBind) window.__revealBind();
+
+      // 同一条时间：四卷的量法并排，用的是各卷自己的主题色
+      var sameWrap = document.getElementById('same-line');
+      var sameGrid = document.getElementById('same-grid');
+      if (sameWrap && sameGrid && site.sameline && site.sameline.length) {
+        sameGrid.innerHTML = site.sameline.map(function (s) {
+          var v = vols.filter(function (x) { return x.title === s.vol; })[0] || {};
+          return '<div class="same-col" style="--v-accent:' + esc(v.accent || 'var(--accent)') + '">' +
+            '<i class="same-bar"></i>' +
+            '<div class="same-num">' + esc(s.num) + '</div>' +
+            '<div class="same-note">' + esc(s.note) + '</div>' +
+            '<div class="same-vol">' + esc(s.vol) + '</div>' +
+            '</div>';
+        }).join('');
+        sameWrap.hidden = false;
+      }
+    })
+    .catch(function () {
+      // 本地预览需用 HTTP 打开（npm run dev），file:// 会被浏览器拦下；不对读者显示
+      grid.innerHTML = '<div class="vol-empty">分卷清单没能读出来，刷新一下再看看。</div>';
+    });
+})();
+</script>
+</body>
+</html>

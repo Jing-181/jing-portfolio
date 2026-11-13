@@ -1,0 +1,89 @@
+{
+  "owner": "潘静",
+  "title": "卷首",
+  "subtitle": "分卷 · 各卷独立",
+  "lede": "履历只回答了“我做过什么”。歌单签名里那句“些纠结些选择困难些胆小些幼稚些多愁”，履历里写不下。这里放几卷别的：喜欢的东西、走过的路、练的重量。",
+  "prelude": "外婆家的那个夏天，一整个假期在看《武林外传》。",
+  "seal": "ISFJ · 别人说，这个类型里我算典型的",
+  "updated": "2026-11-07",
+  "latest": "喜好志补上游戏一组；履历写了 Agent 工作流；三卷的口令门修好了",
+  "sameline": [
+    {
+      "num": "一个 H5，七个应用",
+      "note": "MOJiDict 全系列",
+      "vol": "履历志"
+    },
+    {
+      "num": "外婆家的夏天",
+      "note": "武林外传从早放到晚",
+      "vol": "喜好志"
+    },
+    {
+      "num": "塑料的越南盾",
+      "note": "走到中越边境换回来的",
+      "vol": "经历志"
+    },
+    {
+      "num": "引体向上，七八个",
+      "note": "能做，不轻松",
+      "vol": "训练志"
+    }
+  ],
+  "volumes": [
+    {
+      "no": "第一卷",
+      "id": "resume",
+      "title": "履历志",
+      "subtitle": "工作与能力",
+      "desc": "多端前端开发负责人的职业档案：项目、技术栈、工作方式与经历。",
+      "page": "resume.html",
+      "data": "resume.json",
+      "accent": "#9E3B3B",
+      "status": "已上线",
+      "private": false,
+      "progress": "已成"
+    },
+    {
+      "no": "第二卷",
+      "id": "tastes",
+      "title": "喜好志",
+      "subtitle": "心上与手边",
+      "desc": "几样放在心上很久的东西，一件一件拆开来看。",
+      "page": "tastes.html",
+      "data": "tastes.json",
+      "accent": "#6A8D8C",
+      "status": "已上线",
+      "private": false,
+      "progress": "未完",
+      "lock": true
+    },
+    {
+      "no": "第三卷",
+      "id": "timeline",
+      "title": "经历志",
+      "subtitle": "时间与轨迹",
+      "desc": "从童年到此刻，读书、入行、迁居，还有一路走过的那些地方。",
+      "page": "timeline.html",
+      "data": "timeline.json",
+      "accent": "#2A5C82",
+      "status": "已上线",
+      "private": false,
+      "progress": "未完",
+      "lock": true
+    },
+    {
+      "no": "第四卷",
+      "id": "training",
+      "title": "训练志",
+      "subtitle": "身体与负荷",
+      "desc": "力量训练、跑步、跑山与羽毛球记录：动作、配速、主观感受与恢复。",
+      "page": "training.html",
+      "data": "training.json",
+      "accent": "#8C6A4F",
+      "status": "已上线",
+      "private": false,
+      "progress": "已成",
+      "lock": true
+    }
+  ]
+}

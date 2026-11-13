@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>潘静 — 多端前端开发负责人 · 个人主页</title>
+<meta name="description" content="多端前端开发负责人（广州）。多年负责 MOJiDict 全系列产品线多端前端开发：H5、Hybrid、PC Web、小程序与 AI Agent 前端。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%239E3B3B'/%3E%3Ctext x='16' y='21' font-size='12.5' text-anchor='middle' fill='%23FCFAF6' font-family='serif'%3EJing%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css?v=20261108">
+</head>
+<body>
+
+<!-- 顶部导航 -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html"><span class="seal-mini">Jing</span><span class="brand">潘静</span></a>
+    <div class="nav-links">
+      <a href="../index.html">首页</a>
+      <a href="#about">关于</a>
+      <a href="#skills">技术</a>
+      <a href="#workflow">工作方式</a>
+      <a href="#projects">项目</a>
+      <a href="#experience">经历</a>
+      <a href="#contact">联系</a>
+    </div>
+  </div>
+</nav>
+
+<!-- 正文由 data/resume.json 渲染（内容只写在 data/resume.md 里） -->
+<main id="resume-root"></main>
+
+<!-- 页脚 -->
+<footer id="site-footer"></footer>
+
+<script src="../assets/js/site.js"></script>
+<script>
+/* 履历志页面：读 data/resume.json 渲染。内容一律来自 md 事实源，页面不硬编码。 */
+(function () {
+  var esc = function (s) {
+    return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  };
+  var join = function (arr, fn) { return (arr || []).map(fn).join(''); };
+
+  function wrapEm(text, em, open, close) {
+    if (!em) return esc(text);
+    var i = text.indexOf(em);
+    if (i < 0) return esc(text);
+    return esc(text.slice(0, i)) + open + esc(em) + close + esc(text.slice(i + em.length));
+  }
+
+  function hero(h) {
+    var name = wrapEm(h.name, h.nameEm, '<em>', '</em>');
+    var motto = wrapEm(h.motto, h.mottoEm, '<span class="v-accent">', '</span>');
+    return '<header class="hero" id="top"><div class="wrap hero-grid"><div>'
+      + '<div class="hero-meta rv">' + join(h.eyebrow, function (t) { return '<span>' + esc(t) + '</span>'; }) + '</div>'
+      + '<h1 class="hero-name rv">' + name + '</h1>'
+      + '<div class="hero-role rv">' + h.role + '</div>'
+      + '<p class="hero-desc rv">' + h.desc + '</p>'
+      + '<div class="hero-tags rv">' + join(h.tags, function (t) { return '<span>' + esc(t) + '</span>'; }) + '</div>'
+      + '<div class="hero-links rv"><a class="btn btn-solid" href="#projects">查看项目 ↓</a><a class="btn btn-ghost" href="#contact">联系我</a></div>'
+      + '</div><div class="hero-vertical rv"><span>' + motto + '</span><span class="v-sub">' + esc(h.mottoSub) + '</span></div>'
+      + '</div></header>';
+  }
+
+  function about(a) {
+    var facts = join(a.facts, function (f) {
+      var v = f.href
+        ? '<a href="' + esc(f.href) + '" target="_blank" rel="noopener" style="color:var(--accent)">' + f.v + '</a>'
+        : f.v;
+      return '<div class="fact"><dt>' + esc(f.k) + '</dt><dd>' + v + '</dd></div>';
+    });
+    return '<section id="about"><div class="wrap">'
+      + '<div class="sec-head reveal"><div class="sec-tag">' + esc(a.tag) + '</div><h2 class="sec-title">' + esc(a.title) + '</h2></div>'
+      + '<div class="about-grid">'
+      + '<div class="about-text reveal">' + join(a.paragraphs, function (p) { return '<p>' + p + '</p>'; }) + '</div>'
+      + '<div class="reveal" data-delay="1">'
+      + '<div class="about-quote"><span class="q-label">' + esc(a.quoteLabel) + '</span>' + a.quote + '</div>'
+      + '<dl class="about-facts">' + facts + '</dl>'
+      + '</div></div></div></section>';
+  }
+
+  function skillGroup(g, i) {
+    var dot = '<span class="dot"' + (i === 0 ? '' : ' style="background:' + (i === 1 ? 'var(--ink-soft)' : 'var(--muted)') + '"') + '></span>';
+    var items = join(g.items, function (it) {
+      return '<div class="skill-item"><span class="skill-name">' + esc(it.name) + '</span>'
+        + '<span class="skill-scene">' + esc(it.scene) + '</span>'
+        + '<span class="skill-evi">' + esc(it.evi) + '</span></div>';
+    });
+    return '<div class="skill-group-title">' + dot + esc(g.name) + '</div>'
+      + '<div class="skill-group-sub">' + esc(g.sub) + '</div>'
+      + '<div class="skill-list">' + items + '</div>';
+  }
+
+  function tagcloud(t) {
+    var spans = join(t.groups, function (g) {
+      return join(g.tags, function (x) { return '<span class="' + esc(g.cls) + '">' + esc(x) + '</span>'; });
+    });
+    return '<div class="tagcloud reveal"><div class="tagcloud-title">' + esc(t.title) + '</div>'
+      + '<div class="tagcloud-list">' + spans + '</div></div>';
+  }
+
+  function skills(s, cloud) {
+    var groups = s.groups || [];
+    var main = '<div class="skill-groups">'
+      + join(groups.slice(0, 2), function (g, i) { return '<div class="reveal"' + (i ? ' data-delay="1"' : '') + '>' + skillGroup(g, i) + '</div>'; })
+      + '</div>';
+    var rest = join(groups.slice(2), function (g, i) { return '<div class="skill-more reveal">' + skillGroup(g, i + 2) + '</div>'; });
+    return '<section id="skills" style="border-top:1px solid var(--line)"><div class="wrap">'
+      + '<div class="sec-head reveal"><div class="sec-tag">' + esc(s.tag) + '</div><h2 class="sec-title">' + esc(s.title) + '</h2></div>'
+      + main + rest + tagcloud(cloud)
+      + '</div></section>';
+  }
+
+  function workflow(w) {
+    var steps = join(w.steps, function (x) {
+      return '<div class="flow-step"><div class="flow-num">' + esc(x.num) + '</div><h3>' + esc(x.title) + '</h3><p>' + x.desc + '</p></div>';
+    });
+    var deliv = join(w.delivery, function (d) { return '<span>' + esc(d) + '</span>'; });
+    return '<section id="workflow" style="border-top:1px solid var(--line)"><div class="wrap">'
+      + '<div class="sec-head reveal"><div class="sec-tag">' + esc(w.tag) + '</div><h2 class="sec-title">' + esc(w.title) + '</h2></div>'
+      + '<div class="reveal"><div class="skill-group-title"><span class="dot"></span>' + esc(w.group) + '</div>'
+      + '<div class="skill-group-sub">' + esc(w.gsub) + '</div><div class="flow-grid">' + steps + '</div></div>'
+      + '<div class="reveal" data-delay="1"><div class="delivery-head">' + esc(w.deliveryTitle) + '</div>'
+      + '<div class="delivery-list">' + deliv + '</div></div>'
+      + '</div></section>';
+  }
+
+  function projectCard(it) {
+    var points = join(it.points, function (x) { return '<div class="p-point"><span class="mark">▸</span><span>' + x + '</span></div>'; });
+    var foot = '<span class="p-prove">' + esc(it.prove) + '</span>';
+    if (it.link && it.link.href) foot += '<a class="p-link" href="' + esc(it.link.href) + '" target="_blank" rel="noopener">' + esc(it.link.text) + '</a>';
+    else if (it.link && it.link.text) foot += '<span class="p-link">' + esc(it.link.text) + '</span>';
+    return '<article class="project reveal"><div class="p-num">' + esc(it.num) + '</div><div>'
+      + '<div class="p-head"><h3 class="p-title">' + esc(it.title) + '</h3>'
+      + '<span class="p-role' + (it.co ? ' co' : '') + '">' + esc(it.role) + '</span></div>'
+      + '<div class="p-stack">' + esc(it.stack) + '</div>'
+      + '<p class="p-desc">' + it.desc + '</p>'
+      + '<div class="p-points">' + points + '</div>'
+      + '<div class="p-foot">' + foot + '</div></div></article>';
+  }
+
+  function moreBlock(m) {
+    var items = join(m.items, function (it, i) {
+      var d = i % 4;
+      return '<div class="more-item reveal"' + (d ? ' data-delay="' + d + '"' : '') + '>'
+        + '<div class="m-name">' + esc(it.name) + ' <span class="m-type">' + esc(it.type) + '</span></div>'
+        + '<div class="m-desc">' + it.desc + '</div></div>';
+    });
+    return '<div class="more-head reveal">' + esc(m.title) + '</div><div class="more-grid">' + items + '</div>';
+  }
+
+  function projects(p, m) {
+    return '<section id="projects" style="border-top:1px solid var(--line)"><div class="wrap">'
+      + '<div class="sec-head reveal"><div class="sec-tag">' + esc(p.tag) + '</div><h2 class="sec-title">' + esc(p.title) + '</h2></div>'
+      + join(p.items, projectCard)
+      + moreBlock(m)
+      + '</div></section>';
+  }
+
+  function experience(e) {
+    var items = join(e.items, function (it) {
+      var title = esc(it.title);
+      if (it.extra) title += ' <span style="color:var(--muted);font-weight:400;font-size:15px;">' + esc(it.extra) + '</span>';
+      var sub = it.sub ? '<div class="xp-sub"' + (it.variant === 'edu' ? ' style="margin-bottom:0;"' : '') + '>' + esc(it.sub) + '</div>' : '';
+      var list = it.list && it.list.length ? '<div class="xp-list">' + join(it.list, function (x) { return '<div class="xp-item"><span>' + x + '</span></div>'; }) + '</div>' : '';
+      return '<div class="tl-item reveal"><div class="xp' + (it.variant ? ' ' + esc(it.variant) : '') + '">'
+        + '<div class="xp-head"><div class="xp-title">' + title + '</div><div class="xp-time">' + esc(it.time) + '</div></div>'
+        + sub + list + '</div></div>';
+    });
+    return '<section id="experience" style="border-top:1px solid var(--line)"><div class="wrap">'
+      + '<div class="sec-head reveal"><div class="sec-tag">' + esc(e.tag) + '</div><h2 class="sec-title">' + esc(e.title) + '</h2></div>'
+      + '<div class="xp-timeline">' + items + '</div></div></section>';
+  }
+
+  function contact(c) {
+    var links = join(c.links, function (l) {
+      var cls = 'btn ' + (l.style === 'ghost' ? 'btn-ghost' : 'btn-solid');
+      var ext = /^https?:/.test(l.href) ? ' target="_blank" rel="noopener"' : '';
+      return '<a class="' + cls + '" href="' + esc(l.href) + '"' + ext + '>' + esc(l.label) + '</a>';
+    });
+    return '<section class="contact" id="contact"><div class="wrap">'
+      + '<div class="contact-tag reveal">' + esc(c.tag) + '</div>'
+      + '<h2 class="contact-title reveal" data-delay="1">' + esc(c.title) + '</h2>'
+      + '<p class="contact-desc reveal" data-delay="2">' + esc(c.desc) + '</p>'
+      + '<div class="contact-links reveal" data-delay="3">' + links + '</div>'
+      + '</div></section>';
+  }
+
+  function footer(f) {
+    return '<div class="foot-inner"><span>' + esc(f.left) + '</span><span>' + esc(f.right) + '</span></div>';
+  }
+
+  var root = document.getElementById('resume-root');
+  fetch('../data/resume.json')
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (d) {
+      if (d.meta && d.meta.title) document.title = d.meta.title;
+      var md = document.querySelector('meta[name="description"]');
+      if (md && d.meta && d.meta.description) md.setAttribute('content', d.meta.description);
+      root.innerHTML = hero(d.hero) + about(d.about) + skills(d.skills, d.tagcloud)
+        + workflow(d.workflow) + projects(d.projects, d.more)
+        + experience(d.experience) + contact(d.contact);
+      document.getElementById('site-footer').innerHTML = footer(d.footer);
+      if (window.__revealBind) window.__revealBind();
+      if (window.__volState) window.__volState('resume');
+    })
+    .catch(function (err) {
+      root.innerHTML = '<div class="wrap" style="padding:80px 0">履历数据没能读出来，刷新一下再看看。</div>';
+    });
+})();
+</script>
+</body>
+</html>

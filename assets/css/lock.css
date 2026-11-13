@@ -1,0 +1,106 @@
+/* 口令门样式（配套 assets/js/lock.js）
+ *
+ * 关键点：门是「静态铺底」的——HTML 里先摆好整块遮罩，首帧就盖住内容，
+ * 不再靠 JS 事后插入，所以看不到底下内容闪一下。
+ * 已解锁的会话由 <html class="pass"> 直接把这层藏掉，连闪都不会有。
+ */
+
+.lock-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper, #FAF7F2);
+  padding: 24px;
+  opacity: 1;
+  transition: opacity .32s ease;
+}
+.lock-gate.off { opacity: 0; pointer-events: none; }
+.lock-gate[hidden] { display: none; }
+html.pass .lock-gate { display: none !important; }
+
+.lock-card {
+  width: 100%;
+  max-width: 340px;
+  text-align: center;
+  font-family: var(--serif, Georgia, serif);
+}
+.lock-seal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 5px;
+  background: var(--accent, #9E3B3B);
+  color: #FCFAF6;
+  font-family: var(--mono, monospace);
+  font-size: 14px;
+  letter-spacing: .02em;
+  margin-bottom: 22px;
+}
+.lock-title {
+  margin: 0 0 26px;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--ink, #2b2b2b);
+  letter-spacing: .04em;
+}
+.lock-row { display: flex; gap: 10px; align-items: stretch; }
+.lock-input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  border-bottom: 1.5px solid var(--line, #dcdcdc);
+  background: transparent;
+  padding: 10px 2px;
+  font-family: var(--mono, monospace);
+  font-size: 16px;
+  color: var(--ink, #2b2b2b);
+  outline: none;
+  text-align: center;
+  letter-spacing: .28em;
+  transition: border-color .2s;
+}
+.lock-input:focus { border-color: var(--accent, #9E3B3B); }
+.lock-btn {
+  border: 0;
+  border-radius: 4px;
+  background: var(--accent, #9E3B3B);
+  color: #FCFAF6;
+  font-family: var(--serif, serif);
+  font-size: 15px;
+  padding: 0 18px;
+  cursor: pointer;
+  transition: background .2s;
+}
+.lock-btn:hover { background: var(--accent-deep, var(--accent, #9E3B3B)); }
+.lock-hint {
+  margin: 16px 0 0;
+  min-height: 1.2em;
+  font-size: 12.5px;
+  letter-spacing: .06em;
+  color: var(--muted, #999);
+  font-family: var(--sans, system-ui, sans-serif);
+}
+.lock-cancel {
+  margin-top: 18px;
+  border: 0;
+  background: transparent;
+  color: var(--muted, #999);
+  font-family: var(--sans, system-ui, sans-serif);
+  font-size: 12.5px;
+  letter-spacing: .08em;
+  cursor: pointer;
+}
+.lock-cancel:hover { color: var(--ink-soft, #666); }
+.lock-card.shake { animation: lock-shake .4s; }
+@keyframes lock-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-7px); }
+  40% { transform: translateX(7px); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(5px); }
+}

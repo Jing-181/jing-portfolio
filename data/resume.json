@@ -1,0 +1,491 @@
+{
+  "vol": "resume",
+  "updated": "2026-11-07",
+  "meta": {
+    "title": "潘静 — 多端前端开发负责人 · 个人主页",
+    "description": "多端前端开发负责人（广州）。多年负责 MOJiDict 全系列产品线多端前端开发：H5、Hybrid、PC Web、小程序与 AI Agent 前端。"
+  },
+  "hero": {
+    "eyebrow": [
+      "PORTFOLIO",
+      "FRONTEND LEAD",
+      "GUANGZHOU"
+    ],
+    "name": "潘静",
+    "nameEm": "静",
+    "role": "多端前端开发负责人 · <b>MOJiDict 全系列</b>长期迭代",
+    "desc": "长期负责 MOJiDict 全系列产品线的前端工程化和多平台交付：H5、Hybrid 三平台、PC Web、微信小程序与 AI Agent 前端。相比一次性写出优雅代码，更在意项目能不能被长期迭代。",
+    "tags": [
+      "多端前端开发",
+      "老项目长周期迭代",
+      "AI 工具协作实践",
+      "工程化与发布治理"
+    ],
+    "motto": "锲而不舍，金石可镂",
+    "mottoEm": "金石",
+    "mottoSub": "坚持不懈 · 金石可镂"
+  },
+  "about": {
+    "tag": "01 · ABOUT",
+    "title": "关于我",
+    "paragraphs": [
+      "我是前端开发负责人，坐标广州。多年负责 <b>MOJiDict 全系列产品线</b>的前端开发：从 Nuxt 2 SSR 的移动端 H5 和 PC 站，到 Android / iOS / Harmony 三平台的 Hybrid H5，再到微信小程序与 AI Agent 前端。",
+      "迭代最多的项目自 2021 年加入起持续迭代至今。这些年反复在做的事：推进<b>公共组件抽离</b>、拆分目录结构、把开发规范沉淀成文档让新人快速跟上，以及为发布建立体积门禁与回退机制。",
+      "2025 年起实践 <b>AI 工具辅助开发</b>：在 Agent 项目里负责项目启动与方案设计，与同事协作借助 AI 工具完成落地。这段时间做的另一件事，是把「用工具」变成「建流程」：给每个工作区写规则文件让 Agent 照着干，把规范、分支台账和每周全览做成能自动跑、别人能接手的东西。",
+      "技术栈换代时习惯先自己动手试：Nuxt 4、Vue 3.5、Tailwind 4、React 19 都是先拿小项目验证过，再带进生产。AI 工具是效率放大器，工程判断和契约设计仍然由人把关。"
+    ],
+    "quoteLabel": "// 另一个版本的我",
+    "quote": "在广州写了很多年前端，主战场是 MOJiDict 全系列：H5、PC、Hybrid、小程序、浏览器插件、AI Agent 前端都做过。习惯把目录结构和协作规范写清楚，AGENTS.md 是常用工具。相信 AI 工具能提效，也相信它需要人盯着——毕竟它写得快，改得也快。",
+    "facts": [
+      {
+        "k": "base",
+        "v": "<b>广州</b> · 前端开发负责人",
+        "href": ""
+      },
+      {
+        "k": "since",
+        "v": "2019 年入行至今",
+        "href": ""
+      },
+      {
+        "k": "main",
+        "v": "Vue / Nuxt 全链路多端开发",
+        "href": ""
+      },
+      {
+        "k": "domain",
+        "v": "日语 · 韩语学习产品",
+        "href": ""
+      },
+      {
+        "k": "edu",
+        "v": "景德镇陶瓷大学 · 信息管理与信息系统（本科）",
+        "href": ""
+      },
+      {
+        "k": "github",
+        "v": "github.com/Jing-181",
+        "href": "https://github.com/Jing-181"
+      },
+      {
+        "k": "email",
+        "v": "Jing1813289006@163.com",
+        "href": ""
+      }
+    ]
+  },
+  "skills": {
+    "tag": "02 · SKILLS",
+    "title": "技术能力",
+    "groups": [
+      {
+        "name": "核心能力",
+        "level": "core",
+        "sub": "// 可独立负责 · 有长期生产项目佐证",
+        "items": [
+          {
+            "name": "Vue 2 / Vue 3",
+            "scene": "长周期业务迭代 · 渐进优化 · 多应用架构",
+            "evi": "mojidict_h5 · mojidict_web · hybrid-release"
+          },
+          {
+            "name": "Nuxt 2 (SSR)",
+            "scene": "服务端渲染 · 单码多应用架构",
+            "evi": "mojidict_h5（7 应用）· mojidict_web"
+          },
+          {
+            "name": "JS Bridge",
+            "scene": "window 双向注入 · 原生 ↔ H5 通信 · 三平台适配",
+            "evi": "hybrid-release（50+ Bridge 方法）"
+          },
+          {
+            "name": "移动端适配",
+            "scene": "SCSS + postcss-pxtorem · 多机型兼容",
+            "evi": "mojidict_h5"
+          },
+          {
+            "name": "国际化 i18n",
+            "scene": "中 / 英 / 日 / 韩 / 泰 / 马来 / 繁中 多语种",
+            "evi": "mojidict_h5 · hybrid-release"
+          },
+          {
+            "name": "工程治理",
+            "scene": "目录规范 · 开发规范 · 版本治理 · AGENTS.md 协作文档",
+            "evi": "全系列项目"
+          },
+          {
+            "name": "跨项目工程治理",
+            "scene": "共享配置单点维护 · 规范文档 · 分支与发版流程 · 自动化口径与自检脚本",
+            "evi": "公司多仓工作区"
+          }
+        ]
+      },
+      {
+        "name": "熟悉使用",
+        "level": "familiar",
+        "sub": "// 有实际项目经验 · 非日常主力",
+        "items": [
+          {
+            "name": "Nuxt 3 / 4",
+            "scene": "新版架构 · 站点开发 · 迁移升级",
+            "evi": "kori-h5 · hugecore_web"
+          },
+          {
+            "name": "Vuex / Pinia",
+            "scene": "模块化状态管理（47 个 store 模块长期维护）",
+            "evi": "mojidict_web · mojidict-agent · kori-h5"
+          },
+          {
+            "name": "uni-app 小程序",
+            "scene": "微信小程序全流程开发 · 目录重构 · 规范制定",
+            "evi": "mojidict-mini-program"
+          },
+          {
+            "name": "Chrome MV3",
+            "scene": "content script · 选区识别 · 截图导出",
+            "evi": "mastergo-oneclick-exporter"
+          },
+          {
+            "name": "Vite 构建",
+            "scene": "构建配置 · 体积门禁 · fallback 回退",
+            "evi": "hybrid-release"
+          },
+          {
+            "name": "CI / CD",
+            "scene": "GitLab CI · Docker · Aliyun OSS 多环境发布",
+            "evi": "mojidict-agent · 多项目"
+          },
+          {
+            "name": "SSE 流式",
+            "scene": "Agent 流式对话架构 · 协作落地",
+            "evi": "mojidict-agent"
+          }
+        ]
+      },
+      {
+        "name": "了解",
+        "level": "know",
+        "sub": "// 有实践或学习经验 · 非日常工作主力",
+        "items": [
+          {
+            "name": "React 19 / Next.js 15",
+            "scene": "个人作品实验 · 新框架方向",
+            "evi": "jing-next"
+          },
+          {
+            "name": "Tailwind CSS 4",
+            "scene": "新项目样式主力 · 工具链协作",
+            "evi": "mojidict-agent"
+          },
+          {
+            "name": "Python 3",
+            "scene": "标准库工具与游戏 · 存档校验",
+            "evi": "echo-layer"
+          },
+          {
+            "name": "ECharts",
+            "scene": "数据可视化（学习报告）",
+            "evi": "mojidict_h5 · mojidict_web"
+          }
+        ]
+      }
+    ]
+  },
+  "tagcloud": {
+    "title": "技术标签云",
+    "groups": [
+      {
+        "cls": "k-fw",
+        "tags": [
+          "Vue 3",
+          "Vue 2",
+          "React 19",
+          "TypeScript",
+          "JavaScript",
+          "Python",
+          "Nuxt 2",
+          "Nuxt 3",
+          "Nuxt 4",
+          "Next.js 15"
+        ]
+      },
+      {
+        "cls": "k-eng",
+        "tags": [
+          "Vite",
+          "Webpack",
+          "Tailwind CSS 4",
+          "SCSS",
+          "postcss-pxtorem",
+          "Playwright",
+          "GitLab CI",
+          "Docker",
+          "Aliyun OSS"
+        ]
+      },
+      {
+        "cls": "k-lib",
+        "tags": [
+          "Pinia",
+          "Vuex",
+          "Element UI",
+          "Arco Design",
+          "Vant",
+          "Mint UI",
+          "ECharts",
+          "Lottie",
+          "Swiper",
+          "html2canvas"
+        ]
+      }
+    ]
+  },
+  "workflow": {
+    "tag": "03 · WORKFLOW",
+    "title": "工作方式",
+    "group": "Agent 协作工作流",
+    "gsub": "// 用 AI 工具放大效率 · 由人把关工程判断与契约",
+    "steps": [
+      {
+        "title": "理解",
+        "num": "01 / UNDERSTAND",
+        "desc": "先读仓库约定与 AGENTS.md，把这次要遵守的规则列出来，再动手。"
+      },
+      {
+        "title": "构建",
+        "num": "02 / BUILD",
+        "desc": "人定契约、边界与验收标准，AI 写实现，按业务域拆页面、组件与状态。"
+      },
+      {
+        "title": "验证",
+        "num": "03 / VERIFY",
+        "desc": "自检脚本跑数量与链接，浏览器回归关键路径，逐条看 AI 交上来的差异。"
+      },
+      {
+        "title": "交付",
+        "num": "04 / SHIP",
+        "desc": "完成容器构建、代理配置、多环境发布与部署验证，出错能回滚。"
+      }
+    ],
+    "deliveryTitle": "部署交付能力",
+    "delivery": [
+      "Docker 多阶段构建",
+      "Nginx 静态托管与反向代理",
+      "GitLab CI 镜像构建",
+      "Kubernetes Deployment 更新",
+      "OSS 静态资源上传",
+      "发布后的环境验证"
+    ]
+  },
+  "projects": {
+    "tag": "04 · PROJECTS",
+    "title": "精选项目",
+    "items": [
+      {
+        "num": "01",
+        "title": "MOJi辞書 H5",
+        "role": "日常迭代主力",
+        "co": false,
+        "stack": "Nuxt 2 · Vue 2.7 · Vuex 3 · Vant / Mint UI · ECharts · SSR · SCSS",
+        "desc": "MOJiDict 全系列产品线核心成员、迭代最多的移动端 H5 站点。单码服务 7 个日语学习应用（辞书 / Test / Read / 假名 / 会话 / 课堂 / 留学），自 2021 年加入起持续迭代至今。",
+        "points": [
+          "<b>单码 7 应用</b>：路由级应用检测（$getApp）+ 多 layout 按应用切换，独立 API 端点",
+          "<b>7 语种国际化</b>：日 / 中 / 英 / 韩 / 马来 / 泰 / 繁中（vue-i18n）",
+          "<b>核心功能域</b>：搜索详情、翻译、收藏夹导出、学习报告（ECharts）、AI 问答、会员支付",
+          "<b>工程化</b>：postcss-pxtorem 自动 rem · PWA · Lottie 动画 · Playwright E2E 与 lint 规范"
+        ],
+        "prove": "Nuxt 2 SSR 架构 · 多应用单码设计",
+        "link": {
+          "text": "m.mojidict.com ↗",
+          "href": "https://m.mojidict.com"
+        }
+      },
+      {
+        "num": "02",
+        "title": "Hybrid 多平台 H5",
+        "role": "框架共同设计 · 8 条产品线参与",
+        "co": false,
+        "stack": "Vue 3.2 · Vite 4 · SCSS · Android / iOS / Harmony 三平台",
+        "desc": "MOJi 系列 App 内嵌 H5 内核：8 条产品线（辞书 / 英日韩词典 / Test / 翻译 / 假名 / 阅读 / 工具等）共用一套 common 层，同时服务 Android / iOS / Harmony 三平台，承载活动页与核心功能页——单词详情、翻译、文章阅读、OCR 扫描、语音朗读等。",
+        "points": [
+          "<b>多产品线共享</b>：common 层沉淀 components、contentDetails_v2、tool、directives、images 等共享模块",
+          "<b>内容详情页 v2</b>：统一 8 条产品线的单词 / 例句展示，16 个核心组件",
+          "<b>原生桥接</b>：nativeUtils.js / bridge.js 封装 50+ Bridge 方法，双向注入三平台适配",
+          "<b>发布治理</b>：JSON 压缩 + 构建体积门禁 + fallback 回退构建，异常快速回滚"
+        ],
+        "prove": "Hybrid 架构 · 原生双向通信 · 跨平台兼容",
+        "link": {
+          "text": "随 App 发布 · 无独立链接",
+          "href": ""
+        }
+      },
+      {
+        "num": "03",
+        "title": "MOJiDict Web SSR",
+        "role": "全模块维护 · 结构治理",
+        "co": false,
+        "stack": "Nuxt 2 · Vue 2.7 · Vuex 3 · Element UI · ECharts · SSR",
+        "desc": "MOJi辞書 桌面端 Nuxt 2 SSR 生产站，全模块长期维护，覆盖搜索详情、创作入口、课堂页面及运营入口，按业务域组织组件，沉淀路由映射与目录规范。",
+        "points": [
+          "<b>全模块维护</b>：用户端页面、搜索详情、创作入口、课堂页面与旧管理后台入口",
+          "<b>主导核心页面</b>：搜索详情、创作入口、课堂页面均主导开发，部分功能分配同事协作",
+          "<b>结构治理</b>：按业务域组织组件，沉淀路由映射 / 目录规范 / 代码审查文档"
+        ],
+        "prove": "生产站全模块维护 · 老项目结构治理",
+        "link": {
+          "text": "www.mojidict.com ↗",
+          "href": "https://www.mojidict.com"
+        }
+      },
+      {
+        "num": "04",
+        "title": "MOJiDict Agent 前端",
+        "role": "项目启动 · AI 工具协作落地",
+        "co": true,
+        "stack": "Vue 3.5 · TypeScript · Vite 6 · Pinia · TanStack Query · Tailwind CSS 4",
+        "desc": "公司引入 AI 后的新项目：独立 Agent 对话前端，承载登录、流式对话、会话历史、工具结果卡片与用量展示。负责项目启动与方案设计，落地开发由同事借助 AI 工具完成，遇到问题共同探讨解决。",
+        "points": [
+          "<b>SSE 流式对话</b>：10 类事件消费与解析，sse.ts 只做 frame 解析不写业务状态",
+          "<b>类型契约</b>：types/agent.ts 作为前后端事件与会话数据主契约",
+          "<b>Data Card 注册表</b>：未知工具结果类型自动降级，页面不空白",
+          "<b>工程与部署</b>：GitLab CI 多环境构建 + Aliyun OSS 上传 + Nginx 子路径部署"
+        ],
+        "prove": "技术方案设计 · AI 辅助开发协作",
+        "link": {
+          "text": "mojidict.com/moji-agent ↗",
+          "href": "https://www.mojidict.com/moji-agent"
+        }
+      },
+      {
+        "num": "05",
+        "title": "猫咪生活报",
+        "role": "个人产品 · 独立设计 / 开发 / 部署",
+        "co": false,
+        "stack": "Vue 3.5 · Vite 6 · Supabase · 原生 CSS · GitHub Pages",
+        "desc": "复古报刊风格的个人生活工作台：把训练、打卡、待办、阅读、记账、日记收进一份“报纸”，再用 AI 周报回看一周。桌面与移动是同一页面按视口切换外壳，数据经 Supabase 跨设备同步。",
+        "points": [
+          "<b>双端一体</b>：同一页面 ≤820px 切移动外壳（顶栏 + 底部导航），与桌面共用一份本地数据和登录账号",
+          "<b>同步分层</b>：全量同步与记录级原子同步分开，失败操作进 outbox，联网后按单项重试",
+          "<b>训练计划</b>：本地规则引擎生成“2 轮 × 3 天推拉腿（PPL）”，训练以 Session 形式原子保存",
+          "<b>工程化</b>：Vue 组件化 + 内容 hash chunk + node --test 单测，push 到 main 自动发布 Pages"
+        ],
+        "prove": "从 0 到上线 · 一个人负责全部",
+        "link": {
+          "text": "jing-181.github.io/cat-newsroom ↗",
+          "href": "https://jing-181.github.io/cat-newsroom/"
+        }
+      }
+    ]
+  },
+  "more": {
+    "title": "其他开发经验",
+    "items": [
+      {
+        "name": "moji_admin_web",
+        "type": "后台",
+        "desc": "MOJi 运营后台（Vue 3 + Arco Design + Pinia）：运营 / 资源 / 订单 / 用户中心，RBAC 权限路由与模块化。"
+      },
+      {
+        "name": "kori-h5 / kori-web",
+        "type": "Web / H5",
+        "desc": "Kori辞書（韩语）PC 与 H5 双端，Nuxt 4 重写，SSR 优化与组件重构。"
+      },
+      {
+        "name": "hugecore_web",
+        "type": "官网",
+        "desc": "公司官网 + 帮助中心（Nuxt 3 + @nuxt/content），双应用单仓库（APP_TYPE 切换）。"
+      },
+      {
+        "name": "mojitest-web",
+        "type": "考试",
+        "desc": "MOJiTest 在线考试平台 Web 端（Nuxt 2 + Element UI）。"
+      },
+      {
+        "name": "mojidict-mini-program",
+        "type": "小程序",
+        "desc": "公司微信小程序（uni-app）。前期两人各半，后期主导开发、拆分目录结构、制定规范带新人。"
+      },
+      {
+        "name": "mastergo-oneclick-exporter",
+        "type": "Chrome 插件",
+        "desc": "MasterGo 一键导出选中图层：选区多级识别（不依赖官方 API）、截图裁剪、多格式多倍率导出。"
+      },
+      {
+        "name": "echo-layer",
+        "type": "Python",
+        "desc": "Python 3 标准库私人养成叙事游戏，JSON Schema + 运行时双重存档校验。"
+      },
+      {
+        "name": "jing-next",
+        "type": "Next.js",
+        "desc": "Next.js 15 + React 19 个人作品。"
+      },
+      {
+        "name": "mojidict-web-plugin",
+        "type": "浏览器插件",
+        "desc": "MOJiDict 浏览器插件。"
+      }
+    ]
+  },
+  "experience": {
+    "tag": "05 · EXPERIENCE",
+    "title": "经历",
+    "items": [
+      {
+        "title": "MOJiDict 全系列产品 · Web 前端开发负责人",
+        "variant": "",
+        "time": "2021 — 至今",
+        "sub": "广州聚合 · 日语 / 韩语学习产品 · 2023 年起由工程师晋升为负责人",
+        "extra": "",
+        "list": [
+          "<b>多端全覆盖</b>：负责 H5、Hybrid（Android / iOS / Harmony）、PC Web、微信小程序与 AI Agent 前端",
+          "<b>H5 / Hybrid 双主力</b>：日常迭代最多的两条线；Hybrid 参与整体框架设计，8 条产品线共用一套 common 层，推进公共组件与方法抽离",
+          "<b>带人与规范</b>：小程序后期主导开发，拆分目录结构、制定开发规范，指导新人按规范持续优化",
+          "<b>发布治理</b>：构建体积门禁 + fallback 回退构建 + 版本记录文档，异常可快速回滚",
+          "<b>AI 协作落地</b>：Agent 项目负责启动与方案设计，协作同事用 AI 工具完成落地开发",
+          "<b>规范与自动化</b>：把主力项目的 lint / format / commit 配置收进一份共享仓单点维护，配四份协作规范（技术栈、分支、端到端流程、文档结构）；分支台账从 Git 与需求系统自动汇总，周一全览由定时任务生成，口径与自检脚本随目录走"
+        ]
+      },
+      {
+        "title": "早期经历",
+        "variant": "compact",
+        "time": "2019 — 2021",
+        "sub": "",
+        "extra": "",
+        "list": [
+          "<b>科蓝软件 · 前端开发工程师</b>（2020 — 2021）：金融 / 银行方向的前端开发",
+          "<b>箭牌家居集团 · 前端开发工程师</b>（2019 — 2020）：家居 / 电商方向的前端开发"
+        ]
+      },
+      {
+        "title": "景德镇陶瓷大学",
+        "variant": "edu",
+        "time": "2015 — 2019",
+        "sub": "信息管理与信息系统",
+        "extra": "· 本科",
+        "list": []
+      }
+    ]
+  },
+  "contact": {
+    "tag": "06 · CONTACT",
+    "title": "聊聊合作，或下一个项目",
+    "desc": "如果你在招前端，或者想聊聊多端 / Hybrid / AI 协作开发的实践，欢迎联系。",
+    "links": [
+      {
+        "label": "Jing1813289006@163.com",
+        "href": "mailto:Jing1813289006@163.com",
+        "style": "solid"
+      },
+      {
+        "label": "GitHub ↗",
+        "href": "https://github.com/Jing-181",
+        "style": "ghost"
+      }
+    ]
+  },
+  "footer": {
+    "left": "© 2026 潘静 · 广州",
+    "right": "锲而不舍，金石可镂"
+  }
+}

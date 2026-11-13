@@ -1,0 +1,624 @@
+{
+  "vol": "tastes",
+  "updated": "2026-11-07",
+  "lede": "外婆家的夏天，《武林外传》从早放到晚，一整个假期没换过台；后来是一套书连着读了二十五天，一条歌单攒到 214 首。放在心上的东西不算多，一件一件看下来，<b>每件都还说得清喜欢的是哪一处</b>。",
+  "categories": [
+    "放在心上的",
+    "灯下读的",
+    "追的动画",
+    "电影",
+    "玩的",
+    "吃的",
+    "动的",
+    "走过的地方"
+  ],
+  "groups": [
+    {
+      "name": "放在心上的",
+      "sub": "一物一签，拆开看"
+    },
+    {
+      "name": "灯下读的",
+      "sub": "读过、重读、还在读的"
+    },
+    {
+      "name": "追的动画",
+      "sub": "跟更新的，和很喜欢的"
+    },
+    {
+      "name": "电影",
+      "sub": "看过的很多，先挑出这几部"
+    },
+    {
+      "name": "玩的",
+      "sub": "打过一阵，现在不打了"
+    },
+    {
+      "name": "吃的",
+      "sub": "想到就想去拿的几样"
+    },
+    {
+      "name": "动的",
+      "sub": "一直在做的几样"
+    },
+    {
+      "name": "走过的地方",
+      "sub": "说不上最喜欢哪一座"
+    }
+  ],
+  "items": [
+    {
+      "name": "武林外传",
+      "category": "放在心上的",
+      "kind": "深",
+      "tagline": "一放就松下来的下饭剧",
+      "elements": [
+        {
+          "k": "下饭",
+          "v": "到了吃饭时间就开着，人也跟着松下来"
+        },
+        {
+          "k": "那个世界",
+          "v": "看着看着，像能走进去"
+        },
+        {
+          "k": "外婆家的夏天",
+          "v": "电视机一开就是一整个假期"
+        }
+      ],
+      "stops": [],
+      "roll": "",
+      "note": "",
+      "tags": [
+        "童年",
+        "下饭剧"
+      ],
+      "since": "",
+      "link": "",
+      "featured": false,
+      "private": false
+    },
+    {
+      "name": "留一个没看完的结尾",
+      "category": "放在心上的",
+      "kind": "深",
+      "tagline": "故事永不终结",
+      "elements": [
+        {
+          "k": "剧终人散",
+          "v": "一集一集追到最后，心里会空一阵"
+        },
+        {
+          "k": "舍不得看完",
+          "v": "越是喜欢的，越要把结尾留着"
+        },
+        {
+          "k": "隔一阵",
+          "v": "等不这么上头了，再回去把剩下的看完"
+        },
+        {
+          "k": "索性不看",
+          "v": "有时候干脆停在那儿，那样故事就还没结束"
+        }
+      ],
+      "stops": [],
+      "roll": "",
+      "note": "",
+      "tags": [],
+      "since": "",
+      "link": "",
+      "featured": false,
+      "private": false
+    },
+    {
+      "name": "「欸-你可笑不喜欢的音乐」",
+      "category": "放在心上的",
+      "kind": "深",
+      "tagline": "占住耳朵的就是它",
+      "elements": [
+        {
+          "k": "签名",
+          "v": "「些纠结些选择困难些胆小些幼稚些多愁」"
+        },
+        {
+          "k": "常听",
+          "v": "《唯一》《爱人错过》《初恋》《日落大道》，还有歌单第一首《山野里》"
+        },
+        {
+          "k": "214 首",
+          "v": "从 2018 年一首一首攒到今天"
+        }
+      ],
+      "stops": [],
+      "roll": "",
+      "note": "",
+      "tags": [
+        "主歌单"
+      ],
+      "since": "",
+      "link": "https://music.163.com/playlist?id=2058885204",
+      "featured": false,
+      "private": false
+    },
+    {
+      "name": "京极夏彦 · 百鬼夜行 全集",
+      "category": "放在心上的",
+      "kind": "深",
+      "tagline": "一口气读完的一整套",
+      "elements": [
+        {
+          "k": "二十五天",
+          "v": "从头读到尾，跨了二十五天"
+        },
+        {
+          "k": "民俗志怪",
+          "v": "从这一套开始读的一类"
+        }
+      ],
+      "stops": [],
+      "roll": "",
+      "note": "",
+      "tags": [
+        "民俗志怪"
+      ],
+      "since": "",
+      "link": "",
+      "featured": false,
+      "private": false
+    },
+    {
+      "name": "六一",
+      "category": "放在心上的",
+      "kind": "深",
+      "tagline": "吃了睡，睡了吃",
+      "elements": [
+        {
+          "k": "那张桌子",
+          "v": "白天有时睡在桌子上"
+        },
+        {
+          "k": "衣柜里的箱子",
+          "v": "最早睡在床的侧面，后来发现箱子里更舒服，自己搬了过去"
+        },
+        {
+          "k": "训过它",
+          "v": "它咬人的时候，把手伸到它喉咙里"
+        }
+      ],
+      "stops": [],
+      "roll": "",
+      "note": "5 月 31 号晚上抱回来的银点，那会儿四个月大。名字按第二天算，所以叫六一。母猫，已绝育。",
+      "tags": [
+        "猫"
+      ],
+      "since": "",
+      "link": "",
+      "featured": false,
+      "private": false
+    },
+    {
+      "name": "被讨厌的勇气",
+      "category": "灯下读的",
+      "kind": "记",
+      "tagline": "五年了，还在读",
+      "elements": [
+        {
+          "k": "五年",
+          "v": "从第一次翻开到现在"
+        },
+        {
+          "k": "对话体",
+          "v": "阿德勒坐到你对面，一句一句问你"
+        }
+      ],
+      "stops": [],
+      "roll": "",
+      "note": "",
+      "tags": [
+        "常读常新"
+      ],
+      "since": "",
+      "link": "",
+      "featured": false,
+      "private": false
+    },
+    {
+      "name": "活着",
+      "category": "灯下读的",
+      "kind": "记",
+      "tagline": "刚参加工作那会读的",
+      "elements": [
+        {
+          "k": "熬夜",
+          "v": "白天上班，夜里一路读到天亮"
+        },
+        {
+          "k": "极安静",
+          "v": "福贵这一生写得静，苦到极点也没声响"
+        }
+      ],
+      "stops": [],
+      "roll": "",
+      "note": "",
+      "tags": [
+        "熬夜看完"
+      ],
+      "since": "",
+      "link": "",
+      "featured": false,
+      "private": false
+    },
+    {
+      "name": "玄幻与修仙",
+      "category": "灯下读的",
+      "kind": "聚",
+      "tagline": "越写越长的那一类",
+      "elements": [],
+      "stops": [],
+      "roll": "《龙族》 · 《凡人修仙传》 · 《牧神记》 · 《吞噬星空》",
+      "note": "",
+      "tags": [],
+      "since": "",
+      "link": "",
+      "featured": false,
+      "private": false
+    },
+    {
+      "name": "一直在追的番",
+      "category": "追的动画",
+      "kind": "聚",
+      "tagline": "跟着更新往下走",
+      "elements": [],
+      "stops": [],
+      "roll": "《凡人修仙传》 · 《灵笼》 · 《剑来》",
+      "note": "",
+      "tags": [],
+      "since": "",
+      "link": "",
+      "featured": false,
+      "private": false
+    },
+    {
+      "name": "少年漫一路看下来的",
+      "category": "追的动画",
+      "kind": "聚",
+      "tagline": "连载很久的那几部",
+      "elements": [],
+      "stops": [],
+      "roll": "《犬夜叉》 · 《妖精的尾巴》 · 《火影忍者》 · 《死神》",
+      "note": "",
+      "tags": [],
+      "since": "",
+      "link": "",
+      "featured": false,
+      "private": false
+    },
+    {
+      "name": "其余的也都很喜欢",
+      "category": "追的动画",
+      "kind": "聚",
+      "tagline": "一部一部看下来的",
+      "elements": [],
+      "stops": [],
+      "roll": "《夏目友人帐》 · 《我们仍未知道那天所看见的花的名字》 · 《强风吹拂》 · 《夏日重现》 · 《绝园的暴风雨》 · 《从零开始的异世界生活》 · 《赤红之瞳》 · 《青春猪头少年不会梦到兔女郎学姐》 · 《四月是你的谎言》",
+      "note": "报得出名字的是这些，还有一大堆。",
+      "tags": [],
+      "since": "",
+      "link": "",
+      "featured": false,
+      "private": false
+    },
+    {
+      "name": "国创",
+      "category": "追的动画",
+      "kind": "聚",
+      "tagline": "一集一集看下来的",
+      "elements": [],
+      "stops": [],
+      "roll": "《狐妖小红娘》 · 《百妖谱》 · 《凸变英雄》",
+      "note": "",
+      "tags": [],
+      "since": "",
+      "link": "",
+      "featured": false,
+      "private": false
+    },
+    {
+      "name": "个人喜爱的几部",
+      "category": "电影",
+      "kind": "聚",
+      "tagline": "排在前面",
+      "elements": [],
+      "stops": [],
+      "roll": "《千与千寻》 · 《美丽人生》 · 《三傻大闹宝莱坞》 · 《触不可及》 · 《怦然心动》",
+      "note": "",
+      "tags": [],
+      "since": "",
+      "link": "",
+      "featured": false,
+      "private": false
+    },
+    {
+      "name": "忠犬八公",
+      "category": "电影",
+      "kind": "签",
+      "tagline": "",
+      "elements": [],
+      "stops": [],
+      "roll": "",
+      "note": "待确认",
+      "tags": [],
+      "since": "",
+      "link": "",
+      "featured": false,
+      "private": false
+    },
+    {
+      "name": "先记着的几部",
+      "category": "电影",
+      "kind": "聚",
+      "tagline": "后面再补",
+      "elements": [],
+      "stops": [],
+      "roll": "《当幸福来敲门》 · 《肖申克的救赎》",
+      "note": "待确认",
+      "tags": [],
+      "since": "",
+      "link": "",
+      "featured": false,
+      "private": false
+    },
+    {
+      "name": "王者荣耀",
+      "category": "玩的",
+      "kind": "记",
+      "tagline": "打得最疯的那几年",
+      "elements": [
+        {
+          "k": "大学到毕业前一年",
+          "v": "打得最多的一段"
+        },
+        {
+          "k": "手机",
+          "v": "唯一认真打过的一类"
+        }
+      ],
+      "stops": [],
+      "roll": "",
+      "note": "从大学一直打到毕业前一年。后来就不碰竞技类的了。",
+      "tags": [
+        "游戏"
+      ],
+      "since": "",
+      "link": "",
+      "featured": false,
+      "private": false
+    },
+    {
+      "name": "饥荒",
+      "category": "玩的",
+      "kind": "签",
+      "tagline": "",
+      "elements": [],
+      "stops": [],
+      "roll": "",
+      "note": "毕业之后开始玩电脑游戏，玩的是它。一个人慢慢攒东西，不用跟谁对着打。",
+      "tags": [
+        "游戏"
+      ],
+      "since": "",
+      "link": "",
+      "featured": false,
+      "private": false
+    },
+    {
+      "name": "巫师三",
+      "category": "玩的",
+      "kind": "签",
+      "tagline": "",
+      "elements": [],
+      "stops": [],
+      "roll": "",
+      "note": "Steam 上试过的 3A，玩过一阵。",
+      "tags": [
+        "游戏"
+      ],
+      "since": "",
+      "link": "",
+      "featured": false,
+      "private": false
+    },
+    {
+      "name": "随手点开的几个",
+      "category": "玩的",
+      "kind": "聚",
+      "tagline": "手机上打发时间的",
+      "elements": [],
+      "stops": [],
+      "roll": "保卫萝卜 · 植物大战僵尸 · 三国杀",
+      "note": "小游戏断断续续玩过一些，记得住名字的就这几个。",
+      "tags": [
+        "游戏"
+      ],
+      "since": "",
+      "link": "",
+      "featured": false,
+      "private": false
+    },
+    {
+      "name": "板栗红薯",
+      "category": "吃的",
+      "kind": "签",
+      "tagline": "",
+      "elements": [],
+      "stops": [],
+      "roll": "",
+      "note": "状态不好时会主动去找的那一口。只认板栗红薯，要粉、要糯。",
+      "tags": [],
+      "since": "",
+      "link": "",
+      "featured": false,
+      "private": false
+    },
+    {
+      "name": "蒸馒头",
+      "category": "吃的",
+      "kind": "签",
+      "tagline": "",
+      "elements": [],
+      "stops": [],
+      "roll": "",
+      "note": "一屉蒸出来的，配菜配汤都行。",
+      "tags": [],
+      "since": "",
+      "link": "",
+      "featured": false,
+      "private": false
+    },
+    {
+      "name": "妈妈做的啤酒鸭",
+      "category": "吃的",
+      "kind": "签",
+      "tagline": "",
+      "elements": [],
+      "stops": [],
+      "roll": "",
+      "note": "初三到高三，妈妈回来陪读。那几年印象最深的一道菜，好吃得说不上来。",
+      "tags": [],
+      "since": "",
+      "link": "",
+      "featured": false,
+      "private": false
+    },
+    {
+      "name": "卤牛肉",
+      "category": "吃的",
+      "kind": "签",
+      "tagline": "",
+      "elements": [],
+      "stops": [],
+      "roll": "",
+      "note": "最近在小象超市买的，蛮好吃。有时候也自己卤。",
+      "tags": [],
+      "since": "",
+      "link": "",
+      "featured": false,
+      "private": false
+    },
+    {
+      "name": "徒步",
+      "category": "动的",
+      "kind": "签",
+      "tagline": "",
+      "elements": [],
+      "stops": [],
+      "roll": "",
+      "note": "广州周边的山野路线，走过很多条，也重复走过很多次。",
+      "tags": [],
+      "since": "",
+      "link": "",
+      "featured": false,
+      "private": false
+    },
+    {
+      "name": "跑步",
+      "category": "动的",
+      "kind": "签",
+      "tagline": "",
+      "elements": [],
+      "stops": [],
+      "roll": "",
+      "note": "四年下来一千五百多公里，是所有运动里的底座。",
+      "tags": [],
+      "since": "",
+      "link": "",
+      "featured": false,
+      "private": false
+    },
+    {
+      "name": "杠铃深蹲",
+      "category": "动的",
+      "kind": "签",
+      "tagline": "",
+      "elements": [],
+      "stops": [],
+      "roll": "",
+      "note": "目前最重 90 kg，每次留一两组试着加重量。",
+      "tags": [],
+      "since": "",
+      "link": "",
+      "featured": false,
+      "private": false
+    },
+    {
+      "name": "杠铃卧推",
+      "category": "动的",
+      "kind": "签",
+      "tagline": "",
+      "elements": [],
+      "stops": [],
+      "roll": "",
+      "note": "目前最重 60 kg。",
+      "tags": [],
+      "since": "",
+      "link": "",
+      "featured": false,
+      "private": false
+    },
+    {
+      "name": "引体向上",
+      "category": "动的",
+      "kind": "签",
+      "tagline": "",
+      "elements": [],
+      "stops": [],
+      "roll": "",
+      "note": "能做七八个，不轻松。",
+      "tags": [],
+      "since": "",
+      "link": "",
+      "featured": false,
+      "private": false
+    },
+    {
+      "name": "睡前那十分钟",
+      "category": "动的",
+      "kind": "签",
+      "tagline": "",
+      "elements": [],
+      "stops": [],
+      "roll": "",
+      "note": "一张垫子，或者干脆躺着。十分钟的拉伸，二十分钟的躺平冥想，有时候十五分钟就睡着了。收藏夹里专门留了一个夹放这些，点开就能用。",
+      "tags": [],
+      "since": "",
+      "link": "",
+      "featured": false,
+      "private": false
+    },
+    {
+      "name": "抚州到广州",
+      "category": "走过的地方",
+      "kind": "线",
+      "tagline": "",
+      "elements": [],
+      "stops": [
+        "抚州",
+        "温州（游）",
+        "厦门（游）",
+        "景德镇",
+        "桂林（游）",
+        "黄山（游）",
+        "佛山",
+        "深圳（出差：成都、上饶、南昌）",
+        "广州"
+      ],
+      "roll": "",
+      "note": "",
+      "tags": [],
+      "since": "",
+      "link": "",
+      "featured": false,
+      "private": false
+    }
+  ]
+}
