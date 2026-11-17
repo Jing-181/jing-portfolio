@@ -42,8 +42,8 @@
     }
   ],
   "records": {
-    "file": "workouts-2026-11-16.json",
-    "sessions": 58,
+    "file": "workouts-2026-11-17.json",
+    "sessions": 57,
     "latest": "2026-11-15",
     "legacy": 2
   },
@@ -123,14 +123,6 @@
       "tags": []
     },
     {
-      "name": "哑铃卧推",
-      "part": "胸",
-      "load": "30 kg",
-      "meta": "8 次为主 · 2 组",
-      "note": "最近 2026-11-10　24 kg × 8 / 30 kg × 5",
-      "tags": []
-    },
-    {
       "name": "杠铃卧推",
       "part": "胸",
       "load": "75 kg",
@@ -144,6 +136,14 @@
       "load": "60 kg",
       "meta": "12 次为主 · 3 组",
       "note": "最近 2026-11-03　35 kg × 12 / 35 kg × 11 / 35 kg × 10",
+      "tags": []
+    },
+    {
+      "name": "哑铃卧推",
+      "part": "胸",
+      "load": "30 kg",
+      "meta": "8 次为主 · 2 组",
+      "note": "最近 2026-11-10　24 kg × 8 / 30 kg × 5",
       "tags": []
     },
     {
